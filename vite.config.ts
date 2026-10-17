@@ -71,8 +71,8 @@ export default defineConfig({
   ],
   base,
   build: {
-    sourcemap: true,
-    outDir: 'out',
+    // Source maps would publish the full source code; keep them local only.
+    sourcemap: false,
   },
   resolve: {
     alias: {
