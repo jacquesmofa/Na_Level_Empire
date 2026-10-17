@@ -1,14 +1,19 @@
 {
-  "name": "react",
+  "name": "na-level-empire",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Website for Na Level Empire Media (NLEM), Toronto",
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "type-check": "tsc --noEmit --project tsconfig.app.json"
+    "lint": "eslint src --report-unused-disable-directives --max-warnings 0",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
+    "check": "npm run lint && npm run typecheck"
   },
   "dependencies": {
     "i18next": "^25.3.2",
