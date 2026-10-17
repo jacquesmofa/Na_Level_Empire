@@ -1,31 +1,30 @@
 import { useState, type FormEvent } from 'react';
+import { submitForm } from '@/lib/forms';
 
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (status === 'sending') return;
     setStatus('sending');
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const services: string[] = [];
-    ['Video Production','Event Management','Live Streaming','Sound Engineering','Lighting Design','Equipment Rental','Documentary / Story','Post-Production'].forEach((s) => {
-      if (data.get(s)) services.push(s);
+    const data = new FormData(e.currentTarget);
+    const text = (name: string) => String(data.get(name) ?? '').trim();
+    const services = ['Video Production','Event Management','Live Streaming','Sound Engineering','Lighting Design','Equipment Rental','Documentary / Story','Post-Production']
+      .filter((s) => data.get(s));
+    const name = `${text('first_name')} ${text('last_name')}`.trim();
+    const result = await submitForm(`New quote request from ${name || 'the website'}`, {
+      name,
+      email: text('email'),
+      organization: text('organization'),
+      services: services.join(', '),
+      budget: text('budget'),
+      message: text('message'),
+      // Hidden honeypot: only bots tick it, and Web3Forms then drops the message.
+      ...(data.get('botcheck') ? { botcheck: 'on' } : {}),
     });
-    const body = new URLSearchParams();
-    body.append('first_name', data.get('first_name') as string);
-    body.append('last_name', data.get('last_name') as string);
-    body.append('organization', data.get('organization') as string);
-    body.append('email', data.get('email') as string);
-    body.append('services', services.join(', '));
-    body.append('budget', data.get('budget') as string);
-    body.append('message', data.get('message') as string);
-    try {
-      await fetch('https://readdy.ai/api/form/d7btm76he76khnho4qmg', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() });
-      setStatus('done');
-    } catch {
-      setStatus('error');
-    }
+    // Only claim success when the form service confirmed it.
+    setStatus(result.ok ? 'done' : 'error');
   };
 
   const inputStyle = {
@@ -59,7 +58,8 @@ export default function Contact() {
               <p className="text-[#FDFCF0]/55 text-base leading-relaxed">Thank you! The Na Level Empire Media team will respond within 1 business day.</p>
             </div>
           ) : (
-            <form data-readdy-form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[['first_name','First Name','Jane'],['last_name','Last Name','Smith']].map(([name,label,ph]) => (
                   <div key={name} className="flex flex-col gap-2">
@@ -100,7 +100,12 @@ export default function Contact() {
                 <label className="text-[#FDFCF0]/50 text-[11px] font-bold tracking-[2px] uppercase" style={{ fontFamily: "'Syne', sans-serif" }}>Tell Us More</label>
                 <textarea name="message" placeholder="Describe your project, event, or idea — the more detail, the better we can prepare…" maxLength={500} rows={5} className="px-4 py-3.5 text-sm outline-none resize-y placeholder:text-[#FDFCF0]/25" style={inputStyle} onFocus={(e)=>{e.currentTarget.style.borderColor='#C8922A';}} onBlur={(e)=>{e.currentTarget.style.borderColor='rgba(200,146,42,0.2)';}} />
               </div>
-              {status === 'error' && <p className="text-[#C8922A] text-sm">Something went wrong. Please try again.</p>}
+              {status === 'error' && (
+                <p role="alert" className="text-[#C8922A] text-sm">
+                  Sorry, your message didn&apos;t send. Please try again, or email us at{' '}
+                  <a href="mailto:hello@nalevelempire.ca" className="underline">hello@nalevelempire.ca</a>.
+                </p>
+              )}
               <button type="submit" disabled={status === 'sending'} className="self-start text-[13px] font-bold tracking-[2px] uppercase px-10 py-4 cursor-pointer transition-all duration-300 border-none mt-2 disabled:opacity-60 whitespace-nowrap hover:-translate-y-0.5" style={{ background: '#C8922A', color: '#2C2C2E', fontFamily: "'Syne', sans-serif", boxShadow: '0 4px 24px rgba(200,146,42,0.35)' }}>
                 {status === 'sending' ? 'Sending…' : 'Send Message →'}
               </button>
