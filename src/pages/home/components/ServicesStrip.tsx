@@ -43,7 +43,7 @@ export default function ServicesStrip() {
         {services.map((svc) => (
           <div
             key={svc.title}
-            className="group bg-white border border-[#C8922A]/12 hover:border-[#C8922A]/50 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer overflow-hidden relative"
+            className="group bg-white border border-[#C8922A]/[0.12] hover:border-[#C8922A]/50 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer overflow-hidden relative"
             style={{ boxShadow: '0 2px 16px rgba(44,44,46,0.06)' }}
           >
             {/* Image */}
