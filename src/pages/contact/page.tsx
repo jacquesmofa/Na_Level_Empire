@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
     const form = e.currentTarget;

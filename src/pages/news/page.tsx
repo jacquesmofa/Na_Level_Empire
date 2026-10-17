@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { newsItems } from '@/mocks/nlem';
 
 export default function News() {
@@ -7,7 +7,7 @@ export default function News() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  const handleNewsletter = async (e: React.FormEvent) => {
+  const handleNewsletter = async (e: FormEvent) => {
     e.preventDefault();
     if (!name || !email) return;
     setSubmitting(true);
