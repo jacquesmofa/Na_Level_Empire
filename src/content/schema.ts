@@ -27,8 +27,24 @@ export const LinkSchema = z
   .trim()
   .regex(/^(\/[^\s]*|https?:\/\/[^\s]+|mailto:[^\s]+|tel:[^\s]+|#)$/, 'must be a site path like /contact, a full https:// link, mailto: or tel:');
 
+/** Images must live in our Cloudinary account, inside the client's folder. */
+export const CLOUDINARY_IMAGE = /^https:\/\/res\.cloudinary\.com\/beavj5sp\/image\/upload\/(?:v\d+\/)?nlem\/[\w\-./%]+\.(?:jpe?g|png|webp|avif|gif|svg)$/i;
+
+/**
+ * TEMPORARY: the prototype's Readdy images are accepted until they are moved
+ * to Cloudinary (scripts/migrate-images). Set to false right after the move;
+ * a test then guarantees no Readdy URL can come back.
+ */
+export const ALLOW_LEGACY_READDY_IMAGES = true;
+const LEGACY_READDY = /^https:\/\/(?:readdy\.ai\/api\/search-image\?|storage\.readdy-site\.link\/)/;
+
 export const ImageSchema = z.strictObject({
-  url: z.url({ protocol: /^https$/, message: 'must be a full https:// image address' }),
+  url: z
+    .string()
+    .refine(
+      (u) => CLOUDINARY_IMAGE.test(u) || (ALLOW_LEGACY_READDY_IMAGES && LEGACY_READDY.test(u)),
+      'must be an image uploaded to our Cloudinary (res.cloudinary.com/beavj5sp/…/nlem/…); pick it with the image button',
+    ),
   alt: text(150),
 });
 
@@ -146,6 +162,7 @@ export const PartnersBlock = block('partners', {
         name: text(60),
         logo: ImageSchema.optional(),
         url: LinkSchema.optional(),
+        placeholder: z.boolean().optional(),
       }),
     )
     .min(1)
@@ -296,6 +313,23 @@ export const PageSchema = z.strictObject({
 });
 export type Page = z.infer<typeof PageSchema>;
 
+/** Paths editors cannot use for new pages (fixed pages and system folders). */
+export const RESERVED_SLUGS = ['projects', 'media', 'news', 'impact', 'careers', 'about', 'contact', 'fr', 'en', 'admin', 'api', 'assets', '__blocks'];
+
+/** Pages editors create themselves, served at /<slug> and /fr/<slug>. */
+export const CustomPageSchema = z.strictObject({
+  title: text(40),
+  slug: z
+    .string()
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'use lowercase letters, numbers and dashes')
+    .refine((v) => !RESERVED_SLUGS.includes(v), 'this address is already used by the site'),
+  showInNav: z.boolean(),
+  navOrder: z.number().int().min(0).max(999).optional(),
+  seo: SeoSchema,
+  sections: z.array(SectionBlock).min(1, 'a page needs at least one section'),
+});
+export type CustomPage = z.infer<typeof CustomPageSchema>;
+
 // ---------------------------------------------------------------------------
 // Site settings
 // ---------------------------------------------------------------------------
@@ -334,18 +368,34 @@ export const SettingsSchema = z.strictObject({
     closingHighlight: text(40),
   }),
   seo: SeoSchema,
-  ui: z.strictObject({
-    languageName: text(20),
-    switchToLabel: text(10),
-    switchToAria: text(60),
-    menuToggleAria: text(40),
-    statusCurrent: text(20),
-    statusCompleted: text(20),
-    targetTag: text(20),
-    readTime: text(30).regex(/\{minutes\}/, 'must contain {minutes}'),
-  }),
 });
 export type Settings = z.infer<typeof SettingsSchema>;
+
+// ---------------------------------------------------------------------------
+// Interface text: small labels, states and accessibility text used by components
+// ---------------------------------------------------------------------------
+
+export const UiStringsSchema = z.strictObject({
+  languageName: text(20),
+  switchToLabel: text(10),
+  switchToAria: text(60),
+  menuToggleAria: text(40),
+  skipToContent: text(40),
+  statusCurrent: text(20),
+  statusCompleted: text(20),
+  targetTag: text(20),
+  readTime: text(30).regex(/\{minutes\}/, 'must contain {minutes}'),
+  quoteEmailSubject: text(80).regex(/\{name\}/, 'must contain {name}'),
+  newsletterEmailSubject: text(80),
+  socialNames: z.strictObject({
+    youtube: text(30),
+    instagram: text(30),
+    linkedin: text(30),
+    facebook: text(30),
+    x: text(30),
+  }),
+});
+export type UiStrings = z.infer<typeof UiStringsSchema>;
 
 // ---------------------------------------------------------------------------
 // Collections (one JSON file per item, per language)
@@ -363,6 +413,8 @@ export const ProjectSchema = z.strictObject({
   image: ImageSchema,
   order,
   published: z.boolean().optional(),
+  /** Not yet confirmed by the client; listed in PLACEHOLDERS.md. */
+  placeholder: z.boolean().optional(),
 });
 
 export const NewsSchema = z.strictObject({
@@ -377,6 +429,8 @@ export const NewsSchema = z.strictObject({
   readMinutes: z.number().int().min(1).max(60).optional(),
   body: z.string().max(20000).optional(),
   published: z.boolean().optional(),
+  /** Not yet confirmed by the client; listed in PLACEHOLDERS.md. */
+  placeholder: z.boolean().optional(),
 });
 
 export const JobSchema = z.strictObject({
@@ -387,6 +441,8 @@ export const JobSchema = z.strictObject({
   summary: text(240),
   order,
   open: z.boolean().optional(),
+  /** Not yet confirmed by the client; listed in PLACEHOLDERS.md. */
+  placeholder: z.boolean().optional(),
 });
 
 export const VideoSchema = z.strictObject({
@@ -399,6 +455,8 @@ export const VideoSchema = z.strictObject({
   /** "manual" today; "youtube-api" is reserved for automatic fetching later. */
   source: z.enum(['manual', 'youtube-api']).optional(),
   published: z.boolean().optional(),
+  /** Not yet confirmed by the client; listed in PLACEHOLDERS.md. */
+  placeholder: z.boolean().optional(),
 });
 
 export const TeamSchema = z.strictObject({
@@ -406,6 +464,8 @@ export const TeamSchema = z.strictObject({
   role: text(60),
   photo: ImageSchema,
   order,
+  /** Not yet confirmed by the client; listed in PLACEHOLDERS.md. */
+  placeholder: z.boolean().optional(),
 });
 
 export const COLLECTIONS = {

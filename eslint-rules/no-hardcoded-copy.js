@@ -6,10 +6,14 @@
  *   - JSX text containing letters (e.g. <p>Hello</p>)
  *   - string literals for visible attributes: alt, title, placeholder, aria-label
  *   - any string starting with http:// or https:// (image or page URLs)
+ *   - sentence-like strings anywhere in code (a capital letter and a space,
+ *     e.g. 'New quote request'), which catches copy passed to functions;
+ *     CSS values and class lists are lowercase and are not affected
  */
 const VISIBLE_ATTRS = new Set(['alt', 'title', 'placeholder', 'aria-label', 'label']);
 const LETTERS = /\p{L}/u;
 const URL = /^https?:\/\//;
+const SENTENCE = /\p{Lu}[\p{L}'’]*\s+\p{L}/u;
 
 export default {
   rules: {
@@ -40,8 +44,11 @@ export default {
             }
           },
           Literal(node) {
-            if (typeof node.value === 'string' && URL.test(node.value)) {
+            if (typeof node.value !== 'string') return;
+            if (URL.test(node.value)) {
               context.report({ node, messageId: 'url', data: { text: short(node.value) } });
+            } else if (SENTENCE.test(node.value) && node.parent?.type !== 'ImportDeclaration' && node.parent?.type !== 'JSXAttribute') {
+              context.report({ node, messageId: 'text', data: { text: short(node.value) } });
             }
           },
           TemplateElement(node) {

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import type { Settings } from '@/content';
+import type { SiteSettings } from '@/content';
 import { LOCALES } from '@/content';
 import { localizePath, switchLocalePath, useLocale } from '@/lib/locale';
 import LocalizedLink from '@/components/ui/LocalizedLink';
+import { cld } from '@/lib/image';
 
-export default function Navbar({ settings }: { settings: Settings }) {
+export default function Navbar({ settings, nav }: { settings: SiteSettings; nav: { label: string; link: string }[] }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -45,7 +46,7 @@ export default function Navbar({ settings }: { settings: Settings }) {
         <Link to={localizePath('/', locale)} className="flex items-center gap-3 no-underline group flex-shrink-0">
           <div className="h-11 w-auto flex items-center justify-center">
             <img
-              src={settings.logo.url}
+              src={cld(settings.logo.url, { width: 360 })}
               alt={settings.logo.alt}
               className="h-10 w-auto object-contain"
               style={{ maxWidth: '180px' }}
@@ -55,7 +56,7 @@ export default function Navbar({ settings }: { settings: Settings }) {
 
         {/* Desktop Nav */}
         <ul className="hidden lg:flex items-center gap-7 list-none m-0 p-0">
-          {settings.nav.map((link) => (
+          {nav.map((link) => (
             <li key={link.link}>
               <LocalizedLink
                 to={link.link}
@@ -110,9 +111,9 @@ export default function Navbar({ settings }: { settings: Settings }) {
         }`}
       >
         <div className="mb-6">
-          <img src={settings.logo.url} alt={settings.logo.alt} className="h-14 w-auto object-contain" />
+          <img src={cld(settings.logo.url, { width: 360 })} alt={settings.logo.alt} className="h-14 w-auto object-contain" />
         </div>
-        {settings.nav.map((link) => (
+        {nav.map((link) => (
           <LocalizedLink
             key={link.link}
             to={link.link}

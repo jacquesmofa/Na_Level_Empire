@@ -1,11 +1,11 @@
 import { useState, type FormEvent } from 'react';
-import type { NewsItem, SectionOf, Settings } from '@/content';
+import type { NewsItem, SectionOf, SiteSettings } from '@/content';
 import CmsImage from '@/components/ui/CmsImage';
 import LocalizedLink from '@/components/ui/LocalizedLink';
 import { submitForm } from '@/lib/forms';
 import { formatMonthYear, useLocale } from '@/lib/locale';
 
-type Props = { block: SectionOf<'newsFeed'>; news: NewsItem[]; settings: Settings };
+type Props = { block: SectionOf<'newsFeed'>; news: NewsItem[]; settings: SiteSettings };
 
 const panel = 'p-7 rounded-sm bg-deep';
 const panelStyle = { border: '1px solid rgba(200,146,42,0.12)' };
@@ -31,7 +31,7 @@ export default function NewsFeedBlock({ block, news, settings }: Props) {
     setSubmitting(true);
     setFailed(false);
     const bot = new FormData(e.currentTarget).get('botcheck');
-    const result = await submitForm('New newsletter sign-up', {
+    const result = await submitForm(settings.ui.newsletterEmailSubject, {
       name: name.trim(),
       email: email.trim(),
       ...(bot ? { botcheck: 'on' } : {}),
@@ -54,6 +54,9 @@ export default function NewsFeedBlock({ block, news, settings }: Props) {
             <div className="overflow-hidden min-h-[220px] md:min-h-[280px]">
               <CmsImage
                 image={featured.image}
+                width={700}
+                height={450}
+                sizes="(min-width: 768px) 30vw, 100vw"
                 className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 style={{ minHeight: '220px' }}
               />
@@ -82,7 +85,7 @@ export default function NewsFeedBlock({ block, news, settings }: Props) {
               className="group p-6 grid grid-cols-[100px_1fr] gap-5 cursor-pointer transition-all duration-200 overflow-hidden rounded-sm bg-deep border border-gold/[0.08] hover:border-l-gold"
             >
               <div className="overflow-hidden rounded-sm" style={{ aspectRatio: '1' }}>
-                <CmsImage image={n.image} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+                <CmsImage image={n.image} width={200} height={200} sizes="100px" widths={[200, 400]} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div>
                 <div className="text-gold text-[10px] font-bold tracking-[2px] uppercase mb-1.5 font-heading">{categoryLabel(n.category)}</div>
@@ -174,7 +177,7 @@ export default function NewsFeedBlock({ block, news, settings }: Props) {
               <LocalizedLink
                 key={s.platform}
                 to={s.url}
-                aria-label={s.platform}
+                aria-label={settings.ui.socialNames[s.platform]}
                 className="w-10 h-10 flex items-center justify-center text-xs font-bold no-underline transition-all cursor-pointer text-gold border border-gold/30 hover:bg-gold/[0.12] font-heading"
               >
                 {s.label}

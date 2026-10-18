@@ -14,5 +14,6 @@
     "alt": "Humber College Convocation Livestream"
   },
   "order": 80,
-  "published": true
+  "published": true,
+  "placeholder": true
 }

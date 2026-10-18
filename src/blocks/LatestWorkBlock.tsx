@@ -21,6 +21,9 @@ export default function LatestWorkBlock({ block }: { block: SectionOf<'latestWor
         >
           <CmsImage
             image={large.image}
+            width={700}
+            height={700}
+            sizes="(min-width: 1024px) 45vw, 100vw"
             className="w-full h-full object-cover object-top absolute inset-0 transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-7">
@@ -47,6 +50,9 @@ export default function LatestWorkBlock({ block }: { block: SectionOf<'latestWor
           >
             <CmsImage
               image={item.image}
+              width={700}
+              height={394}
+              sizes="(min-width: 1024px) 45vw, 100vw"
               className="w-full h-full object-cover object-top absolute inset-0 transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-7">

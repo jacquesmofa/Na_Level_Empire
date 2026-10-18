@@ -14,5 +14,6 @@
     "alt": "Assemblée publique de la Ville de Toronto — diffusion hybride"
   },
   "order": 40,
-  "published": true
+  "published": true,
+  "placeholder": true
 }

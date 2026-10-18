@@ -1,5 +1,5 @@
 import { useId, useState, type FormEvent } from 'react';
-import type { SectionOf, Settings } from '@/content';
+import type { SectionOf, SiteSettings } from '@/content';
 import LocalizedLink from '@/components/ui/LocalizedLink';
 import SectionLabel from '@/components/ui/SectionLabel';
 import { submitForm } from '@/lib/forms';
@@ -9,7 +9,7 @@ const inputClass =
 const inputStyle = { background: 'rgba(253,252,240,0.04)', color: '#FDFCF0' };
 const labelClass = 'text-cream/50 text-[11px] font-bold tracking-[2px] uppercase font-heading';
 
-export default function FormBlock({ block, settings }: { block: SectionOf<'form'>; settings: Settings }) {
+export default function FormBlock({ block, settings }: { block: SectionOf<'form'>; settings: SiteSettings }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
   const id = useId();
   const f = block.fields;
@@ -21,7 +21,8 @@ export default function FormBlock({ block, settings }: { block: SectionOf<'form'
     const data = new FormData(e.currentTarget);
     const text = (name: string) => String(data.get(name) ?? '').trim();
     const name = `${text('first_name')} ${text('last_name')}`.trim();
-    const result = await submitForm(`New quote request from ${name || 'the website'}`, {
+    const email = () => text('email');
+    const result = await submitForm(settings.ui.quoteEmailSubject.replace('{name}', name || email()), {
       name,
       email: text('email'),
       organization: text('organization'),
@@ -167,7 +168,7 @@ export default function FormBlock({ block, settings }: { block: SectionOf<'form'
                 <LocalizedLink
                   key={s.platform}
                   to={s.url}
-                  aria-label={s.platform}
+                  aria-label={settings.ui.socialNames[s.platform]}
                   className="w-10 h-10 flex items-center justify-center text-xs font-bold no-underline transition-all cursor-pointer text-charcoal hover:bg-charcoal/[0.12] font-heading"
                   style={{ border: '1px solid rgba(44,44,46,0.25)' }}
                 >

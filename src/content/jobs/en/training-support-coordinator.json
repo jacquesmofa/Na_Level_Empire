@@ -5,5 +5,6 @@
   "location": "Toronto, ON",
   "summary": "Support apprentices through structured training, mentorship, and career planning.",
   "order": 80,
-  "open": true
+  "open": true,
+  "placeholder": true
 }

@@ -9,7 +9,7 @@ export default function GalleryBlock({ block }: { block: SectionOf<'gallery'> })
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {block.images.map((image, i) => (
           <div key={image.url + i} className="group overflow-hidden rounded-sm bg-deep" style={{ aspectRatio: '1' }}>
-            <CmsImage image={image} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <CmsImage image={image} width={600} height={600} sizes="(min-width: 1024px) 22vw, (min-width: 768px) 30vw, 50vw" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
           </div>
         ))}
       </div>

@@ -9,7 +9,7 @@ export default function PartnersBlock({ block }: { block: SectionOf<'partners'> 
     <div className="px-6 md:px-20 py-12 border-t flex flex-wrap items-center gap-4" style={{ borderColor: 'rgba(200,146,42,0.1)' }}>
       <div className="text-gold text-[11px] font-bold tracking-[3px] uppercase flex-shrink-0 font-heading">{block.label}</div>
       {block.partners.map((p) => {
-        const content = p.logo ? <CmsImage image={p.logo} className="h-6 w-auto object-contain" /> : p.name;
+        const content = p.logo ? <CmsImage image={p.logo} width={160} height={48} sizes="160px" widths={[160, 320]} className="h-6 w-auto object-contain" /> : p.name;
         return p.url ? (
           <LocalizedLink key={p.name} to={p.url} className={chip}>
             {content}

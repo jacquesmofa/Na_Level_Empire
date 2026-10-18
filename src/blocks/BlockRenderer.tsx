@@ -1,5 +1,5 @@
 import { Fragment, type ReactNode } from 'react';
-import { getJobs, getNews, getProjects, getTeam, getVideos, type Section, type Settings } from '@/content';
+import { getJobs, getNews, getProjects, getTeam, getVideos, type Section, type SiteSettings } from '@/content';
 import { useLocale } from '@/lib/locale';
 import CallToActionBlock from './CallToActionBlock';
 import CardGridBlock from './CardGridBlock';
@@ -22,7 +22,7 @@ import VideoBlock from './VideoBlock';
 import VideoGridBlock from './VideoGridBlock';
 
 /** Draws a page's sections in the order editors set. */
-export default function BlockRenderer({ sections, settings }: { sections: Section[]; settings: Settings }) {
+export default function BlockRenderer({ sections, settings }: { sections: Section[]; settings: SiteSettings }) {
   const locale = useLocale();
 
   // The projects filter bar belongs inside the page header right before the grid (as in the original design).

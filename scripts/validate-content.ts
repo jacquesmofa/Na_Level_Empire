@@ -16,12 +16,15 @@ import type { z } from 'zod';
 import {
   BLOCK_LABELS,
   COLLECTIONS,
+  CustomPageSchema,
   LOCALES,
   PAGE_IDS,
   PageSchema,
   SettingsSchema,
+  UiStringsSchema,
   type SectionType,
 } from '../src/content/schema.ts';
+import { isSharedField } from '../src/content/sharedFields.ts';
 
 type Issue = z.core.$ZodIssue;
 
@@ -87,6 +90,11 @@ export function validateContent(contentDir: string): string[] {
     if (!existsSync(settingsPath)) errors.push(`${relative(root, settingsPath)}: file is missing`);
     else check(SettingsSchema, settingsPath, errors, root);
 
+    // Interface text
+    const uiPath = join(contentDir, 'ui', locale, 'strings.json');
+    if (!existsSync(uiPath)) errors.push(`${relative(root, uiPath)}: file is missing`);
+    else check(UiStringsSchema, uiPath, errors, root);
+
     // Pages: every page must exist, and only known pages may exist
     const pageDir = join(contentDir, 'pages', locale);
     for (const id of PAGE_IDS) {
@@ -109,7 +117,8 @@ export function validateContent(contentDir: string): string[] {
   if (existsSync(catalogue)) check(PageSchema, catalogue, errors, root);
 
   // Collections: validate each item, and require every item in every language
-  for (const [name, schema] of Object.entries(COLLECTIONS)) {
+  const folderCollections: [string, z.ZodType][] = [...Object.entries(COLLECTIONS), ['custom-pages', CustomPageSchema]];
+  for (const [name, schema] of folderCollections) {
     const slugsByLocale = LOCALES.map((locale) => {
       const dir = join(contentDir, name, locale);
       const files = jsonFiles(dir);
@@ -158,7 +167,52 @@ export function validateContent(contentDir: string): string[] {
     }
   }
 
+  // English and French must keep the same structure: same sections in the
+  // same order, same list lengths, same images, links and settings. Only
+  // text may differ.
+  const pairs: string[] = ['settings/{l}/site.json', 'ui/{l}/strings.json', ...PAGE_IDS.map((id) => `pages/{l}/${id}.json`)];
+  for (const name of [...Object.keys(COLLECTIONS), 'custom-pages']) {
+    for (const f of jsonFiles(join(contentDir, name, LOCALES[0]))) pairs.push(`${name}/{l}/${f}`);
+  }
+  for (const pattern of pairs) {
+    const [base, ...others] = LOCALES.map((l) => pattern.replace('{l}', l));
+    const baseData = readJsonQuiet(join(contentDir, base));
+    for (const other of others) {
+      const otherData = readJsonQuiet(join(contentDir, other));
+      if (baseData === undefined || otherData === undefined) continue;
+      compareStructure(baseData, otherData, [], `src/content/${other}`, errors);
+    }
+  }
+
   return errors;
+}
+
+function compareStructure(a: unknown, b: unknown, path: PropertyKey[], file: string, errors: string[]): void {
+  const where = () => (path.length ? describePath(b, path) : '(whole file)');
+  const fail = (msg: string): void => {
+    errors.push(`${file} → ${where()}: English and French must match (${msg})`);
+  };
+  if (Array.isArray(a) || Array.isArray(b)) {
+    if (!Array.isArray(a) || !Array.isArray(b)) return fail('one is a list, the other is not');
+    if (a.length !== b.length) return fail(`English has ${a.length} item(s), this language has ${b.length}`);
+    a.forEach((item, i) => compareStructure(item, b[i], [...path, i], file, errors));
+    return;
+  }
+  if (a && typeof a === 'object' && b && typeof b === 'object') {
+    const ka = Object.keys(a).sort();
+    const kb = Object.keys(b).sort();
+    const missing = ka.filter((k) => !kb.includes(k));
+    const extra = kb.filter((k) => !ka.includes(k));
+    if (missing.length || extra.length) {
+      return fail([missing.length && `missing: ${missing.join(', ')}`, extra.length && `extra: ${extra.join(', ')}`].filter(Boolean).join('; '));
+    }
+    for (const k of ka) compareStructure((a as Record<string, unknown>)[k], (b as Record<string, unknown>)[k], [...path, k], file, errors);
+    return;
+  }
+  const key = path.at(-1);
+  const parent = path.at(-2);
+  const shared = typeof a !== 'string' || (typeof key === 'string' && isSharedField(key, typeof parent === 'string' ? parent : undefined, file));
+  if (shared && a !== b) fail(`English is ${JSON.stringify(a)}, this language is ${JSON.stringify(b)}`);
 }
 
 function readJsonQuiet(path: string): unknown {

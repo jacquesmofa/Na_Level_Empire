@@ -8,16 +8,20 @@ Status: **open** unless marked otherwise. Last reviewed: 18 Oct 2026.
 
 ## Highest risk: claims about real organizations
 
-These name real clients, partners and programs. If they are not real or
-not approved by those organizations, remove or rename them.
+Decision of 18 Oct: only the six organizations below stay named; every
+other real-looking organization was replaced with a generic placeholder.
+All collection items carry `"placeholder": true` until confirmed.
 
 | What | Where | Action |
 | --- | --- | --- |
-| 9 projects naming clients (United Way, George Brown College, City of Toronto, CAMH, Humber College, TDSB, a credit union) | `src/content/projects/{en,fr}/*.json` | Confirm each project and client is real and may be named, or replace |
-| 7 community partners (George Brown College, Ontario Trillium Foundation, MaRS, OMDC, BDC, Toronto Metropolitan Univ., Ontario Nonprofit Network) | `src/content/pages/{en,fr}/impact.json` → Partners section | Confirm each partnership; add logos |
-| 6 news stories (launch, Canada-Ontario Job Grant, Earth Week broadcast…) and their dates | `src/content/news/{en,fr}/*.json` | Confirm or replace; dates were estimated from the prototype's "April 2026" labels |
-| Latest Work tiles ("Toronto Non-Profit Gala 2025"…) differ from the matching projects | `src/content/pages/{en,fr}/home.json` → Latest work | Align with real projects |
-| "Founding Charter" quote | `src/content/pages/{en,fr}/about.json` → Quote | Confirm wording and source |
+| **Kept, still to confirm:** United Way, CAMH, City of Toronto, Humber College, TDSB, George Brown College (named in projects, one partner, one news story, two videos) | `src/content/projects/{en,fr}/*.json`, `pages/{en,fr}/impact.json`, `news/…/earth-week-hybrid-broadcast.json`, `videos/…` | Confirm each relationship is real and may be named, or replace |
+| **Replaced:** Ontario Trillium Foundation, MaRS Discovery District, OMDC, BDC Social Enterprise, Toronto Metropolitan Univ., Ontario Nonprofit Network → "Community Partner 1–6" | `pages/{en,fr}/impact.json` → Partners | Add real partners (name, logo, website) |
+| **Replaced:** "Canada-Ontario Job Grant" story → "Workforce Training Grant" | `news/{en,fr}/workforce-training-grant-2026.json` | Confirm or replace |
+| **Replaced:** video naming a private person ("Meet Adaeze Obi") → "Meet a Toronto Community Leader" | `videos/{en,fr}/community-voices-ep4.json` | Real video title and link |
+| A credit-union client (not named) | `projects/{en,fr}/credit-union-impact-campaign.json` | Confirm |
+| 6 news stories and their dates | `src/content/news/{en,fr}/*.json` | Confirm or replace; dates estimated from the prototype |
+| Latest Work tiles ("Toronto Non-Profit Gala 2025"…) differ from the matching projects | `pages/{en,fr}/home.json` → Latest work | Align with real projects |
+| "Founding Charter" quote | `pages/{en,fr}/about.json` → Quote | Confirm wording and source |
 
 ## Numbers
 
@@ -25,7 +29,7 @@ not approved by those organizations, remove or rename them.
 | --- | --- | --- |
 | Hero stats: 100+ events, 50+ lives impacted, 12K training hours | `pages/{en,fr}/home.json` → Hero → stats | Confirm, or mark as targets |
 | $500K revenue, 8+ hires, B Corp (shown with a "Target" tag) | `pages/{en,fr}/home.json` → Stats | Confirm wording; switch Kind to "result" once achieved |
-| 25% profit reinvested (shown as a fact) | `pages/{en,fr}/home.json` → Stats | Confirm it is in the governance documents |
+| 25% profit reinvested (now shown with a "Target" tag, decision of 18 Oct) | `pages/{en,fr}/home.json` → Stats | Switch Kind to "result" once confirmed in the governance documents |
 | 8–12 hires, 1,200+ training hours, 70%+ retention (shown with a "Target" tag) | `pages/{en,fr}/impact.json` → Stats | Confirm wording |
 
 ## People and contact details

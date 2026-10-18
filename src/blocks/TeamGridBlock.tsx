@@ -14,7 +14,7 @@ export default function TeamGridBlock({ block, team }: { block: SectionOf<'teamG
             style={{ border: '1px solid rgba(200,146,42,0.1)' }}
           >
             <div className="overflow-hidden" style={{ aspectRatio: '3/4' }}>
-              <CmsImage image={m.photo} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+              <CmsImage image={m.photo} width={400} height={533} sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw" className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
             </div>
             <div className="p-5" style={{ borderTop: '2px solid #C8922A' }}>
               <div className="text-cream text-base font-bold font-heading">{m.name}</div>

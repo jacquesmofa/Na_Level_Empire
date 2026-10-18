@@ -29,7 +29,7 @@ export default function TextImageBlock({ block }: { block: SectionOf<'textImage'
           )}
         </div>
         <div className={`overflow-hidden rounded-sm ${imageLeft ? 'lg:order-1' : ''}`} style={{ aspectRatio: '4/3', boxShadow: '0 8px 40px rgba(0,0,0,0.3)' }}>
-          <CmsImage image={block.image} className="w-full h-full object-cover" />
+          <CmsImage image={block.image} width={800} height={600} sizes="(min-width: 1024px) 45vw, 100vw" className="w-full h-full object-cover" />
         </div>
       </div>
     </section>

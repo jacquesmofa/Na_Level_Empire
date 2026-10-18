@@ -1,0 +1,20 @@
+{
+  "languageName": "English",
+  "switchToLabel": "FR",
+  "switchToAria": "Voir le site en français",
+  "menuToggleAria": "Toggle menu",
+  "skipToContent": "Skip to main content",
+  "statusCurrent": "● CURRENT",
+  "statusCompleted": "COMPLETED",
+  "targetTag": "Target",
+  "readTime": "{minutes} min read",
+  "quoteEmailSubject": "New quote request from {name}",
+  "newsletterEmailSubject": "New newsletter sign-up",
+  "socialNames": {
+    "youtube": "YouTube",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "facebook": "Facebook",
+    "x": "X (Twitter)"
+  }
+}

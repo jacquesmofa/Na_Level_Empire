@@ -14,5 +14,6 @@
     "alt": "Scarborough Rising Documentary"
   },
   "order": 10,
-  "published": true
+  "published": true,
+  "placeholder": true
 }

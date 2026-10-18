@@ -5,5 +5,6 @@
   "location": "Toronto (Ont.)",
   "summary": "Planifier et réaliser des galas d’OBNL, des conférences et des événements communautaires.",
   "order": 40,
-  "open": true
+  "open": true,
+  "placeholder": true
 }

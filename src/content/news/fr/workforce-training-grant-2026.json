@@ -1,12 +1,13 @@
 {
-  "title": "NLEM reçoit la Subvention Canada-Ontario pour l’emploi pour sa cohorte 2026",
-  "slug": "canada-ontario-job-grant-2026",
+  "title": "NLEM reçoit une subvention de formation pour sa cohorte 2026",
+  "slug": "workforce-training-grant-2026",
   "category": "impact",
   "date": "2026-03-15",
   "image": {
     "url": "https://readdy.ai/api/search-image?query=government%20grant%20announcement%20professional%20handshake%20diverse%20team%20Toronto%20office%20funding%20social%20enterprise%20media&width=200&height=200&seq=news2&orientation=squarish",
-    "alt": "NLEM reçoit la Subvention Canada-Ontario pour l’emploi pour sa cohorte 2026"
+    "alt": "NLEM reçoit une subvention de formation pour sa cohorte 2026"
   },
   "featured": false,
-  "published": true
+  "published": true,
+  "placeholder": true
 }
