@@ -1,5 +1,6 @@
 # Checks every pull request: install exact versions, lint, type-check, build.
-# Nothing is deployed from here (deployment arrives in phase d).
+# Nothing is deployed from here: Vercel builds and deploys on its own
+# (a preview for every pull request, production when main changes).
 name: CI
 
 on:

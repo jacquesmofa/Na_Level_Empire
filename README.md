@@ -19,7 +19,8 @@ npm run preview # serve the production build locally
 ```
 
 Forms need a Web3Forms access key. Copy `.env.example` to `.env` and fill it
-in; `.env` is never committed.
+in; `.env` is never committed. On Vercel the same variable is set in the
+project's Environment Variables.
 
 ## Where things live
 
@@ -39,7 +40,7 @@ all text and images through a CMS at `/admin`:
 1. **(a) Repo cleanup** — this phase
 2. **(b)** Content moves to validated JSON in `src/content/` (Zod)
 3. **(c)** Sveltia CMS at `/admin`; images on Cloudinary
-4. **(d)** GitHub Actions builds and deploys to the host on every push to `main`
+4. **(d)** Hosting on Vercel: a preview for every pull request, production on merge to `main`; CI checks every pull request
 5. **(e)** Prerendering, per-page SEO, sitemap, Lighthouse 90+ on mobile
 6. **(f)** Editor guide and reusable template
 

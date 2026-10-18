@@ -3,7 +3,8 @@
  * which emails them to the inbox tied to the access key.
  *
  * The access key comes from the VITE_WEB3FORMS_ACCESS_KEY environment
- * variable (local: `.env`; CI: a repository secret). Web3Forms keys are
+ * variable (local: `.env`; live site: a Vercel environment variable).
+ * Web3Forms keys are
  * designed to be used in the browser, but we still keep the key out of Git
  * so it can be rotated without a code change.
  *
