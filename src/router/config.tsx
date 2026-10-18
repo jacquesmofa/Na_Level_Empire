@@ -1,24 +1,21 @@
-import type { RouteObject } from "react-router-dom";
-import NotFound from "../pages/NotFound";
-import Home from "../pages/home/page";
-import Projects from "../pages/projects/page";
-import Media from "../pages/media/page";
-import News from "../pages/news/page";
-import Impact from "../pages/impact/page";
-import Careers from "../pages/careers/page";
-import About from "../pages/about/page";
-import Contact from "../pages/contact/page";
+import type { RouteObject } from 'react-router-dom';
+import { LOCALES, PAGE_PATHS, type PageId } from '@/content';
+import { localePrefix } from '@/lib/locale';
+import Layout from './Layout';
+import PageView from './PageView';
 
-const routes: RouteObject[] = [
-  { path: "/", element: <Home /> },
-  { path: "/projects", element: <Projects /> },
-  { path: "/media", element: <Media /> },
-  { path: "/news", element: <News /> },
-  { path: "/impact", element: <Impact /> },
-  { path: "/careers", element: <Careers /> },
-  { path: "/about", element: <About /> },
-  { path: "/contact", element: <Contact /> },
-  { path: "*", element: <NotFound /> },
-];
+const pages = Object.entries(PAGE_PATHS) as [Exclude<PageId, 'not-found'>, string][];
+
+/** English pages at /, French pages under /fr/. */
+const routes: RouteObject[] = LOCALES.map((locale) => ({
+  path: localePrefix(locale) || '/',
+  element: <Layout locale={locale} />,
+  children: [
+    ...pages.map(([id, path]) =>
+      path === '/' ? { index: true, element: <PageView key={`${locale}-${id}`} id={id} /> } : { path: path.slice(1), element: <PageView key={`${locale}-${id}`} id={id} /> },
+    ),
+    { path: '*', element: <PageView key={`${locale}-not-found`} id="not-found" /> },
+  ],
+}));
 
 export default routes;
