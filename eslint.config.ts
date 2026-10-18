@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import routeElementPlugin from './eslint-rules/route-element-jsx.js'
+import noHardcodedCopy from './eslint-rules/no-hardcoded-copy.js'
 
 export default [
   { ignores: ['dist', 'out', 'node_modules'] },
@@ -46,6 +47,12 @@ export default [
       'no-irregular-whitespace': 'off',
       'no-undef': 'error',
     },
+  },
+  // Copy and URLs come from src/content, never from components.
+  {
+    files: ['src/blocks/**/*.{ts,tsx}', 'src/components/**/*.{ts,tsx}', 'src/router/**/*.{ts,tsx}'],
+    plugins: { 'nlem': noHardcodedCopy },
+    rules: { 'nlem/no-hardcoded-copy': 'error' },
   },
   // Only enforce this rule for the router config file to avoid false positives elsewhere.
   {
