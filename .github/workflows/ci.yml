@@ -36,6 +36,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check the prerendered pages
+        run: node --test scripts/prerender.test.ts
+
       - name: Upload the built site (for review)
         uses: actions/upload-artifact@v4
         with:

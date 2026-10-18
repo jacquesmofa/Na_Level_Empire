@@ -80,7 +80,7 @@ export default function Footer({ settings, extraLinks = [] }: { settings: SiteSe
       {/* Bottom bar */}
       <div className="border-t border-gold/10 px-6 md:px-20 py-5 flex flex-col sm:flex-row justify-between items-center gap-2">
         <p className="text-cream/55 text-xs">
-          &copy; {new Date().getFullYear()} <span className="text-gold font-semibold">{footer.copyrightName}</span>
+          <span suppressHydrationWarning>&copy; {new Date().getFullYear()}</span> <span className="text-gold font-semibold">{footer.copyrightName}</span>
           {footer.copyrightSuffix}
         </p>
         <p className="text-cream/55 text-xs">
