@@ -65,7 +65,7 @@ export default function VideoGridBlock({ block, videos }: { block: SectionOf<'vi
             style={{ border: '1px solid rgba(200,146,42,0.1)', boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}
           >
             <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
-              <CmsImage image={v.thumbnail} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+              <CmsImage image={v.thumbnail} width={480} height={270} sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw" className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(200,146,42,0.9)' }}>
                   <Icon name="play" className="text-charcoal text-sm ml-0.5" />

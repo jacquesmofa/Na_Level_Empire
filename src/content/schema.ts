@@ -27,8 +27,24 @@ export const LinkSchema = z
   .trim()
   .regex(/^(\/[^\s]*|https?:\/\/[^\s]+|mailto:[^\s]+|tel:[^\s]+|#)$/, 'must be a site path like /contact, a full https:// link, mailto: or tel:');
 
+/** Images must live in our Cloudinary account, inside the client's folder. */
+export const CLOUDINARY_IMAGE = /^https:\/\/res\.cloudinary\.com\/beavj5sp\/image\/upload\/(?:v\d+\/)?nlem\/[\w\-./%]+\.(?:jpe?g|png|webp|avif|gif|svg)$/i;
+
+/**
+ * TEMPORARY: the prototype's Readdy images are accepted until they are moved
+ * to Cloudinary (scripts/migrate-images). Set to false right after the move;
+ * a test then guarantees no Readdy URL can come back.
+ */
+export const ALLOW_LEGACY_READDY_IMAGES = true;
+const LEGACY_READDY = /^https:\/\/(?:readdy\.ai\/api\/search-image\?|storage\.readdy-site\.link\/)/;
+
 export const ImageSchema = z.strictObject({
-  url: z.url({ protocol: /^https$/, message: 'must be a full https:// image address' }),
+  url: z
+    .string()
+    .refine(
+      (u) => CLOUDINARY_IMAGE.test(u) || (ALLOW_LEGACY_READDY_IMAGES && LEGACY_READDY.test(u)),
+      'must be an image uploaded to our Cloudinary (res.cloudinary.com/beavj5sp/…/nlem/…); pick it with the image button',
+    ),
   alt: text(150),
 });
 

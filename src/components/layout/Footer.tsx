@@ -1,5 +1,6 @@
 import type { SiteSettings } from '@/content';
 import LocalizedLink from '@/components/ui/LocalizedLink';
+import { cld } from '@/lib/image';
 
 export default function Footer({ settings, extraLinks = [] }: { settings: SiteSettings; extraLinks?: { label: string; link: string }[] }) {
   const { footer } = settings;
@@ -14,7 +15,7 @@ export default function Footer({ settings, extraLinks = [] }: { settings: SiteSe
         {/* Brand */}
         <div>
           <LocalizedLink to="/" className="flex items-center no-underline mb-5">
-            <img src={settings.logo.url} alt={settings.logo.alt} className="h-12 w-auto object-contain" />
+            <img src={cld(settings.logo.url, { width: 360 })} alt={settings.logo.alt} className="h-12 w-auto object-contain" />
           </LocalizedLink>
           <p className="text-cream/55 text-sm leading-relaxed mt-4 max-w-xs">{settings.blurb}</p>
           <div className="flex gap-3 mt-6">

@@ -38,6 +38,9 @@ export default function CardGridBlock({ block }: { block: SectionOf<'cardGrid'> 
                   <div className="w-full h-40 overflow-hidden">
                     <CmsImage
                       image={card.image}
+                      width={400}
+                      height={300}
+                      sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
                       className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>

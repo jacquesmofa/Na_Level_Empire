@@ -4,6 +4,7 @@ import type { SiteSettings } from '@/content';
 import { LOCALES } from '@/content';
 import { localizePath, switchLocalePath, useLocale } from '@/lib/locale';
 import LocalizedLink from '@/components/ui/LocalizedLink';
+import { cld } from '@/lib/image';
 
 export default function Navbar({ settings, nav }: { settings: SiteSettings; nav: { label: string; link: string }[] }) {
   const [scrolled, setScrolled] = useState(false);
@@ -45,7 +46,7 @@ export default function Navbar({ settings, nav }: { settings: SiteSettings; nav:
         <Link to={localizePath('/', locale)} className="flex items-center gap-3 no-underline group flex-shrink-0">
           <div className="h-11 w-auto flex items-center justify-center">
             <img
-              src={settings.logo.url}
+              src={cld(settings.logo.url, { width: 360 })}
               alt={settings.logo.alt}
               className="h-10 w-auto object-contain"
               style={{ maxWidth: '180px' }}
@@ -110,7 +111,7 @@ export default function Navbar({ settings, nav }: { settings: SiteSettings; nav:
         }`}
       >
         <div className="mb-6">
-          <img src={settings.logo.url} alt={settings.logo.alt} className="h-14 w-auto object-contain" />
+          <img src={cld(settings.logo.url, { width: 360 })} alt={settings.logo.alt} className="h-14 w-auto object-contain" />
         </div>
         {nav.map((link) => (
           <LocalizedLink

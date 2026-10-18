@@ -91,6 +91,11 @@ export default function HeroBlock({ block }: { block: SectionOf<'hero'> }) {
               <div key={i} style={{ width: '100%', aspectRatio: '16/9', overflow: 'hidden' }} aria-hidden={i >= block.reel.length}>
                 <CmsImage
                   image={i >= block.reel.length ? { ...image, alt: '' } : image}
+                  width={640}
+                  height={360}
+                  sizes="50vw"
+                  widths={[640, 960, 1280]}
+                  priority={i === 0}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
                 />
               </div>

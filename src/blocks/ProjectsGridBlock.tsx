@@ -28,7 +28,7 @@ export default function ProjectsGridBlock({ block, projects, settings, filterInH
             style={{ border: '1px solid rgba(200,146,42,0.1)', boxShadow: '0 4px 24px rgba(0,0,0,0.3)' }}
           >
             <div className="w-full overflow-hidden" style={{ aspectRatio: '16/10' }}>
-              <CmsImage image={p.image} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+              <CmsImage image={p.image} width={800} height={500} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw" className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
             </div>
             {/* Gold top border on hover */}
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-10" />

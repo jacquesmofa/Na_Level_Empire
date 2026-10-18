@@ -77,9 +77,18 @@ test('a news category that is not on the News page fails', () => {
   assert.ok(errors.some((e) => e.includes('"sports" is not a category')), errors.join('\n'));
 });
 
-test('a non-https image fails', () => {
-  const errors = validateWith((d) => edit(d, 'team/fr/director-of-events.json', (t) => (t.photo.url = 'http://example.com/a.jpg')));
-  assert.ok(errors.some((e) => e.includes('photo') && e.includes('https://')), errors.join('\n'));
+test('an image outside our Cloudinary folder fails', () => {
+  const errors = validateWith((d) => edit(d, 'team/fr/director-of-events.json', (t) => (t.photo.url = 'https://example.com/a.jpg')));
+  assert.ok(errors.some((e) => e.includes('photo') && e.includes('Cloudinary')), errors.join('\n'));
+});
+
+test('an image in our Cloudinary folder passes', () => {
+  const url = 'https://res.cloudinary.com/beavj5sp/image/upload/v1760000000/nlem/team/director-of-events.jpg';
+  const errors = validateWith((d) => {
+    edit(d, 'team/en/director-of-events.json', (t) => (t.photo.url = url));
+    edit(d, 'team/fr/director-of-events.json', (t) => (t.photo.url = url));
+  });
+  assert.deepEqual(errors, []);
 });
 
 test('English and French with different sections fail', () => {
