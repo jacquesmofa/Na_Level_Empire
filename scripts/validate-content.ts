@@ -24,6 +24,7 @@ import {
   UiStringsSchema,
   type SectionType,
 } from '../src/content/schema.ts';
+import { isSharedField } from '../src/content/sharedFields.ts';
 
 type Issue = z.core.$ZodIssue;
 
@@ -186,14 +187,6 @@ export function validateContent(contentDir: string): string[] {
   return errors;
 }
 
-/** Fields that are not translated: they must be identical in every language. */
-const SHARED_KEYS = new Set([
-  'url', 'link', 'icon', 'style', 'kind', 'size', 'type', 'imageSide', 'background', 'width', 'form',
-  'showFilters', 'showChannelCard', 'cardLink', 'embedUrl', 'youtubeUrl', 'key', 'platform', 'order',
-  'status', 'date', 'duration', 'featured', 'published', 'open', 'placeholder', 'slug',
-  'readMinutes', 'showInNav', 'navOrder', 'value', 'suffix', 'watermark', 'initials',
-]);
-
 function compareStructure(a: unknown, b: unknown, path: PropertyKey[], file: string, errors: string[]): void {
   const where = () => (path.length ? describePath(b, path) : '(whole file)');
   const fail = (msg: string): void => {
@@ -218,14 +211,7 @@ function compareStructure(a: unknown, b: unknown, path: PropertyKey[], file: str
   }
   const key = path.at(-1);
   const parent = path.at(-2);
-  // A few names are also used for translatable labels elsewhere; share them only in their own context.
-  const contextual: Record<string, boolean> = {
-    email: parent === 'contact',
-    phone: parent === 'contact',
-    source: file.includes('/videos/'),
-  };
-  const shared =
-    typeof a !== 'string' || (typeof key === 'string' && (key in contextual ? contextual[key] : SHARED_KEYS.has(key)));
+  const shared = typeof a !== 'string' || (typeof key === 'string' && isSharedField(key, typeof parent === 'string' ? parent : undefined, file));
   if (shared && a !== b) fail(`English is ${JSON.stringify(a)}, this language is ${JSON.stringify(b)}`);
 }
 

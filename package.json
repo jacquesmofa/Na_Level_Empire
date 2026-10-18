@@ -15,7 +15,9 @@
     "lint": "eslint src --report-unused-disable-directives --max-warnings 0",
     "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
     "test": "node --test \"scripts/**/*.test.ts\"",
-    "check": "npm run lint && npm run typecheck && npm run validate && npm test"
+    "check": "npm run lint && npm run typecheck && npm run validate && npm run cms:check && npm test",
+    "cms:config": "node scripts/cms-config.ts write",
+    "cms:check": "node scripts/cms-config.ts check"
   },
   "dependencies": {
     "react": "^19.1.2",
@@ -24,9 +26,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
+    "@sveltia/cms": "0.248.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^6.0.1",
+    "ajv": "^8.20.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
@@ -38,6 +42,7 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^8.0.1",
+    "yaml": "^2.9.1",
     "zod": "^4.6.7"
   }
 }

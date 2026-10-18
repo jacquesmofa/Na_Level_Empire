@@ -1,0 +1,1991 @@
+# GENERATED from src/content/schema.ts by scripts/cms-config.ts. Do not edit by hand:
+# change the schema (and labels in scripts/cms-config.ts), then run: npm run cms:config
+backend:
+  name: github
+  repo: jacquesmofa/Na_Level_Empire
+  branch: main
+  base_url: "https://SITE_URL"
+  auth_endpoint: api/auth
+  commit_messages:
+    create: "CMS: create {{collection}} \"{{slug}}\""
+    update: "CMS: update {{collection}} \"{{slug}}\""
+    delete: "CMS: delete {{collection}} \"{{slug}}\""
+    uploadMedia: "CMS: upload \"{{path}}\""
+    deleteMedia: "CMS: delete \"{{path}}\""
+site_url: "https://SITE_URL"
+display_url: "https://SITE_URL"
+media_folder: public/uploads
+public_folder: /uploads
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: beavj5sp
+    api_key: "255915537921357"
+  output_filename_only: false
+  use_transformations: false
+i18n:
+  structure: multiple_folders
+  locales:
+    - en
+    - fr
+  default_locale: en
+collections:
+  - name: pages
+    label: Pages
+    description: "The main pages of the site. They cannot be deleted; change their sections freely."
+    format: json
+    i18n: true
+    files:
+      - name: home
+        label: Home
+        file: src/content/pages/{{locale}}/home.json
+        i18n: true
+        fields: &shared1
+          - name: seo
+            label: Search and sharing
+            hint: How this page appears in Google and when shared
+            i18n: true
+            widget: object
+            fields:
+              - name: title
+                label: Browser tab title
+                hint: Up to 70 characters
+                i18n: true
+                widget: string
+                maxlength: 70
+              - name: description
+                label: Search description
+                hint: "50–170 characters shown under the title in search results"
+                i18n: true
+                widget: text
+                minlength: 50
+                maxlength: 170
+          - &shared2
+            name: sections
+            label: Sections
+            hint: "Add, remove and drag sections to build the page. Keep English and French in the same order"
+            i18n: true
+            widget: list
+            min: 1
+            typeKey: type
+            types:
+              - name: hero
+                label: Hero
+                widget: object
+                fields:
+                  - name: eyebrow
+                    label: Small gold label
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+                  - name: headlineLines
+                    label: Headline lines
+                    hint: One short word or phrase per line
+                    i18n: true
+                    widget: list
+                    min: 1
+                    max: 4
+                    field:
+                      name: item
+                      label: Headline lines
+                      widget: string
+                      maxlength: 20
+                  - name: headlineAccent
+                    label: Gold last line
+                    i18n: true
+                    widget: string
+                    maxlength: 20
+                  - name: intro
+                    label: Intro text
+                    i18n: true
+                    widget: text
+                    maxlength: 240
+                  - name: buttons
+                    label: Buttons
+                    i18n: true
+                    widget: list
+                    max: 2
+                    fields:
+                      - name: label
+                        label: Label
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: link
+                        label: Link
+                        hint: "A page of this site like /contact, or a full https:// address"
+                        i18n: duplicate
+                        widget: string
+                        pattern:
+                          - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                          - "Use a site path like /contact or a full https:// link"
+                  - name: stats
+                    label: Numbers
+                    i18n: true
+                    widget: list
+                    max: 4
+                    fields:
+                      - name: value
+                        label: Number
+                        hint: "e.g. 100, $500K, 70%"
+                        i18n: duplicate
+                        widget: string
+                        maxlength: 12
+                      - name: suffix
+                        label: Small gold suffix
+                        hint: "e.g. + or K"
+                        required: false
+                        i18n: duplicate
+                        widget: string
+                        maxlength: 4
+                      - name: label
+                        label: Description
+                        i18n: true
+                        widget: string
+                        maxlength: 60
+                      - name: kind
+                        label: "Is this a result or a target?"
+                        hint: "Targets show a \"Target\" tag on the site"
+                        required: false
+                        i18n: duplicate
+                        widget: select
+                        options:
+                          - label: "Result (achieved)"
+                            value: result
+                          - label: "Target (goal)"
+                            value: target
+                  - name: reel
+                    label: Scrolling images
+                    hint: "4 to 8 images shown in the moving reel"
+                    i18n: true
+                    widget: list
+                    min: 2
+                    max: 8
+                    fields:
+                      - name: url
+                        label: Image file
+                        widget: image
+                        i18n: duplicate
+                        hint: "Choose or upload in Cloudinary (folder nlem)"
+                      - name: alt
+                        label: Image description
+                        hint: "What the image shows, for people using screen readers (required)"
+                        widget: string
+                        i18n: true
+                        maxlength: 150
+                    summary: "{{fields.alt}}"
+              - name: pageHeader
+                label: Page header
+                widget: object
+                fields:
+                  - name: eyebrow
+                    label: Small gold label
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+                  - name: title
+                    label: Title
+                    i18n: true
+                    widget: string
+                    maxlength: 40
+                  - name: titleAccent
+                    label: "Gold word(s) after the title"
+                    required: false
+                    i18n: true
+                    widget: string
+                    maxlength: 30
+                  - name: size
+                    label: Size
+                    required: false
+                    i18n: duplicate
+                    widget: select
+                    options:
+                      - label: Standard page header
+                        value: page
+                      - label: "Full screen (404 style)"
+                        value: full
+                  - name: text
+                    label: Text
+                    required: false
+                    i18n: true
+                    widget: text
+                    maxlength: 300
+                  - name: buttons
+                    label: Buttons
+                    required: false
+                    i18n: true
+                    widget: list
+                    max: 2
+                    fields:
+                      - name: label
+                        label: Label
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: link
+                        label: Link
+                        hint: "A page of this site like /contact, or a full https:// address"
+                        i18n: duplicate
+                        widget: string
+                        pattern:
+                          - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                          - "Use a site path like /contact or a full https:// link"
+                  - name: watermark
+                    label: Large faded text behind the header
+                    required: false
+                    i18n: duplicate
+                    widget: string
+                    maxlength: 6
+              - name: richText
+                label: Text
+                widget: object
+                fields:
+                  - name: label
+                    label: Label
+                    required: false
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+                  - name: paragraphs
+                    label: Paragraphs
+                    i18n: true
+                    widget: list
+                    min: 1
+                    max: 12
+                    field:
+                      name: item
+                      label: Paragraphs
+                      widget: text
+                      maxlength: 1200
+                  - name: width
+                    label: Width
+                    required: false
+                    i18n: duplicate
+                    widget: select
+                    options:
+                      - label: Narrow
+                        value: narrow
+                      - label: Wide
+                        value: wide
+              - name: quote
+                label: Quote
+                widget: object
+                fields:
+                  - name: paragraphs
+                    label: Paragraphs
+                    required: false
+                    i18n: true
+                    widget: list
+                    max: 8
+                    field:
+                      name: item
+                      label: Paragraphs
+                      widget: text
+                      maxlength: 1200
+                  - name: quote
+                    label: Quote
+                    i18n: true
+                    widget: text
+                    maxlength: 240
+                  - name: source
+                    label: Quote source
+                    required: false
+                    i18n: true
+                    widget: string
+                    maxlength: 80
+              - name: cardGrid
+                label: Card grid
+                widget: object
+                fields:
+                  - name: label
+                    label: Label
+                    required: false
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+                  - name: style
+                    label: Style
+                    i18n: duplicate
+                    widget: select
+                    options:
+                      - label: Light cards with images
+                        value: services
+                      - label: Large numbered dark cards
+                        value: pillars
+                      - label: Icons on a dark band
+                        value: perks
+                      - label: Gold-ruled text on a dark band
+                        value: values
+                  - name: cards
+                    label: Cards
+                    i18n: true
+                    widget: list
+                    min: 1
+                    max: 12
+                    fields:
+                      - name: icon
+                        label: Icon
+                        required: false
+                        i18n: duplicate
+                        widget: select
+                        options:
+                          - label: camera
+                            value: camera
+                          - label: live
+                            value: live
+                          - label: team
+                            value: team
+                          - label: film
+                            value: film
+                          - label: stack
+                            value: stack
+                          - label: time
+                            value: time
+                          - label: home
+                            value: home
+                          - label: chart
+                            value: chart
+                          - label: play
+                            value: play
+                      - name: image
+                        label: Image
+                        required: false
+                        i18n: true
+                        widget: object
+                        fields:
+                          - name: url
+                            label: Image file
+                            widget: image
+                            i18n: duplicate
+                            hint: "Choose or upload in Cloudinary (folder nlem)"
+                          - name: alt
+                            label: Image description
+                            hint: "What the image shows, for people using screen readers (required)"
+                            widget: string
+                            i18n: true
+                            maxlength: 150
+                      - name: title
+                        label: Title
+                        i18n: true
+                        widget: string
+                        maxlength: 60
+                      - name: text
+                        label: Card text
+                        i18n: true
+                        widget: text
+                        maxlength: 400
+                      - name: link
+                        label: Link
+                        hint: "A page of this site like /contact, or a full https:// address"
+                        required: false
+                        i18n: duplicate
+                        widget: string
+                        pattern:
+                          - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                          - "Use a site path like /contact or a full https:// link"
+              - name: statsBand
+                label: Stats
+                widget: object
+                fields:
+                  - name: style
+                    label: Style
+                    i18n: duplicate
+                    widget: select
+                    options:
+                      - label: Large gold numbers in a row
+                        value: band
+                      - label: Three coloured tiles
+                        value: tiles
+                  - name: stats
+                    label: Numbers
+                    i18n: true
+                    widget: list
+                    min: 1
+                    max: 6
+                    fields:
+                      - name: value
+                        label: Number
+                        hint: "e.g. 100, $500K, 70%"
+                        i18n: duplicate
+                        widget: string
+                        maxlength: 12
+                      - name: suffix
+                        label: Small gold suffix
+                        hint: "e.g. + or K"
+                        required: false
+                        i18n: duplicate
+                        widget: string
+                        maxlength: 4
+                      - name: label
+                        label: Description
+                        i18n: true
+                        widget: string
+                        maxlength: 60
+                      - name: kind
+                        label: "Is this a result or a target?"
+                        hint: "Targets show a \"Target\" tag on the site"
+                        required: false
+                        i18n: duplicate
+                        widget: select
+                        options:
+                          - label: "Result (achieved)"
+                            value: result
+                          - label: "Target (goal)"
+                            value: target
+              - name: textImage
+                label: "Text + image"
+                widget: object
+                fields:
+                  - name: label
+                    label: Label
+                    required: false
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+                  - name: title
+                    label: Title
+                    i18n: true
+                    widget: string
+                    maxlength: 80
+                  - name: paragraphs
+                    label: Paragraphs
+                    i18n: true
+                    widget: list
+                    min: 1
+                    max: 8
+                    field:
+                      name: item
+                      label: Paragraphs
+                      widget: text
+                      maxlength: 1200
+                  - name: image
+                    label: Image
+                    i18n: true
+                    widget: object
+                    fields:
+                      - name: url
+                        label: Image file
+                        widget: image
+                        i18n: duplicate
+                        hint: "Choose or upload in Cloudinary (folder nlem)"
+                      - name: alt
+                        label: Image description
+                        hint: "What the image shows, for people using screen readers (required)"
+                        widget: string
+                        i18n: true
+                        maxlength: 150
+                  - name: imageSide
+                    label: Image side
+                    required: false
+                    i18n: duplicate
+                    widget: select
+                    options:
+                      - label: Left
+                        value: left
+                      - label: Right
+                        value: right
+                  - name: background
+                    label: Background
+                    required: false
+                    i18n: duplicate
+                    widget: select
+                    options:
+                      - label: Dark
+                        value: dark
+                      - label: Light
+                        value: light
+                  - name: button
+                    label: Button
+                    required: false
+                    i18n: true
+                    widget: object
+                    fields:
+                      - name: label
+                        label: Label
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: link
+                        label: Link
+                        hint: "A page of this site like /contact, or a full https:// address"
+                        i18n: duplicate
+                        widget: string
+                        pattern:
+                          - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                          - "Use a site path like /contact or a full https:// link"
+              - name: gallery
+                label: Gallery
+                widget: object
+                fields:
+                  - name: label
+                    label: Label
+                    required: false
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+                  - name: images
+                    label: Images
+                    i18n: true
+                    widget: list
+                    min: 2
+                    max: 24
+                    fields:
+                      - name: url
+                        label: Image file
+                        widget: image
+                        i18n: duplicate
+                        hint: "Choose or upload in Cloudinary (folder nlem)"
+                      - name: alt
+                        label: Image description
+                        hint: "What the image shows, for people using screen readers (required)"
+                        widget: string
+                        i18n: true
+                        maxlength: 150
+                    summary: "{{fields.alt}}"
+                  - name: background
+                    label: Background
+                    required: false
+                    i18n: duplicate
+                    widget: select
+                    options:
+                      - label: Dark
+                        value: dark
+                      - label: Light
+                        value: light
+              - name: video
+                label: Video
+                widget: object
+                fields:
+                  - name: label
+                    label: Label
+                    required: false
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+                  - name: title
+                    label: Title
+                    i18n: true
+                    widget: string
+                    maxlength: 100
+                  - name: youtubeUrl
+                    label: YouTube link
+                    hint: Paste the address of the video page
+                    i18n: duplicate
+                    widget: string
+                    pattern:
+                      - "youtube\\.com|youtu\\.be"
+                      - "Use a site path like /contact or a full https:// link"
+                  - name: caption
+                    label: Caption
+                    required: false
+                    i18n: true
+                    widget: text
+                    maxlength: 200
+              - name: partners
+                label: Partners
+                widget: object
+                fields:
+                  - name: label
+                    label: Label
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+                  - name: partners
+                    label: Partners
+                    i18n: true
+                    widget: list
+                    min: 1
+                    max: 30
+                    fields:
+                      - name: name
+                        label: Name
+                        i18n: true
+                        widget: string
+                        maxlength: 60
+                      - name: logo
+                        label: Logo
+                        required: false
+                        i18n: true
+                        widget: object
+                        fields:
+                          - name: url
+                            label: Image file
+                            widget: image
+                            i18n: duplicate
+                            hint: "Choose or upload in Cloudinary (folder nlem)"
+                          - name: alt
+                            label: Image description
+                            hint: "What the image shows, for people using screen readers (required)"
+                            widget: string
+                            i18n: true
+                            maxlength: 150
+                      - name: url
+                        label: Website
+                        required: false
+                        i18n: duplicate
+                        widget: string
+                        pattern:
+                          - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                          - "Use a site path like /contact or a full https:// link"
+                      - name: placeholder
+                        label: "Placeholder (not confirmed yet)"
+                        hint: "Tick while this item is not confirmed by the client; listed in PLACEHOLDERS.md"
+                        required: false
+                        i18n: duplicate
+                        widget: boolean
+                        default: false
+              - name: callToAction
+                label: Call to action
+                widget: object
+                fields:
+                  - name: title
+                    label: Title
+                    i18n: true
+                    widget: string
+                    maxlength: 80
+                  - name: text
+                    label: Text
+                    required: false
+                    i18n: true
+                    widget: text
+                    maxlength: 300
+                  - name: buttons
+                    label: Buttons
+                    i18n: true
+                    widget: list
+                    min: 1
+                    max: 2
+                    fields:
+                      - name: label
+                        label: Label
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: link
+                        label: Link
+                        hint: "A page of this site like /contact, or a full https:// address"
+                        i18n: duplicate
+                        widget: string
+                        pattern:
+                          - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                          - "Use a site path like /contact or a full https:// link"
+                  - name: style
+                    label: Style
+                    required: false
+                    i18n: duplicate
+                    widget: select
+                    options:
+                      - label: Gold
+                        value: gold
+                      - label: Dark
+                        value: dark
+              - name: form
+                label: Form
+                widget: object
+                fields:
+                  - name: form
+                    label: Which form
+                    i18n: duplicate
+                    widget: select
+                    options:
+                      - label: Quote request
+                        value: quote
+                  - name: formTitle
+                    label: Form title
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+                  - name: fields
+                    label: Field labels
+                    i18n: true
+                    widget: object
+                    fields:
+                      - name: firstName
+                        label: First name label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: firstNamePlaceholder
+                        label: First name example
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: lastName
+                        label: Last name label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: lastNamePlaceholder
+                        label: Last name example
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: organization
+                        label: Organization label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: organizationPlaceholder
+                        label: Organization example
+                        i18n: true
+                        widget: string
+                        maxlength: 60
+                      - name: email
+                        label: Email label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: emailPlaceholder
+                        label: Email example
+                        i18n: true
+                        widget: string
+                        maxlength: 60
+                      - name: services
+                        label: Services label
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: budget
+                        label: Budget label
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: budgetPlaceholder
+                        label: Budget prompt
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: message
+                        label: Message label
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: messagePlaceholder
+                        label: Message example
+                        i18n: true
+                        widget: text
+                        maxlength: 200
+                  - name: serviceOptions
+                    label: Services to tick
+                    i18n: true
+                    widget: list
+                    min: 1
+                    max: 12
+                    field:
+                      name: item
+                      label: Services to tick
+                      widget: string
+                      maxlength: 40
+                  - name: budgetOptions
+                    label: Budget ranges
+                    i18n: true
+                    widget: list
+                    min: 1
+                    max: 8
+                    field:
+                      name: item
+                      label: Budget ranges
+                      widget: string
+                      maxlength: 40
+                  - name: submitLabel
+                    label: Send button
+                    i18n: true
+                    widget: string
+                    maxlength: 30
+                  - name: sendingLabel
+                    label: Send button while sending
+                    i18n: true
+                    widget: string
+                    maxlength: 30
+                  - name: successTitle
+                    label: Success title
+                    i18n: true
+                    widget: string
+                    maxlength: 40
+                  - name: successText
+                    label: Success message
+                    i18n: true
+                    widget: text
+                    maxlength: 200
+                  - name: errorText
+                    label: Error message
+                    hint: Shown when sending fails
+                    i18n: true
+                    widget: text
+                    maxlength: 200
+                  - name: panel
+                    label: Gold information panel
+                    i18n: true
+                    widget: object
+                    fields:
+                      - name: title
+                        label: Title
+                        i18n: true
+                        widget: string
+                        maxlength: 60
+                      - name: text
+                        label: Text
+                        i18n: true
+                        widget: text
+                        maxlength: 400
+                      - name: locationLabel
+                        label: Location label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: emailLabel
+                        label: Email label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: phoneLabel
+                        label: Phone label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: hoursLabel
+                        label: Hours label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: followLabel
+                        label: Social links label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+              - name: projectsGrid
+                label: Projects grid
+                widget: object
+                fields:
+                  - name: showFilters
+                    label: Show filter buttons
+                    required: false
+                    i18n: duplicate
+                    widget: boolean
+                    default: false
+                  - name: filterLabels
+                    label: Filter button labels
+                    i18n: true
+                    widget: object
+                    fields:
+                      - name: all
+                        label: All
+                        i18n: true
+                        widget: string
+                        maxlength: 20
+                      - name: current
+                        label: Current
+                        i18n: true
+                        widget: string
+                        maxlength: 20
+                      - name: past
+                        label: Past
+                        i18n: true
+                        widget: string
+                        maxlength: 20
+                      - name: av
+                        label: AV Production
+                        i18n: true
+                        widget: string
+                        maxlength: 20
+                      - name: event
+                        label: Events
+                        i18n: true
+                        widget: string
+                        maxlength: 20
+                      - name: stream
+                        label: Live Streaming
+                        i18n: true
+                        widget: string
+                        maxlength: 20
+                      - name: doc
+                        label: Documentary
+                        i18n: true
+                        widget: string
+                        maxlength: 20
+                  - name: cardLink
+                    label: Where project cards lead
+                    hint: Usually /contact
+                    required: false
+                    i18n: duplicate
+                    widget: string
+                    pattern:
+                      - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                      - "Use a site path like /contact or a full https:// link"
+              - name: latestWork
+                label: Latest work
+                widget: object
+                fields:
+                  - name: label
+                    label: Label
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+                  - name: items
+                    label: Tiles
+                    hint: "Exactly 3: the first is the large tile"
+                    i18n: true
+                    widget: list
+                    min: 3
+                    max: 3
+                    fields:
+                      - name: category
+                        label: Category
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: title
+                        label: Title
+                        i18n: true
+                        widget: string
+                        maxlength: 80
+                      - name: image
+                        label: Image
+                        i18n: true
+                        widget: object
+                        fields:
+                          - name: url
+                            label: Image file
+                            widget: image
+                            i18n: duplicate
+                            hint: "Choose or upload in Cloudinary (folder nlem)"
+                          - name: alt
+                            label: Image description
+                            hint: "What the image shows, for people using screen readers (required)"
+                            widget: string
+                            i18n: true
+                            maxlength: 150
+                      - name: link
+                        label: Tile link
+                        required: false
+                        i18n: duplicate
+                        widget: string
+                        pattern:
+                          - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                          - "Use a site path like /contact or a full https:// link"
+                  - name: button
+                    label: Button
+                    i18n: true
+                    widget: object
+                    fields:
+                      - name: label
+                        label: Label
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: link
+                        label: Link
+                        hint: "A page of this site like /contact, or a full https:// address"
+                        i18n: duplicate
+                        widget: string
+                        pattern:
+                          - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                          - "Use a site path like /contact or a full https:// link"
+              - name: newsFeed
+                label: News feed
+                widget: object
+                fields:
+                  - name: categories
+                    label: News categories
+                    i18n: true
+                    widget: list
+                    min: 1
+                    max: 12
+                    fields:
+                      - name: key
+                        label: Category code
+                        hint: "Short code used by stories, e.g. company"
+                        i18n: duplicate
+                        widget: string
+                        pattern:
+                          - "^[a-z0-9-]+$"
+                          - "Use lowercase letters, numbers and dashes"
+                      - name: label
+                        label: Label
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                  - name: categoriesTitle
+                    label: Categories title
+                    i18n: true
+                    widget: string
+                    maxlength: 30
+                  - name: newsletterTitle
+                    label: Newsletter title
+                    i18n: true
+                    widget: string
+                    maxlength: 30
+                  - name: newsletterText
+                    label: Newsletter text
+                    i18n: true
+                    widget: text
+                    maxlength: 240
+                  - name: namePlaceholder
+                    label: Name field prompt
+                    i18n: true
+                    widget: string
+                    maxlength: 40
+                  - name: emailPlaceholder
+                    label: Email example
+                    i18n: true
+                    widget: string
+                    maxlength: 40
+                  - name: subscribeLabel
+                    label: Subscribe button
+                    i18n: true
+                    widget: string
+                    maxlength: 30
+                  - name: subscribingLabel
+                    label: Subscribe button while sending
+                    i18n: true
+                    widget: string
+                    maxlength: 30
+                  - name: subscribedText
+                    label: Thank-you message
+                    i18n: true
+                    widget: string
+                    maxlength: 120
+                  - name: errorText
+                    label: Error message
+                    hint: Shown when sending fails
+                    i18n: true
+                    widget: text
+                    maxlength: 160
+                  - name: followTitle
+                    label: Follow us title
+                    i18n: true
+                    widget: string
+                    maxlength: 30
+              - name: jobsList
+                label: Jobs list
+                widget: object
+                fields:
+                  - name: applyLabel
+                    label: Apply button text
+                    i18n: true
+                    widget: string
+                    maxlength: 30
+                  - name: applyLink
+                    label: Apply button link
+                    i18n: duplicate
+                    widget: string
+                    pattern:
+                      - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                      - "Use a site path like /contact or a full https:// link"
+              - name: videoGrid
+                label: Video grid
+                widget: object
+                fields:
+                  - name: showChannelCard
+                    label: Show channel card
+                    required: false
+                    i18n: duplicate
+                    widget: boolean
+                    default: false
+                  - name: channel
+                    label: YouTube channel
+                    i18n: true
+                    widget: object
+                    fields:
+                      - name: initials
+                        label: Initials in the circle
+                        i18n: duplicate
+                        widget: string
+                        maxlength: 3
+                      - name: name
+                        label: Name
+                        i18n: true
+                        widget: string
+                        maxlength: 60
+                      - name: details
+                        label: Channel details line
+                        i18n: true
+                        widget: text
+                        maxlength: 160
+                      - name: url
+                        label: Channel link
+                        i18n: duplicate
+                        widget: string
+                        pattern:
+                          - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                          - "Use a site path like /contact or a full https:// link"
+                      - name: buttonLabel
+                        label: Button text
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                  - name: featuredVideo
+                    label: Featured video
+                    i18n: true
+                    widget: object
+                    fields:
+                      - name: title
+                        label: Title
+                        i18n: true
+                        widget: string
+                        maxlength: 100
+                      - name: embedUrl
+                        label: YouTube link
+                        i18n: duplicate
+                        widget: string
+                        pattern:
+                          - "youtube\\.com|youtu\\.be"
+                          - "Use a site path like /contact or a full https:// link"
+                  - name: label
+                    label: Label
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+              - name: teamGrid
+                label: Team grid
+                widget: object
+                fields:
+                  - name: label
+                    label: Label
+                    i18n: true
+                    widget: string
+                    maxlength: 60
+      - name: projects
+        label: Projects
+        file: src/content/pages/{{locale}}/projects.json
+        i18n: true
+        fields: *shared1
+      - name: media
+        label: Media Hub
+        file: src/content/pages/{{locale}}/media.json
+        i18n: true
+        fields: *shared1
+      - name: news
+        label: News
+        file: src/content/pages/{{locale}}/news.json
+        i18n: true
+        fields: *shared1
+      - name: impact
+        label: Social Impact
+        file: src/content/pages/{{locale}}/impact.json
+        i18n: true
+        fields: *shared1
+      - name: careers
+        label: Careers
+        file: src/content/pages/{{locale}}/careers.json
+        i18n: true
+        fields: *shared1
+      - name: about
+        label: About
+        file: src/content/pages/{{locale}}/about.json
+        i18n: true
+        fields: *shared1
+      - name: contact
+        label: Contact
+        file: src/content/pages/{{locale}}/contact.json
+        i18n: true
+        fields: *shared1
+      - name: not-found
+        label: "404 (page not found)"
+        file: src/content/pages/{{locale}}/not-found.json
+        i18n: true
+        fields: *shared1
+  - name: custom-pages
+    label: Extra pages
+    label_singular: Page
+    folder: src/content/custom-pages
+    format: json
+    extension: json
+    create: true
+    delete: true
+    i18n: true
+    identifier_field: title
+    slug: "{{fields.slug}}"
+    summary: "{{title}}"
+    fields:
+      - name: title
+        label: Title
+        i18n: true
+        widget: string
+        maxlength: 40
+      - name: slug
+        label: Web address
+        hint: "Lowercase words joined by dashes, e.g. spring-gala. Set it when creating; do not change it later"
+        i18n: duplicate
+        widget: string
+        pattern:
+          - "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          - "Use lowercase letters, numbers and dashes"
+      - name: showInNav
+        label: Show in navigation
+        hint: Adds this page to the menu and footer
+        i18n: duplicate
+        widget: boolean
+        default: false
+      - name: navOrder
+        label: Position in the menu
+        hint: Lower numbers come first
+        required: false
+        i18n: duplicate
+        widget: number
+        value_type: int
+        min: 0
+        max: 999
+      - name: seo
+        label: Search and sharing
+        hint: How this page appears in Google and when shared
+        i18n: true
+        widget: object
+        fields:
+          - name: title
+            label: Browser tab title
+            hint: Up to 70 characters
+            i18n: true
+            widget: string
+            maxlength: 70
+          - name: description
+            label: Search description
+            hint: "50–170 characters shown under the title in search results"
+            i18n: true
+            widget: text
+            minlength: 50
+            maxlength: 170
+      - *shared2
+    description: Pages you create. Each one is served at /web-address and /fr/web-address.
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: src/content/projects
+    format: json
+    extension: json
+    create: true
+    delete: true
+    i18n: true
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - name: title
+        label: Title
+        i18n: true
+        widget: string
+        maxlength: 80
+      - name: category
+        label: Category
+        i18n: true
+        widget: string
+        maxlength: 30
+      - name: type
+        label: Type
+        i18n: duplicate
+        widget: select
+        options:
+          - label: AV Production
+            value: av
+          - label: Event
+            value: event
+          - label: Live Streaming
+            value: stream
+          - label: Documentary
+            value: doc
+      - name: status
+        label: Status
+        i18n: duplicate
+        widget: select
+        options:
+          - label: Current
+            value: current
+          - label: Completed
+            value: past
+      - name: summary
+        label: Summary
+        i18n: true
+        widget: text
+        maxlength: 220
+      - name: tags
+        label: Tags
+        hint: Up to 4 short tags
+        i18n: true
+        widget: list
+        max: 4
+        field:
+          name: item
+          label: Tags
+          widget: string
+          maxlength: 20
+      - name: image
+        label: Image
+        i18n: true
+        widget: object
+        fields:
+          - name: url
+            label: Image file
+            widget: image
+            i18n: duplicate
+            hint: "Choose or upload in Cloudinary (folder nlem)"
+          - name: alt
+            label: Image description
+            hint: "What the image shows, for people using screen readers (required)"
+            widget: string
+            i18n: true
+            maxlength: 150
+      - name: order
+        label: Sort order
+        hint: Lower numbers come first
+        i18n: duplicate
+        widget: number
+        value_type: int
+        min: 0
+        max: 999
+      - name: published
+        label: Show on site
+        required: false
+        i18n: duplicate
+        widget: boolean
+        default: false
+      - name: placeholder
+        label: "Placeholder (not confirmed yet)"
+        hint: "Tick while this item is not confirmed by the client; listed in PLACEHOLDERS.md"
+        required: false
+        i18n: duplicate
+        widget: boolean
+        default: false
+  - name: news
+    label: News
+    label_singular: Story
+    folder: src/content/news
+    format: json
+    extension: json
+    create: true
+    delete: true
+    i18n: true
+    identifier_field: title
+    slug: "{{fields.slug}}"
+    summary: "{{title}}"
+    fields:
+      - name: title
+        label: Title
+        i18n: true
+        widget: string
+        maxlength: 120
+      - name: slug
+        label: Web address
+        hint: "Lowercase words joined by dashes, e.g. spring-gala. Set it when creating; do not change it later"
+        i18n: duplicate
+        widget: string
+        pattern:
+          - "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          - "Use lowercase letters, numbers and dashes"
+      - name: category
+        label: Category
+        i18n: true
+        widget: string
+        pattern:
+          - "^[a-z0-9-]+$"
+          - "Use a site path like /contact or a full https:// link"
+      - name: date
+        label: Date
+        i18n: duplicate
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: YYYY-MM-DD
+        time_format: false
+        picker_utc: true
+      - name: excerpt
+        label: Excerpt
+        hint: Shown on the featured story
+        required: false
+        i18n: true
+        widget: text
+        maxlength: 400
+      - name: image
+        label: Image
+        i18n: true
+        widget: object
+        fields:
+          - name: url
+            label: Image file
+            widget: image
+            i18n: duplicate
+            hint: "Choose or upload in Cloudinary (folder nlem)"
+          - name: alt
+            label: Image description
+            hint: "What the image shows, for people using screen readers (required)"
+            widget: string
+            i18n: true
+            maxlength: 150
+      - name: featured
+        label: Featured story
+        hint: Only one story can be featured
+        required: false
+        i18n: duplicate
+        widget: boolean
+        default: false
+      - name: readMinutes
+        label: "Reading time (minutes)"
+        required: false
+        i18n: duplicate
+        widget: number
+        value_type: int
+        min: 1
+        max: 60
+      - name: body
+        label: Full story
+        hint: "Optional; for a future page per story"
+        required: false
+        i18n: true
+        widget: markdown
+      - name: published
+        label: Show on site
+        required: false
+        i18n: duplicate
+        widget: boolean
+        default: false
+      - name: placeholder
+        label: "Placeholder (not confirmed yet)"
+        hint: "Tick while this item is not confirmed by the client; listed in PLACEHOLDERS.md"
+        required: false
+        i18n: duplicate
+        widget: boolean
+        default: false
+  - name: jobs
+    label: Jobs
+    label_singular: Job
+    folder: src/content/jobs
+    format: json
+    extension: json
+    create: true
+    delete: true
+    i18n: true
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - name: title
+        label: Title
+        i18n: true
+        widget: string
+        maxlength: 80
+      - name: employmentType
+        label: Job type
+        i18n: true
+        widget: string
+        maxlength: 30
+      - name: department
+        label: Department
+        i18n: true
+        widget: string
+        maxlength: 40
+      - name: location
+        label: Location
+        i18n: true
+        widget: string
+        maxlength: 40
+      - name: summary
+        label: Summary
+        i18n: true
+        widget: text
+        maxlength: 240
+      - name: order
+        label: Sort order
+        hint: Lower numbers come first
+        i18n: duplicate
+        widget: number
+        value_type: int
+        min: 0
+        max: 999
+      - name: open
+        label: "Open (shown on site)"
+        required: false
+        i18n: duplicate
+        widget: boolean
+        default: false
+      - name: placeholder
+        label: "Placeholder (not confirmed yet)"
+        hint: "Tick while this item is not confirmed by the client; listed in PLACEHOLDERS.md"
+        required: false
+        i18n: duplicate
+        widget: boolean
+        default: false
+  - name: videos
+    label: Videos
+    label_singular: Video
+    folder: src/content/videos
+    format: json
+    extension: json
+    create: true
+    delete: true
+    i18n: true
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - name: title
+        label: Title
+        i18n: true
+        widget: string
+        maxlength: 100
+      - name: youtubeUrl
+        label: YouTube link
+        hint: Paste the address of the video page
+        required: false
+        i18n: duplicate
+        widget: string
+        pattern:
+          - "youtube\\.com|youtu\\.be"
+          - "Use a site path like /contact or a full https:// link"
+      - name: thumbnail
+        label: Thumbnail
+        i18n: true
+        widget: object
+        fields:
+          - name: url
+            label: Image file
+            widget: image
+            i18n: duplicate
+            hint: "Choose or upload in Cloudinary (folder nlem)"
+          - name: alt
+            label: Image description
+            hint: "What the image shows, for people using screen readers (required)"
+            widget: string
+            i18n: true
+            maxlength: 150
+      - name: duration
+        label: Length
+        hint: "e.g. 12:34"
+        i18n: duplicate
+        widget: string
+        pattern:
+          - "^\\d{1,2}(:\\d{2}){1,2}$"
+          - "Like 12:34"
+      - name: date
+        label: Date
+        i18n: duplicate
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: YYYY-MM-DD
+        time_format: false
+        picker_utc: true
+      - name: source
+        label: Quote source
+        required: false
+        i18n: duplicate
+        widget: select
+        options:
+          - label: Pasted by hand
+            value: manual
+          - label: "Fetched automatically (later)"
+            value: youtube-api
+      - name: published
+        label: Show on site
+        required: false
+        i18n: duplicate
+        widget: boolean
+        default: false
+      - name: placeholder
+        label: "Placeholder (not confirmed yet)"
+        hint: "Tick while this item is not confirmed by the client; listed in PLACEHOLDERS.md"
+        required: false
+        i18n: duplicate
+        widget: boolean
+        default: false
+  - name: team
+    label: Team
+    label_singular: Team member
+    folder: src/content/team
+    format: json
+    extension: json
+    create: true
+    delete: true
+    i18n: true
+    identifier_field: name
+    slug: "{{slug}}"
+    summary: "{{name}}"
+    fields:
+      - name: name
+        label: Name
+        i18n: true
+        widget: string
+        maxlength: 60
+      - name: role
+        label: Role
+        i18n: true
+        widget: string
+        maxlength: 60
+      - name: photo
+        label: Photo
+        hint: "Portrait, 3:4"
+        i18n: true
+        widget: object
+        fields:
+          - name: url
+            label: Image file
+            widget: image
+            i18n: duplicate
+            hint: "Choose or upload in Cloudinary (folder nlem)"
+          - name: alt
+            label: Image description
+            hint: "What the image shows, for people using screen readers (required)"
+            widget: string
+            i18n: true
+            maxlength: 150
+      - name: order
+        label: Sort order
+        hint: Lower numbers come first
+        i18n: duplicate
+        widget: number
+        value_type: int
+        min: 0
+        max: 999
+      - name: placeholder
+        label: "Placeholder (not confirmed yet)"
+        hint: "Tick while this item is not confirmed by the client; listed in PLACEHOLDERS.md"
+        required: false
+        i18n: duplicate
+        widget: boolean
+        default: false
+  - name: settings
+    label: Site settings
+    format: json
+    i18n: true
+    files:
+      - name: site
+        label: Site settings
+        file: src/content/settings/{{locale}}/site.json
+        i18n: true
+        fields:
+          - name: siteName
+            label: Site name
+            i18n: true
+            widget: string
+            maxlength: 60
+          - name: logo
+            label: Logo
+            i18n: true
+            widget: object
+            fields:
+              - name: url
+                label: Image file
+                widget: image
+                i18n: duplicate
+                hint: "Choose or upload in Cloudinary (folder nlem)"
+              - name: alt
+                label: Image description
+                hint: "What the image shows, for people using screen readers (required)"
+                widget: string
+                i18n: true
+                maxlength: 150
+          - name: blurb
+            label: "Short description (footer)"
+            i18n: true
+            widget: text
+            maxlength: 240
+          - name: contact
+            label: Contact details
+            i18n: true
+            widget: object
+            fields:
+              - name: location
+                label: Location
+                i18n: true
+                widget: string
+                maxlength: 80
+              - name: email
+                label: Email address
+                i18n: duplicate
+                widget: string
+                pattern:
+                  - "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                  - "Use a site path like /contact or a full https:// link"
+              - name: phone
+                label: Phone
+                i18n: duplicate
+                widget: string
+                maxlength: 30
+              - name: hours
+                label: Business hours
+                i18n: true
+                widget: string
+                maxlength: 60
+          - name: social
+            label: Social links
+            i18n: true
+            widget: list
+            max: 6
+            fields:
+              - name: platform
+                label: Network
+                i18n: duplicate
+                widget: select
+                options:
+                  - label: youtube
+                    value: youtube
+                  - label: instagram
+                    value: instagram
+                  - label: linkedin
+                    value: linkedin
+                  - label: facebook
+                    value: facebook
+                  - label: x
+                    value: x
+              - name: label
+                label: Short text on the button
+                hint: e.g. YT
+                i18n: true
+                widget: string
+                maxlength: 3
+              - name: url
+                label: Profile link
+                hint: "Use # until the real profile exists"
+                i18n: duplicate
+                widget: string
+                pattern:
+                  - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                  - "Use a site path like /contact or a full https:// link"
+              - name: placeholder
+                label: "Placeholder (not confirmed yet)"
+                hint: "Tick while this item is not confirmed by the client; listed in PLACEHOLDERS.md"
+                required: false
+                i18n: duplicate
+                widget: boolean
+                default: false
+          - name: nav
+            label: Menu links
+            hint: "Extra pages marked \"show in navigation\" are added automatically after these"
+            i18n: true
+            widget: list
+            min: 1
+            max: 9
+            fields:
+              - name: label
+                label: Label
+                i18n: true
+                widget: string
+                maxlength: 40
+              - name: link
+                label: Link
+                hint: "A page of this site like /contact, or a full https:// address"
+                i18n: duplicate
+                widget: string
+                pattern:
+                  - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                  - "Use a site path like /contact or a full https:// link"
+          - name: navCta
+            label: Menu button
+            i18n: true
+            widget: object
+            fields:
+              - name: label
+                label: Label
+                i18n: true
+                widget: string
+                maxlength: 40
+              - name: link
+                label: Link
+                hint: "A page of this site like /contact, or a full https:// address"
+                i18n: duplicate
+                widget: string
+                pattern:
+                  - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                  - "Use a site path like /contact or a full https:// link"
+          - name: footer
+            label: Footer
+            i18n: true
+            widget: object
+            fields:
+              - name: pagesTitle
+                label: Pages column title
+                i18n: true
+                widget: string
+                maxlength: 30
+              - name: links
+                label: Page links
+                i18n: true
+                widget: list
+                max: 12
+                fields:
+                  - name: label
+                    label: Label
+                    i18n: true
+                    widget: string
+                    maxlength: 40
+                  - name: link
+                    label: Link
+                    hint: "A page of this site like /contact, or a full https:// address"
+                    i18n: duplicate
+                    widget: string
+                    pattern:
+                      - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                      - "Use a site path like /contact or a full https:// link"
+              - name: servicesTitle
+                label: Services column title
+                i18n: true
+                widget: string
+                maxlength: 30
+              - name: services
+                label: Services list
+                i18n: true
+                widget: list
+                max: 12
+                field:
+                  name: item
+                  label: Services list
+                  widget: string
+                  maxlength: 40
+              - name: legalTitle
+                label: Legal column title
+                i18n: true
+                widget: string
+                maxlength: 30
+              - name: legal
+                label: Legal items
+                i18n: true
+                widget: list
+                max: 8
+                fields:
+                  - name: label
+                    label: Label
+                    i18n: true
+                    widget: string
+                    maxlength: 40
+                  - name: link
+                    label: Link
+                    hint: "A page of this site like /contact, or a full https:// address"
+                    required: false
+                    i18n: duplicate
+                    widget: string
+                    pattern:
+                      - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
+                      - "Use a site path like /contact or a full https:// link"
+              - name: copyrightName
+                label: Copyright name
+                i18n: true
+                widget: string
+                maxlength: 60
+              - name: copyrightSuffix
+                label: Text after the copyright name
+                i18n: true
+                widget: string
+                maxlength: 120
+              - name: closingPrefix
+                label: Closing line
+                i18n: true
+                widget: string
+                maxlength: 60
+              - name: closingHighlight
+                label: Closing line gold word
+                i18n: true
+                widget: string
+                maxlength: 40
+          - name: seo
+            label: Search and sharing
+            hint: How this page appears in Google and when shared
+            i18n: true
+            widget: object
+            fields:
+              - name: title
+                label: Browser tab title
+                hint: Up to 70 characters
+                i18n: true
+                widget: string
+                maxlength: 70
+              - name: description
+                label: Search description
+                hint: "50–170 characters shown under the title in search results"
+                i18n: true
+                widget: text
+                minlength: 50
+                maxlength: 170
+      - name: ui
+        label: Interface text
+        file: src/content/ui/{{locale}}/strings.json
+        i18n: true
+        fields:
+          - name: languageName
+            label: Language name
+            i18n: true
+            widget: string
+            maxlength: 20
+          - name: switchToLabel
+            label: Language switch button
+            i18n: true
+            widget: string
+            maxlength: 10
+          - name: switchToAria
+            label: "Language switch description (screen readers)"
+            i18n: true
+            widget: string
+            maxlength: 60
+          - name: menuToggleAria
+            label: "Menu button description (screen readers)"
+            i18n: true
+            widget: string
+            maxlength: 40
+          - name: skipToContent
+            label: "Skip link (keyboard users)"
+            i18n: true
+            widget: string
+            maxlength: 40
+          - name: statusCurrent
+            label: "\"Current\" badge"
+            i18n: true
+            widget: string
+            maxlength: 20
+          - name: statusCompleted
+            label: "\"Completed\" badge"
+            i18n: true
+            widget: string
+            maxlength: 20
+          - name: targetTag
+            label: "\"Target\" tag"
+            i18n: true
+            widget: string
+            maxlength: 20
+          - name: readTime
+            label: Reading time
+            hint: Keep {minutes} where the number goes
+            i18n: true
+            widget: string
+            maxlength: 30
+            pattern:
+              - "\\{minutes\\}"
+              - "Use a site path like /contact or a full https:// link"
+          - name: quoteEmailSubject
+            label: Email subject for quote requests
+            hint: Keep {name} where the sender name goes
+            i18n: true
+            widget: string
+            maxlength: 80
+            pattern:
+              - "\\{name\\}"
+              - "Use a site path like /contact or a full https:// link"
+          - name: newsletterEmailSubject
+            label: Email subject for newsletter sign-ups
+            i18n: true
+            widget: string
+            maxlength: 80
+          - name: socialNames
+            label: "Social network names (screen readers)"
+            i18n: true
+            widget: object
+            fields:
+              - name: youtube
+                label: YouTube
+                i18n: true
+                widget: string
+                maxlength: 30
+              - name: instagram
+                label: Instagram
+                i18n: true
+                widget: string
+                maxlength: 30
+              - name: linkedin
+                label: LinkedIn
+                i18n: true
+                widget: string
+                maxlength: 30
+              - name: facebook
+                label: Facebook
+                i18n: true
+                widget: string
+                maxlength: 30
+              - name: x
+                label: "X (Twitter)"
+                i18n: true
+                widget: string
+                maxlength: 30
