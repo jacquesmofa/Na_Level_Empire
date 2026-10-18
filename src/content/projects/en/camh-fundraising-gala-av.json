@@ -14,5 +14,6 @@
     "alt": "CAMH Fundraising Gala AV"
   },
   "order": 60,
-  "published": true
+  "published": true,
+  "placeholder": true
 }

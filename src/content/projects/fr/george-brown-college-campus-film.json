@@ -13,5 +13,6 @@
     "alt": "Film de campus du Collège George Brown"
   },
   "order": 30,
-  "published": true
+  "published": true,
+  "placeholder": true
 }

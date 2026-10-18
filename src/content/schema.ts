@@ -146,6 +146,7 @@ export const PartnersBlock = block('partners', {
         name: text(60),
         logo: ImageSchema.optional(),
         url: LinkSchema.optional(),
+        placeholder: z.boolean().optional(),
       }),
     )
     .min(1)
@@ -363,6 +364,8 @@ export const ProjectSchema = z.strictObject({
   image: ImageSchema,
   order,
   published: z.boolean().optional(),
+  /** Not yet confirmed by the client; listed in PLACEHOLDERS.md. */
+  placeholder: z.boolean().optional(),
 });
 
 export const NewsSchema = z.strictObject({
@@ -377,6 +380,8 @@ export const NewsSchema = z.strictObject({
   readMinutes: z.number().int().min(1).max(60).optional(),
   body: z.string().max(20000).optional(),
   published: z.boolean().optional(),
+  /** Not yet confirmed by the client; listed in PLACEHOLDERS.md. */
+  placeholder: z.boolean().optional(),
 });
 
 export const JobSchema = z.strictObject({
@@ -387,6 +392,8 @@ export const JobSchema = z.strictObject({
   summary: text(240),
   order,
   open: z.boolean().optional(),
+  /** Not yet confirmed by the client; listed in PLACEHOLDERS.md. */
+  placeholder: z.boolean().optional(),
 });
 
 export const VideoSchema = z.strictObject({
@@ -399,6 +406,8 @@ export const VideoSchema = z.strictObject({
   /** "manual" today; "youtube-api" is reserved for automatic fetching later. */
   source: z.enum(['manual', 'youtube-api']).optional(),
   published: z.boolean().optional(),
+  /** Not yet confirmed by the client; listed in PLACEHOLDERS.md. */
+  placeholder: z.boolean().optional(),
 });
 
 export const TeamSchema = z.strictObject({
@@ -406,6 +415,8 @@ export const TeamSchema = z.strictObject({
   role: text(60),
   photo: ImageSchema,
   order,
+  /** Not yet confirmed by the client; listed in PLACEHOLDERS.md. */
+  placeholder: z.boolean().optional(),
 });
 
 export const COLLECTIONS = {

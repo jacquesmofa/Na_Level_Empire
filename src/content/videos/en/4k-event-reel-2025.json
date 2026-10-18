@@ -7,5 +7,6 @@
   "duration": "4:00",
   "date": "2026-08-20",
   "source": "manual",
-  "published": true
+  "published": true,
+  "placeholder": true
 }

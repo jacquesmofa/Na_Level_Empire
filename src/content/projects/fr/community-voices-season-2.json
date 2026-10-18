@@ -14,5 +14,6 @@
     "alt": "Série Voix de la communauté — saison 2"
   },
   "order": 70,
-  "published": true
+  "published": true,
+  "placeholder": true
 }

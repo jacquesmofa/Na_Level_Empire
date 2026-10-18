@@ -126,7 +126,7 @@
         {
           "value": "25%",
           "label": "Des profits réinvestis",
-          "kind": "result"
+          "kind": "target"
         },
         {
           "value": "8+",

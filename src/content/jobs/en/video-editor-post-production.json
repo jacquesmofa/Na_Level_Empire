@@ -5,5 +5,6 @@
   "location": "Remote + Toronto",
   "summary": "DaVinci Resolve and Premiere Pro editing for documentary and brand content.",
   "order": 50,
-  "open": true
+  "open": true,
+  "placeholder": true
 }

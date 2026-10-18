@@ -62,25 +62,32 @@
       "label": "Partenaires communautaires",
       "partners": [
         {
-          "name": "George Brown College"
+          "name": "George Brown College",
+          "placeholder": true
         },
         {
-          "name": "Ontario Trillium Foundation"
+          "name": "Partenaire communautaire 1",
+          "placeholder": true
         },
         {
-          "name": "MaRS Discovery District"
+          "name": "Partenaire communautaire 2",
+          "placeholder": true
         },
         {
-          "name": "OMDC"
+          "name": "Partenaire communautaire 3",
+          "placeholder": true
         },
         {
-          "name": "BDC Social Enterprise"
+          "name": "Partenaire communautaire 4",
+          "placeholder": true
         },
         {
-          "name": "Toronto Metropolitan Univ."
+          "name": "Partenaire communautaire 5",
+          "placeholder": true
         },
         {
-          "name": "Ontario Nonprofit Network"
+          "name": "Partenaire communautaire 6",
+          "placeholder": true
         }
       ]
     }

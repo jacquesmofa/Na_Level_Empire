@@ -14,5 +14,6 @@
     "alt": "Studio balado Youth Voices du TDSB"
   },
   "order": 90,
-  "published": true
+  "published": true,
+  "placeholder": true
 }

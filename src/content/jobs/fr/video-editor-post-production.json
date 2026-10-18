@@ -5,5 +5,6 @@
   "location": "À distance + Toronto",
   "summary": "Montage DaVinci Resolve et Premiere Pro pour des documentaires et contenus de marque.",
   "order": 50,
-  "open": true
+  "open": true,
+  "placeholder": true
 }

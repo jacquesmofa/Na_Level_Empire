@@ -13,5 +13,6 @@
     "alt": "George Brown College Campus Film"
   },
   "order": 30,
-  "published": true
+  "published": true,
+  "placeholder": true
 }

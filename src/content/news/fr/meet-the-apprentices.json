@@ -8,5 +8,6 @@
     "alt": "Rencontrez l’équipe : six apprentis partis de zéro"
   },
   "featured": false,
-  "published": true
+  "published": true,
+  "placeholder": true
 }
