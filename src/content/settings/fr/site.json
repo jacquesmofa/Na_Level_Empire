@@ -144,15 +144,5 @@
   "seo": {
     "title": "Na Level Empire Media | Production audiovisuelle à Toronto",
     "description": "Na Level Empire Media — entreprise sociale de production audiovisuelle à Toronto : production, diffusion en direct, événements et formation de la main-d’œuvre locale."
-  },
-  "ui": {
-    "languageName": "Français",
-    "switchToLabel": "EN",
-    "switchToAria": "View this site in English",
-    "menuToggleAria": "Ouvrir ou fermer le menu",
-    "statusCurrent": "● EN COURS",
-    "statusCompleted": "TERMINÉ",
-    "targetTag": "Objectif",
-    "readTime": "Lecture : {minutes} min"
   }
 }

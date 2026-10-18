@@ -5,7 +5,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { cpSync, mkdtempSync, readFileSync, rmSync, unlinkSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync, unlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -80,4 +80,48 @@ test('a news category that is not on the News page fails', () => {
 test('a non-https image fails', () => {
   const errors = validateWith((d) => edit(d, 'team/fr/director-of-events.json', (t) => (t.photo.url = 'http://example.com/a.jpg')));
   assert.ok(errors.some((e) => e.includes('photo') && e.includes('https://')), errors.join('\n'));
+});
+
+test('English and French with different sections fail', () => {
+  const errors = validateWith((d) => edit(d, 'pages/fr/home.json', (p) => p.sections.pop()));
+  assert.ok(errors.some((e) => e.includes('pages/fr/home.json') && e.includes('English has 4 item(s), this language has 3')), errors.join('\n'));
+});
+
+test('a changed image or link in only one language fails', () => {
+  const errors = validateWith((d) => edit(d, 'jobs/fr/sound-engineer.json', (j) => (j.order = 999)));
+  assert.ok(errors.some((e) => e.includes('jobs/fr/sound-engineer.json') && e.includes('order')), errors.join('\n'));
+});
+
+const customPage = (slug: string, title: string) => ({
+  title,
+  slug,
+  showInNav: true,
+  navOrder: 10,
+  seo: { title, description: 'A page created by an editor in the CMS, used here to test the validator rules.' },
+  sections: [{ type: 'richText', paragraphs: ['Hello'] }],
+});
+const addCustom = (d: string, locale: string, slug: string, data: object) => {
+  mkdirSync(join(d, 'custom-pages', locale), { recursive: true });
+  writeFileSync(join(d, 'custom-pages', locale, `${slug}.json`), JSON.stringify(data));
+};
+
+test('an editor page in both languages passes', () => {
+  const errors = validateWith((d) => {
+    addCustom(d, 'en', 'partners', customPage('partners', 'Partners'));
+    addCustom(d, 'fr', 'partners', customPage('partners', 'Partenaires'));
+  });
+  assert.deepEqual(errors, []);
+});
+
+test('an editor page using a reserved address fails', () => {
+  const errors = validateWith((d) => {
+    addCustom(d, 'en', 'contact', customPage('contact', 'Contact'));
+    addCustom(d, 'fr', 'contact', customPage('contact', 'Contact'));
+  });
+  assert.ok(errors.some((e) => e.includes('custom-pages/en/contact.json') && e.includes('already used')), errors.join('\n'));
+});
+
+test('an editor page without its French version fails', () => {
+  const errors = validateWith((d) => addCustom(d, 'en', 'events', customPage('events', 'Events')));
+  assert.ok(errors.some((e) => e.includes('custom-pages/fr/events.json: missing translation')), errors.join('\n'));
 });

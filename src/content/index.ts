@@ -4,13 +4,15 @@
  * so here they are only typed and sorted. Only types are imported from the
  * schema, so zod is not shipped to visitors.
  */
-import type { Job, NewsItem, Page, Project, Settings, TeamMember, Video } from './schema';
+import type { CustomPage, Job, NewsItem, Page, Project, Settings, TeamMember, UiStrings, Video } from './schema';
 import type { Locale, PageId } from './constants';
 
 type Files<T> = Record<string, T>;
 
 const settingsFiles = import.meta.glob<Settings>('./settings/*/site.json', { eager: true, import: 'default' });
+const uiFiles = import.meta.glob<UiStrings>('./ui/*/strings.json', { eager: true, import: 'default' });
 const pageFiles = import.meta.glob<Page>('./pages/*/*.json', { eager: true, import: 'default' });
+const customPageFiles = import.meta.glob<Omit<CustomPage, 'slug'> & { slug: string }>('./custom-pages/*/*.json', { eager: true, import: 'default' });
 const projectFiles = import.meta.glob<Omit<Project, 'slug'>>('./projects/*/*.json', { eager: true, import: 'default' });
 const newsFiles = import.meta.glob<NewsItem>('./news/*/*.json', { eager: true, import: 'default' });
 const jobFiles = import.meta.glob<Omit<Job, 'slug'>>('./jobs/*/*.json', { eager: true, import: 'default' });
@@ -24,8 +26,24 @@ function inLocale<T>(files: Files<T>, locale: Locale): (T & { slug: string })[] 
     .map(([path, data]) => ({ ...data, slug: path.split('/').pop()!.replace(/\.json$/, '') }));
 }
 
-export function getSettings(locale: Locale): Settings {
-  return settingsFiles[`./settings/${locale}/site.json`];
+/** Site settings plus the interface text for one language. */
+export type SiteSettings = Settings & { ui: UiStrings };
+
+export function getSettings(locale: Locale): SiteSettings {
+  return { ...settingsFiles[`./settings/${locale}/site.json`], ui: uiFiles[`./ui/${locale}/strings.json`] };
+}
+
+/** Pages editors created, in one language, ordered for navigation. */
+export function getCustomPages(locale: Locale): CustomPage[] {
+  return inLocale(customPageFiles, locale).sort((a, b) => (a.navOrder ?? 999) - (b.navOrder ?? 999) || a.title.localeCompare(b.title));
+}
+
+/** Navigation: the fixed menu from settings, then editor pages marked "show in navigation". */
+export function getNav(locale: Locale): { label: string; link: string }[] {
+  const custom = getCustomPages(locale)
+    .filter((p) => p.showInNav)
+    .map((p) => ({ label: p.title, link: `/${p.slug}` }));
+  return [...getSettings(locale).nav, ...custom];
 }
 
 export function getPage(locale: Locale, id: PageId): Page {
@@ -55,6 +73,6 @@ export function getTeam(locale: Locale): TeamMember[] {
   return inLocale(teamFiles, locale).sort(byOrder);
 }
 
-export type { Job, NewsItem, Page, Project, Settings, TeamMember, Video } from './schema';
+export type { CustomPage, Job, NewsItem, Page, Project, Settings, TeamMember, UiStrings, Video } from './schema';
 export type { Section, SectionOf, SectionType, IconName } from './schema';
 export { LOCALES, DEFAULT_LOCALE, PAGE_PATHS, type Locale, type PageId } from './constants';

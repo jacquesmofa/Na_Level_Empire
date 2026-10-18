@@ -1,0 +1,20 @@
+{
+  "languageName": "Français",
+  "switchToLabel": "EN",
+  "switchToAria": "View this site in English",
+  "menuToggleAria": "Ouvrir ou fermer le menu",
+  "skipToContent": "Aller au contenu principal",
+  "statusCurrent": "● EN COURS",
+  "statusCompleted": "TERMINÉ",
+  "targetTag": "Objectif",
+  "readTime": "Lecture : {minutes} min",
+  "quoteEmailSubject": "Nouvelle demande de devis de {name}",
+  "newsletterEmailSubject": "Nouvelle inscription à l’infolettre",
+  "socialNames": {
+    "youtube": "YouTube",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "facebook": "Facebook",
+    "x": "X (Twitter)"
+  }
+}

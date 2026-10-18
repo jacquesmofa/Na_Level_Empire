@@ -297,6 +297,23 @@ export const PageSchema = z.strictObject({
 });
 export type Page = z.infer<typeof PageSchema>;
 
+/** Paths editors cannot use for new pages (fixed pages and system folders). */
+export const RESERVED_SLUGS = ['projects', 'media', 'news', 'impact', 'careers', 'about', 'contact', 'fr', 'en', 'admin', 'api', 'assets', '__blocks'];
+
+/** Pages editors create themselves, served at /<slug> and /fr/<slug>. */
+export const CustomPageSchema = z.strictObject({
+  title: text(40),
+  slug: z
+    .string()
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'use lowercase letters, numbers and dashes')
+    .refine((v) => !RESERVED_SLUGS.includes(v), 'this address is already used by the site'),
+  showInNav: z.boolean(),
+  navOrder: z.number().int().min(0).max(999).optional(),
+  seo: SeoSchema,
+  sections: z.array(SectionBlock).min(1, 'a page needs at least one section'),
+});
+export type CustomPage = z.infer<typeof CustomPageSchema>;
+
 // ---------------------------------------------------------------------------
 // Site settings
 // ---------------------------------------------------------------------------
@@ -335,18 +352,34 @@ export const SettingsSchema = z.strictObject({
     closingHighlight: text(40),
   }),
   seo: SeoSchema,
-  ui: z.strictObject({
-    languageName: text(20),
-    switchToLabel: text(10),
-    switchToAria: text(60),
-    menuToggleAria: text(40),
-    statusCurrent: text(20),
-    statusCompleted: text(20),
-    targetTag: text(20),
-    readTime: text(30).regex(/\{minutes\}/, 'must contain {minutes}'),
-  }),
 });
 export type Settings = z.infer<typeof SettingsSchema>;
+
+// ---------------------------------------------------------------------------
+// Interface text: small labels, states and accessibility text used by components
+// ---------------------------------------------------------------------------
+
+export const UiStringsSchema = z.strictObject({
+  languageName: text(20),
+  switchToLabel: text(10),
+  switchToAria: text(60),
+  menuToggleAria: text(40),
+  skipToContent: text(40),
+  statusCurrent: text(20),
+  statusCompleted: text(20),
+  targetTag: text(20),
+  readTime: text(30).regex(/\{minutes\}/, 'must contain {minutes}'),
+  quoteEmailSubject: text(80).regex(/\{name\}/, 'must contain {name}'),
+  newsletterEmailSubject: text(80),
+  socialNames: z.strictObject({
+    youtube: text(30),
+    instagram: text(30),
+    linkedin: text(30),
+    facebook: text(30),
+    x: text(30),
+  }),
+});
+export type UiStrings = z.infer<typeof UiStringsSchema>;
 
 // ---------------------------------------------------------------------------
 // Collections (one JSON file per item, per language)

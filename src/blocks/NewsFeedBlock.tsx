@@ -1,11 +1,11 @@
 import { useState, type FormEvent } from 'react';
-import type { NewsItem, SectionOf, Settings } from '@/content';
+import type { NewsItem, SectionOf, SiteSettings } from '@/content';
 import CmsImage from '@/components/ui/CmsImage';
 import LocalizedLink from '@/components/ui/LocalizedLink';
 import { submitForm } from '@/lib/forms';
 import { formatMonthYear, useLocale } from '@/lib/locale';
 
-type Props = { block: SectionOf<'newsFeed'>; news: NewsItem[]; settings: Settings };
+type Props = { block: SectionOf<'newsFeed'>; news: NewsItem[]; settings: SiteSettings };
 
 const panel = 'p-7 rounded-sm bg-deep';
 const panelStyle = { border: '1px solid rgba(200,146,42,0.12)' };
@@ -31,7 +31,7 @@ export default function NewsFeedBlock({ block, news, settings }: Props) {
     setSubmitting(true);
     setFailed(false);
     const bot = new FormData(e.currentTarget).get('botcheck');
-    const result = await submitForm('New newsletter sign-up', {
+    const result = await submitForm(settings.ui.newsletterEmailSubject, {
       name: name.trim(),
       email: email.trim(),
       ...(bot ? { botcheck: 'on' } : {}),
@@ -174,7 +174,7 @@ export default function NewsFeedBlock({ block, news, settings }: Props) {
               <LocalizedLink
                 key={s.platform}
                 to={s.url}
-                aria-label={s.platform}
+                aria-label={settings.ui.socialNames[s.platform]}
                 className="w-10 h-10 flex items-center justify-center text-xs font-bold no-underline transition-all cursor-pointer text-gold border border-gold/30 hover:bg-gold/[0.12] font-heading"
               >
                 {s.label}

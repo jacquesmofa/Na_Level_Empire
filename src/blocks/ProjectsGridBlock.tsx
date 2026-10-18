@@ -1,10 +1,10 @@
-import type { Project, SectionOf, Settings } from '@/content';
+import type { Project, SectionOf, SiteSettings } from '@/content';
 import CmsImage from '@/components/ui/CmsImage';
 import LocalizedLink from '@/components/ui/LocalizedLink';
 import { ProjectsFilterBar } from './projectsFilter';
 import { useProjectsFilter } from './projectsFilterContext';
 
-type Props = { block: SectionOf<'projectsGrid'>; projects: Project[]; settings: Settings; filterInHeader: boolean };
+type Props = { block: SectionOf<'projectsGrid'>; projects: Project[]; settings: SiteSettings; filterInHeader: boolean };
 
 export default function ProjectsGridBlock({ block, projects, settings, filterInHeader }: Props) {
   const filter = useProjectsFilter();

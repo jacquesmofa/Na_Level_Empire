@@ -144,15 +144,5 @@
   "seo": {
     "title": "Na Level Empire Media | Toronto AV Production & Social Enterprise",
     "description": "Toronto's cinematic audiovisual production social enterprise: AV production, live streaming, event management and community workforce development."
-  },
-  "ui": {
-    "languageName": "English",
-    "switchToLabel": "FR",
-    "switchToAria": "Voir le site en français",
-    "menuToggleAria": "Toggle menu",
-    "statusCurrent": "● CURRENT",
-    "statusCompleted": "COMPLETED",
-    "targetTag": "Target",
-    "readTime": "{minutes} min read"
   }
 }

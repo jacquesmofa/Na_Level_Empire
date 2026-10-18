@@ -1,7 +1,7 @@
-import type { Settings } from '@/content';
+import type { SiteSettings } from '@/content';
 import LocalizedLink from '@/components/ui/LocalizedLink';
 
-export default function Footer({ settings }: { settings: Settings }) {
+export default function Footer({ settings, extraLinks = [] }: { settings: SiteSettings; extraLinks?: { label: string; link: string }[] }) {
   const { footer } = settings;
   const columnTitle = 'text-gold text-[11px] font-bold tracking-[3px] uppercase mb-5 font-heading';
 
@@ -22,7 +22,7 @@ export default function Footer({ settings }: { settings: Settings }) {
               <LocalizedLink
                 key={s.platform}
                 to={s.url}
-                aria-label={s.platform}
+                aria-label={settings.ui.socialNames[s.platform]}
                 className="w-10 h-10 border border-gold/30 flex items-center justify-center text-gold text-xs font-bold no-underline transition-all duration-200 hover:border-gold hover:bg-gold/10 cursor-pointer font-heading"
               >
                 {s.label}
@@ -35,7 +35,7 @@ export default function Footer({ settings }: { settings: Settings }) {
         <div>
           <div className={columnTitle}>{footer.pagesTitle}</div>
           <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
-            {footer.links.map((p) => (
+            {[...footer.links, ...extraLinks].map((p) => (
               <li key={p.link}>
                 <LocalizedLink to={p.link} className="text-cream/55 text-sm no-underline transition-colors duration-200 hover:text-gold cursor-pointer">
                   {p.label}
