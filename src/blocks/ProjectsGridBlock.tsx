@@ -45,7 +45,7 @@ export default function ProjectsGridBlock({ block, projects, settings, filterInH
               <div className="text-cream/50 text-[13.5px] leading-[1.65] mb-5">{p.summary}</div>
               <div className="flex gap-2 flex-wrap border-t border-gold/10 pt-5">
                 {p.tags.map((t) => (
-                  <span key={t} className="text-[11px] text-gold/70 bg-gold/[0.08] px-2.5 py-1 rounded-sm">
+                  <span key={t} className="text-[11px] text-gold bg-gold/[0.08] px-2.5 py-1 rounded-sm">
                     {t}
                   </span>
                 ))}

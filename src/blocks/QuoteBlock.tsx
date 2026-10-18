@@ -28,7 +28,7 @@ export default function QuoteBlock({ block }: { block: SectionOf<'quote'> }) {
           {block.quote}
         </blockquote>
         {block.source && (
-          <figcaption className="relative z-10 text-sm mt-4 tracking-[2px] uppercase" style={{ color: 'rgba(44,44,46,0.65)' }}>
+          <figcaption className="relative z-10 text-sm mt-4 tracking-[2px] uppercase text-night">
             — {block.source}
           </figcaption>
         )}

@@ -10,7 +10,7 @@ export default function TextImageBlock({ block }: { block: SectionOf<'textImage'
     <section className={`px-6 md:px-20 py-20 ${light ? 'bg-cream' : 'bg-charcoal'}`}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className={imageLeft ? 'lg:order-2' : ''}>
-          {block.label && <SectionLabel className="mb-6">{block.label}</SectionLabel>}
+          {block.label && <SectionLabel className="mb-6" onLight={light}>{block.label}</SectionLabel>}
           <h2 className={`leading-none mb-6 font-display ${light ? 'text-charcoal' : 'text-cream'}`} style={{ fontSize: 'clamp(36px, 4vw, 52px)' }}>
             {block.title}
           </h2>

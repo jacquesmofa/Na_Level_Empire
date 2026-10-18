@@ -16,10 +16,10 @@ export default function JobsListBlock({ block, jobs }: { block: SectionOf<'jobsL
               <span className={chip} style={{ background: 'rgba(200,146,42,0.12)', color: '#C8922A' }}>
                 {j.employmentType}
               </span>
-              <span className={chip} style={{ background: 'rgba(200,146,42,0.06)', color: 'rgba(200,146,42,0.7)' }}>
+              <span className={chip} style={{ background: 'rgba(200,146,42,0.06)', color: '#C8922A' }}>
                 {j.department}
               </span>
-              <span className={chip} style={{ background: 'rgba(253,252,240,0.05)', color: 'rgba(253,252,240,0.45)' }}>
+              <span className={chip} style={{ background: 'rgba(253,252,240,0.05)', color: 'rgba(253,252,240,0.55)' }}>
                 {j.location}
               </span>
             </div>

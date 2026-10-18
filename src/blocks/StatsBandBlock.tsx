@@ -2,7 +2,7 @@ import type { SectionOf } from '@/content';
 import TargetTag from '@/components/ui/TargetTag';
 
 const TILE_STYLES = [
-  { bg: 'linear-gradient(135deg, #C8922A, #a87520)', text: '#2C2C2E', label: 'rgba(44,44,46,0.65)', tag: 'dark' as const },
+  { bg: 'linear-gradient(135deg, #C8922A, #a87520)', text: '#2C2C2E', label: '#1A1A1C', tag: 'dark' as const },
   { bg: '#1e1e20', text: '#FDFCF0', label: 'rgba(253,252,240,0.55)', tag: 'gold' as const },
   { bg: 'linear-gradient(135deg, #2C2C2E, #1a1a1c)', text: '#C8922A', label: 'rgba(253,252,240,0.55)', tag: 'gold' as const },
 ];

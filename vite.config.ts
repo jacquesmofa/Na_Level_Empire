@@ -17,6 +17,7 @@ function validateContentPlugin(): Plugin {
   return {
     name: 'nlem:validate-content',
     buildStart() {
+      if (this.environment?.config.consumer === 'server') return; // already checked by the browser build
       const errors = validateContent(resolve(import.meta.dirname, 'src/content'));
       if (errors.length) {
         this.error(`Content check failed: ${errors.length} problem(s)\n  ✗ ${errors.join('\n  ✗ ')}\n`);
@@ -33,7 +34,7 @@ function validateContentPlugin(): Plugin {
 function cmsPlugin(): Plugin {
   return {
     name: 'nlem:cms',
-    apply: 'build',
+    apply: (_config, { isSsrBuild }) => !isSsrBuild,
     closeBundle() {
       const out = resolve(import.meta.dirname, 'dist/admin');
       mkdirSync(out, { recursive: true });

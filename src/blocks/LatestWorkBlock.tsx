@@ -10,7 +10,7 @@ export default function LatestWorkBlock({ block }: { block: SectionOf<'latestWor
 
   return (
     <section className="px-6 md:px-20 py-24 bg-cream">
-      <SectionLabel>{block.label}</SectionLabel>
+      <SectionLabel onLight>{block.label}</SectionLabel>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
         {/* Large item */}

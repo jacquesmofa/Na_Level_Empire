@@ -40,8 +40,12 @@ scripts/
   validate-content.ts      content checks (also runs inside vite build)
   cms-config.ts            builds config.yml from the Zod schema + labels
   migrate-images.ts        one-time Readdy -> Cloudinary move
+  prerender.ts             writes every page as HTML + sitemap.xml + robots.txt after the build
   *.test.ts                node:test suites
 src/
+  main.tsx                 browser entry: hydrates prerendered HTML
+  entry-server.tsx         build-time entry used by scripts/prerender.ts
+  Root.tsx                 cursor + routes, shared by both entries
   content/
     schema.ts              Zod: the single source of truth
     constants.ts           locales, fixed page ids/paths (no zod: safe for the bundle)
@@ -120,7 +124,7 @@ npm run dev          dev server on :3000 (/__blocks shows every section type)
 npm run check        lint + typecheck + validate + cms:check + tests
 npm run validate     content checks only
 npm run cms:config   regenerate public/admin/config.yml after schema/label changes
-npm run build        validate → vite build → copy CMS into dist/admin
+npm run build        validate → vite build → copy CMS into dist/admin → SSR build → prerender
 npm run preview      serve dist/ locally
 ```
 
@@ -148,11 +152,22 @@ Vercel environment variables (Production + Preview); nothing secret is committed
 - Fallback login: Sveltia "Sign In Using Access Token" with a fine-grained
   GitHub token limited to this repository (Contents: read and write).
 
+## Pages, SEO and performance
+
+- Every page in both languages is prerendered (`dist/<path>.html`); React
+  hydrates it. Unknown addresses get `dist/404.html` with a real 404 status
+  (no catch-all rewrite in `vercel.json`).
+- Each page's `<head>` comes from its `seo` fields: title, description,
+  canonical, hreflang en/fr/x-default, Open Graph/Twitter (first image of the
+  page). Home adds Organization JSON-LD. `sitemap.xml` and `robots.txt` use
+  `CMS_SITE_URL` or Vercel's production address.
+- Fonts are self-hosted (`@fontsource`, imported in `main.tsx`) and the
+  first-screen weights are preloaded. Icons are inline SVG (`Icon.tsx`).
+- Animations stop under `prefers-reduced-motion`; the custom cursor only runs
+  with a mouse (`pointer: fine`).
+
 ## Planned
 
-- Phase (e): prerendering of every route and language, per-page meta,
-  sitemap, robots, structured data, self-hosted fonts, inline SVG icons,
-  reduced motion, mouse-only cursor, contrast pass.
 - Phase (f): editor guide, template repository.
 
 ## Working rules for Claude

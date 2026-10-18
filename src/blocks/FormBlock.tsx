@@ -5,7 +5,7 @@ import SectionLabel from '@/components/ui/SectionLabel';
 import { submitForm } from '@/lib/forms';
 
 const inputClass =
-  'px-4 py-3.5 text-sm outline-none transition-colors placeholder:text-cream/25 border border-gold/20 focus:border-gold font-body';
+  'px-4 py-3.5 text-sm outline-none transition-colors placeholder:text-cream/50 border border-gold/20 focus:border-gold font-body';
 const inputStyle = { background: 'rgba(253,252,240,0.04)', color: '#FDFCF0' };
 const labelClass = 'text-cream/50 text-[11px] font-bold tracking-[2px] uppercase font-heading';
 
@@ -140,14 +140,14 @@ export default function FormBlock({ block, settings }: { block: SectionOf<'form'
           <div className="leading-none mb-6 font-display text-charcoal" style={{ fontSize: '40px' }}>
             {block.panel.title}
           </div>
-          <p className="text-sm leading-[1.8]" style={{ color: 'rgba(44,44,46,0.7)' }}>
+          <p className="text-sm leading-[1.8] text-night">
             {block.panel.text}
           </p>
         </div>
         <div className="flex flex-col gap-7 mt-10 relative z-10">
           {details.map((d) => (
             <div key={d.label}>
-              <div className="text-[10px] font-bold tracking-[3px] uppercase mb-1.5 font-heading" style={{ color: 'rgba(44,44,46,0.55)' }}>
+              <div className="text-[10px] font-bold tracking-[3px] uppercase mb-1.5 font-heading text-night">
                 {d.label}
               </div>
               {d.href ? (
@@ -160,7 +160,7 @@ export default function FormBlock({ block, settings }: { block: SectionOf<'form'
             </div>
           ))}
           <div>
-            <div className="text-[10px] font-bold tracking-[3px] uppercase mb-3 font-heading" style={{ color: 'rgba(44,44,46,0.55)' }}>
+            <div className="text-[10px] font-bold tracking-[3px] uppercase mb-3 font-heading text-night">
               {block.panel.followLabel}
             </div>
             <div className="flex gap-3">
@@ -169,7 +169,7 @@ export default function FormBlock({ block, settings }: { block: SectionOf<'form'
                   key={s.platform}
                   to={s.url}
                   aria-label={settings.ui.socialNames[s.platform]}
-                  className="w-10 h-10 flex items-center justify-center text-xs font-bold no-underline transition-all cursor-pointer text-charcoal hover:bg-charcoal/[0.12] font-heading"
+                  className="w-10 h-10 flex items-center justify-center text-xs font-bold no-underline transition-all cursor-pointer text-night hover:bg-charcoal/[0.12] font-heading"
                   style={{ border: '1px solid rgba(44,44,46,0.25)' }}
                 >
                   {s.label}

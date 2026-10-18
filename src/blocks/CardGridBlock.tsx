@@ -25,7 +25,7 @@ export default function CardGridBlock({ block }: { block: SectionOf<'cardGrid'> 
     case 'services':
       return (
         <section className="px-6 md:px-20 py-20 border-t border-gold/10 bg-cream">
-          {block.label && <SectionLabel>{block.label}</SectionLabel>}
+          {block.label && <SectionLabel onLight>{block.label}</SectionLabel>}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {block.cards.map((card) => (
               <CardShell
@@ -54,7 +54,7 @@ export default function CardGridBlock({ block }: { block: SectionOf<'cardGrid'> 
                     </div>
                   )}
                   <div className="text-charcoal text-base font-bold mb-3 font-heading">{card.title}</div>
-                  <div className="text-charcoal/60 text-[13.5px] leading-[1.65]">{card.text}</div>
+                  <div className="text-charcoal/70 text-[13.5px] leading-[1.65]">{card.text}</div>
                 </div>
               </CardShell>
             ))}
