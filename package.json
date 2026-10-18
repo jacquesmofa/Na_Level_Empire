@@ -14,7 +14,7 @@
     "preview": "vite preview",
     "lint": "eslint src --report-unused-disable-directives --max-warnings 0",
     "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
-    "test": "node --test scripts/",
+    "test": "node --test \"scripts/**/*.test.ts\"",
     "check": "npm run lint && npm run typecheck && npm run validate && npm test"
   },
   "dependencies": {
