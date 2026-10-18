@@ -28,6 +28,7 @@ import {
   type SectionType,
 } from '../src/content/schema.ts';
 import { isSharedField } from '../src/content/sharedFields.ts';
+import { SITE_CONFIG } from '../src/site.config.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const CONFIG_PATH = join(ROOT, 'public', 'admin', 'config.yml');
@@ -35,8 +36,8 @@ export const CONFIG_PATH = join(ROOT, 'public', 'admin', 'config.yml');
 /** Placeholder written into the committed file; the build swaps in the real address. */
 export const SITE_URL_PLACEHOLDER = 'https://SITE_URL';
 
-const REPO = 'jacquesmofa/Na_Level_Empire';
-const CLOUDINARY = { cloud_name: 'beavj5sp', api_key: '255915537921357' };
+const REPO = SITE_CONFIG.repo;
+const CLOUDINARY = { cloud_name: SITE_CONFIG.cloudinary.cloud, api_key: SITE_CONFIG.cloudinary.apiKey };
 
 // ---------------------------------------------------------------------------
 // Labels and hints (the only hand-written part)
@@ -306,7 +307,7 @@ function convert(key: string, schema: Json, parent: string, required: boolean, c
       widget: 'object',
       i18n: true,
       fields: [
-        { name: 'url', label: 'Image file', widget: 'image', i18n: 'duplicate', hint: 'Choose or upload in Cloudinary (folder nlem)' },
+        { name: 'url', label: 'Image file', widget: 'image', i18n: 'duplicate', hint: `Choose or upload in Cloudinary (folder ${SITE_CONFIG.cloudinary.folder})` },
         { name: 'alt', ...labelFor('alt', key), widget: 'string', i18n: true, maxlength: schema.properties.alt.maxLength },
       ],
     };

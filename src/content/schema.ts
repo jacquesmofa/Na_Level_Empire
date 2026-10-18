@@ -6,11 +6,12 @@
  *
  * TypeScript types are inferred from these schemas; never write them by hand.
  *
- * This file imports only zod and ./constants.ts: it is also loaded directly
+ * This file imports only zod, ./constants.ts and ../site.config.ts: it is also loaded directly
  * by Node in scripts/validate-content.ts. The site itself imports only types
  * from here, so zod never ships to visitors.
  */
 import { z } from 'zod';
+import { SITE_CONFIG } from '../site.config.ts';
 
 export { LOCALES, DEFAULT_LOCALE, PAGE_IDS, type Locale, type PageId } from './constants.ts';
 
@@ -28,7 +29,11 @@ export const LinkSchema = z
   .regex(/^(\/[^\s]*|https?:\/\/[^\s]+|mailto:[^\s]+|tel:[^\s]+|#)$/, 'must be a site path like /contact, a full https:// link, mailto: or tel:');
 
 /** Images must live in our Cloudinary account, inside the client's folder. */
-export const CLOUDINARY_IMAGE = /^https:\/\/res\.cloudinary\.com\/beavj5sp\/image\/upload\/(?:v\d+\/)?nlem\/[\w\-./%]+\.(?:jpe?g|png|webp|avif|gif|svg)$/i;
+const { cloud: CLOUD, folder: FOLDER } = SITE_CONFIG.cloudinary;
+export const CLOUDINARY_IMAGE = new RegExp(
+  `^https://res\\.cloudinary\\.com/${CLOUD}/image/upload/(?:v\\d+/)?${FOLDER}/[\\w\\-./%]+\\.(?:jpe?g|png|webp|avif|gif|svg)$`,
+  'i',
+);
 
 /**
  * TEMPORARY: the prototype's Readdy images are accepted until they are moved
@@ -43,7 +48,7 @@ export const ImageSchema = z.strictObject({
     .string()
     .refine(
       (u) => CLOUDINARY_IMAGE.test(u) || (ALLOW_LEGACY_READDY_IMAGES && LEGACY_READDY.test(u)),
-      'must be an image uploaded to our Cloudinary (res.cloudinary.com/beavj5sp/…/nlem/…); pick it with the image button',
+      `must be an image uploaded to our Cloudinary (res.cloudinary.com/${CLOUD}/…/${FOLDER}/…); pick it with the image button`,
     ),
   alt: text(150),
 });

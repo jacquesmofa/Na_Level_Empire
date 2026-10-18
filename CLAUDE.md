@@ -43,6 +43,7 @@ scripts/
   prerender.ts             writes every page as HTML + sitemap.xml + robots.txt after the build
   *.test.ts                node:test suites
 src/
+  site.config.ts           GitHub repo + Cloudinary cloud/key/folder (change these for a new client)
   main.tsx                 browser entry: hydrates prerendered HTML
   entry-server.tsx         build-time entry used by scripts/prerender.ts
   Root.tsx                 cursor + routes, shared by both entries
@@ -64,6 +65,8 @@ src/
   dev/                     /__blocks catalogue (development only)
 PLACEHOLDERS.md            every unconfirmed item
 docs/setup-checklist.md    owner setup (Vercel, Web3Forms, Cloudinary, OAuth, editors)
+docs/editor-guide.md       how editors use /admin (with screenshots)
+docs/template-repo.md      starting another client's site from this one
 ```
 
 ## Content model
@@ -166,9 +169,11 @@ Vercel environment variables (Production + Preview); nothing secret is committed
 - Animations stop under `prefers-reduced-motion`; the custom cursor only runs
   with a mouse (`pointer: fine`).
 
-## Planned
+## Guides
 
-- Phase (f): editor guide, template repository.
+- `docs/editor-guide.md`: for the editors, with screenshots (`docs/editor-guide/`).
+- `docs/template-repo.md`: reusing this repository for another client.
+  Client-specific accounts live only in `src/site.config.ts`.
 
 ## Working rules for Claude
 
