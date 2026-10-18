@@ -1,0 +1,158 @@
+{
+  "siteName": "Na Level Empire Media",
+  "logo": {
+    "url": "https://storage.readdy-site.link/project_files/a6f92c14-7869-4e48-89ff-7dde7f897296/626ccacd-57a0-4ea7-ae02-5aed5fa85ca1_Na-Level-logo-01---Copy.png?v=76848457b4d48250ef042e9eee5aabed",
+    "alt": "Na Level Empire Media"
+  },
+  "blurb": "L'entreprise sociale de production audiovisuelle de Toronto — là où la qualité cinématographique rencontre un véritable impact communautaire.",
+  "contact": {
+    "location": "Toronto (Ontario), Canada",
+    "email": "hello@nalevelempire.ca",
+    "phone": "+1 (416) 000-0000",
+    "hours": "Lun – ven, 9 h – 18 h (HNE)"
+  },
+  "social": [
+    {
+      "platform": "youtube",
+      "label": "YT",
+      "url": "#",
+      "placeholder": true
+    },
+    {
+      "platform": "instagram",
+      "label": "IG",
+      "url": "#",
+      "placeholder": true
+    },
+    {
+      "platform": "linkedin",
+      "label": "LI",
+      "url": "#",
+      "placeholder": true
+    },
+    {
+      "platform": "facebook",
+      "label": "FB",
+      "url": "#",
+      "placeholder": true
+    }
+  ],
+  "nav": [
+    {
+      "label": "Accueil",
+      "link": "/"
+    },
+    {
+      "label": "Projets",
+      "link": "/projects"
+    },
+    {
+      "label": "Médias",
+      "link": "/media"
+    },
+    {
+      "label": "Nouvelles",
+      "link": "/news"
+    },
+    {
+      "label": "Impact social",
+      "link": "/impact"
+    },
+    {
+      "label": "Carrières",
+      "link": "/careers"
+    },
+    {
+      "label": "À propos",
+      "link": "/about"
+    }
+  ],
+  "navCta": {
+    "label": "Demander un devis",
+    "link": "/contact"
+  },
+  "footer": {
+    "pagesTitle": "Pages",
+    "links": [
+      {
+        "label": "Accueil",
+        "link": "/"
+      },
+      {
+        "label": "Projets",
+        "link": "/projects"
+      },
+      {
+        "label": "Médias",
+        "link": "/media"
+      },
+      {
+        "label": "Nouvelles",
+        "link": "/news"
+      },
+      {
+        "label": "Impact social",
+        "link": "/impact"
+      },
+      {
+        "label": "Carrières",
+        "link": "/careers"
+      },
+      {
+        "label": "À propos",
+        "link": "/about"
+      },
+      {
+        "label": "Contact",
+        "link": "/contact"
+      }
+    ],
+    "servicesTitle": "Services",
+    "services": [
+      "Production vidéo",
+      "Diffusion en direct",
+      "Gestion d'événements",
+      "Ingénierie du son",
+      "Conception d'éclairage",
+      "Documentaire",
+      "Location d'équipement",
+      "Postproduction"
+    ],
+    "legalTitle": "Mentions légales",
+    "legal": [
+      {
+        "label": "Politique de confidentialité"
+      },
+      {
+        "label": "Conditions d'utilisation"
+      },
+      {
+        "label": "Engagement B Corp"
+      },
+      {
+        "label": "Rapport d'impact social"
+      },
+      {
+        "label": "Rapport annuel"
+      }
+    ],
+    "copyrightName": "Na Level Empire Media",
+    "copyrightSuffix": ". Constituée en Ontario, Canada. Tous droits réservés.",
+    "closingPrefix": "Bâti avec raison d’être à",
+    "closingHighlight": "Toronto"
+  },
+  "seo": {
+    "title": "Na Level Empire Media | Production audiovisuelle à Toronto",
+    "description": "Na Level Empire Media — entreprise sociale de production audiovisuelle à Toronto : production, diffusion en direct, événements et formation de la main-d’œuvre locale."
+  },
+  "ui": {
+    "languageName": "Français",
+    "switchToLabel": "EN",
+    "switchToAria": "View this site in English",
+    "menuToggleAria": "Ouvrir ou fermer le menu",
+    "statusCurrent": "● EN COURS",
+    "statusCompleted": "TERMINÉ",
+    "targetTag": "Objectif",
+    "readTime": "Lecture : {minutes} min"
+  }
+}

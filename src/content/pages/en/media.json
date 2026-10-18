@@ -1,0 +1,30 @@
+{
+  "seo": {
+    "title": "Media Hub | Na Level Empire Media",
+    "description": "Watch behind-the-scenes films, event reels, documentaries and training videos from the Na Level Empire Media YouTube channel."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Video Content",
+      "title": "MEDIA",
+      "titleAccent": "HUB"
+    },
+    {
+      "type": "videoGrid",
+      "showChannelCard": true,
+      "channel": {
+        "initials": "NL",
+        "name": "Na Level Empire Media",
+        "details": "@nalevelempiremedia  ·  Toronto, Ontario  ·  Audiovisual Production & Social Enterprise",
+        "url": "https://www.youtube.com/@nalevelempiremedia",
+        "buttonLabel": "Subscribe on YouTube"
+      },
+      "featuredVideo": {
+        "title": "Na Level Empire Media — Latest Video",
+        "embedUrl": "https://www.youtube.com/embed?listType=user_uploads&list=nalevelempiremedia"
+      },
+      "label": "Recent Videos"
+    }
+  ]
+}

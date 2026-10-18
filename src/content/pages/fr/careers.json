@@ -1,0 +1,53 @@
+{
+  "seo": {
+    "title": "Carrières et formation | Na Level Empire Media",
+    "description": "Apprentissages rémunérés et emplois en production audiovisuelle à Toronto, avec mentorat, horaires flexibles et possibilités d’avancement."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Rejoignez l'Empire",
+      "title": "CARRIÈRES &",
+      "titleAccent": "FORMATION"
+    },
+    {
+      "type": "richText",
+      "width": "narrow",
+      "paragraphs": [
+        "Nous ne faisons pas qu’embaucher des talents — nous les développons. Chaque poste chez Na Level Empire Media s’accompagne de mentorat, de perfectionnement professionnel et de la certitude que votre travail change concrètement les communautés de Toronto.",
+        "Que vous soyez une ou un professionnel AV expérimenté ou que vous fassiez vos premiers pas dans l’industrie, il y a une place pour vous ici."
+      ]
+    },
+    {
+      "type": "jobsList",
+      "applyLabel": "Postuler",
+      "applyLink": "/contact"
+    },
+    {
+      "type": "cardGrid",
+      "style": "perks",
+      "cards": [
+        {
+          "icon": "stack",
+          "title": "Formation rémunérée",
+          "text": "Formation structurée en milieu de travail avec des mentors expérimentés dès le premier jour."
+        },
+        {
+          "icon": "time",
+          "title": "Horaires flexibles",
+          "text": "Nous savons que la vie est compliquée. Nous bâtissons avec vous un horaire qui vous convient."
+        },
+        {
+          "icon": "team",
+          "title": "Communauté",
+          "text": "Joignez une équipe à l’image de Toronto — diversifiée, créative, motivée et animée par sa mission."
+        },
+        {
+          "icon": "chart",
+          "title": "Avancement",
+          "text": "Des parcours clairs, d’apprenti à chef d’équipe — et l’accès à des certifications externes financées par NLEM."
+        }
+      ]
+    }
+  ]
+}

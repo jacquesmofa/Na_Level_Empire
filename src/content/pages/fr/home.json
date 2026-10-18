@@ -1,0 +1,181 @@
+{
+  "seo": {
+    "title": "Na Level Empire Media | Production audiovisuelle à Toronto",
+    "description": "Na Level Empire Media — entreprise sociale de production audiovisuelle à Toronto : production, diffusion en direct, événements et formation de la main-d’œuvre locale."
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "L'entreprise sociale AV de Toronto",
+      "headlineLines": [
+        "LÀ OÙ",
+        "LA VISION",
+        "RENCONTRE"
+      ],
+      "headlineAccent": "L'IMPACT",
+      "intro": "Production audiovisuelle de qualité cinéma et gestion d'événements — portées par une équipe issue des communautés les plus dynamiques de Toronto.",
+      "buttons": [
+        {
+          "label": "Voir nos réalisations",
+          "link": "/projects"
+        },
+        {
+          "label": "Lancer un projet",
+          "link": "/contact"
+        }
+      ],
+      "stats": [
+        {
+          "value": "100",
+          "suffix": "+",
+          "label": "Événements produits",
+          "kind": "result"
+        },
+        {
+          "value": "50",
+          "suffix": "+",
+          "label": "Vies touchées",
+          "kind": "result"
+        },
+        {
+          "value": "12",
+          "suffix": "K",
+          "label": "Heures de formation",
+          "kind": "result"
+        }
+      ],
+      "reel": [
+        {
+          "url": "https://readdy.ai/api/search-image?query=professional%20film%20crew%20diverse%20team%20shooting%20documentary%20cinematic%20camera%20rig%20dramatic%20lighting%20urban%20Toronto%20production%20day&width=640&height=360&seq=reel1&orientation=landscape",
+          "alt": "Équipe de tournage d’un documentaire à Toronto"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=live%20event%20soundboard%20audio%20engineer%20mixing%20console%20dramatic%20stage%20lighting%20concert%20production%20dark%20atmosphere&width=640&height=360&seq=reel2&orientation=landscape",
+          "alt": "Ingénieur du son à une console de mixage en direct"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=aerial%20view%20media%20empire%20Toronto%20skyline%20cinematic%20drone%20shot%20golden%20hour%20city%20lights%20dramatic&width=640&height=360&seq=reel3&orientation=landscape",
+          "alt": "Horizon de Toronto à l’heure dorée"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=videographer%20on%20set%20professional%20camera%20operator%20cinematic%20lighting%20film%20production%20dark%20studio&width=640&height=360&seq=reel4&orientation=landscape",
+          "alt": "Caméraman sur un plateau de tournage"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=gala%20event%20production%20elegant%20stage%20lighting%20large%20venue%20professional%20AV%20setup%20dramatic%20atmosphere&width=640&height=360&seq=reel5&orientation=landscape",
+          "alt": "Scène de gala avec éclairage professionnel"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=diverse%20media%20production%20team%20collaboration%20modern%20studio%20creative%20professionals%20Toronto%20cinematic&width=640&height=360&seq=reel6&orientation=landscape",
+          "alt": "Équipe de production en studio"
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "style": "services",
+      "label": "Ce que nous faisons",
+      "cards": [
+        {
+          "icon": "camera",
+          "title": "Production audiovisuelle",
+          "text": "Production vidéo 4K, ingénierie du son, conception d’éclairage et postproduction complète, pour des projets de toutes tailles.",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=professional%20videographer%20camera%20operator%20cinematic%20production%20dark%20studio%20dramatic%20lighting%20equipment%20setup&width=400&height=300&seq=svc1&orientation=landscape",
+            "alt": "Production audiovisuelle"
+          }
+        },
+        {
+          "icon": "live",
+          "title": "Diffusion en direct",
+          "text": "Diffusion d’événements hybrides, YouTube Live, flux multilingues et diffusion RTMP sur mesure pour un public mondial.",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=live%20streaming%20broadcast%20setup%20monitors%20technical%20control%20room%20professional%20AV%20equipment%20dark%20environment&width=400&height=300&seq=svc2&orientation=landscape",
+            "alt": "Diffusion en direct"
+          }
+        },
+        {
+          "icon": "team",
+          "title": "Gestion d'événements",
+          "text": "Planification d'événements de A à Z : galas, conférences, événements communautaires et activations d’entreprise dans la RGT.",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=professional%20event%20management%20gala%20venue%20elegant%20stage%20lighting%20large%20audience%20production%20crew%20setup&width=400&height=300&seq=svc3&orientation=landscape",
+            "alt": "Gestion d'événements"
+          }
+        },
+        {
+          "icon": "film",
+          "title": "Histoires communautaires",
+          "text": "Courts documentaires sur mesure, vidéos d’impact et contenus multilingues qui célèbrent la diversité des communautés de Toronto.",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=documentary%20storytelling%20diverse%20community%20Toronto%20cinematic%20portrait%20interview%20professional%20lighting&width=400&height=300&seq=svc4&orientation=landscape",
+            "alt": "Histoires communautaires"
+          }
+        }
+      ]
+    },
+    {
+      "type": "statsBand",
+      "style": "band",
+      "stats": [
+        {
+          "value": "$500K",
+          "label": "Revenus visés — année 3",
+          "kind": "target"
+        },
+        {
+          "value": "25%",
+          "label": "Des profits réinvestis",
+          "kind": "result"
+        },
+        {
+          "value": "8+",
+          "label": "Embauches communautaires — année 1",
+          "kind": "target"
+        },
+        {
+          "value": "B Corp",
+          "label": "Parcours de certification",
+          "kind": "target"
+        }
+      ]
+    },
+    {
+      "type": "latestWork",
+      "label": "Réalisations récentes",
+      "items": [
+        {
+          "category": "Documentaire",
+          "title": "Voix de la communauté : Scarborough Rising",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=cinematic%20documentary%20film%20Scarborough%20Toronto%20youth%20community%20storytelling%20dramatic%20lighting%20urban%20street%20photography&width=700&height=700&seq=reel_lg&orientation=squarish",
+            "alt": "Voix de la communauté : Scarborough Rising"
+          },
+          "link": "/projects"
+        },
+        {
+          "category": "AV événementiel",
+          "title": "Gala d’OBNL de Toronto 2025",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=nonprofit%20gala%20event%20professional%20stage%20lighting%20elegant%20ballroom%20Toronto%20AV%20production%20dramatic%20atmosphere&width=700&height=340&seq=reel_sm1&orientation=landscape",
+            "alt": "Gala d’OBNL de Toronto 2025"
+          },
+          "link": "/projects"
+        },
+        {
+          "category": "Film de marque",
+          "title": "Campagne d’impact d’une caisse populaire",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=corporate%20brand%20film%20production%20professional%20lighting%20director%20camera%20modern%20office%20cinematic%20dark%20background&width=700&height=340&seq=reel_sm2&orientation=landscape",
+            "alt": "Campagne d’impact d’une caisse populaire"
+          },
+          "link": "/projects"
+        }
+      ],
+      "button": {
+        "label": "Voir tous les projets",
+        "link": "/projects"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Gala Centraide Toronto 2025",
+  "category": "AV événementiel",
+  "type": "event",
+  "status": "past",
+  "summary": "Production AV complète d’un gala de 600 personnes : conception d’éclairage, sonorisation et enregistrement en direct.",
+  "tags": [
+    "AV événementiel",
+    "Éclairage",
+    "Son"
+  ],
+  "image": {
+    "url": "https://readdy.ai/api/search-image?query=elegant%20gala%20event%20professional%20stage%20lighting%20dramatic%20spotlights%20large%20ballroom%20audience%20audiovisual%20production%20setup%20dark%20atmosphere%20gold%20accents&width=800&height=500&seq=proj2&orientation=landscape",
+    "alt": "Gala Centraide Toronto 2025"
+  },
+  "order": 20,
+  "published": true
+}

@@ -1,0 +1,65 @@
+{
+  "seo": {
+    "title": "Contact et devis | Na Level Empire Media",
+    "description": "Demandez un devis pour une production vidéo, une diffusion en direct, de l’AV événementiel ou un documentaire. Réponse en un jour ouvrable."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Travaillons ensemble",
+      "title": "ÉCRIVEZ-",
+      "titleAccent": "NOUS"
+    },
+    {
+      "type": "form",
+      "form": "quote",
+      "formTitle": "Parlez-nous de votre projet",
+      "fields": {
+        "firstName": "Prénom",
+        "firstNamePlaceholder": "Jeanne",
+        "lastName": "Nom",
+        "lastNamePlaceholder": "Tremblay",
+        "organization": "Organisation",
+        "organizationPlaceholder": "Votre entreprise / OBNL",
+        "email": "Courriel",
+        "emailPlaceholder": "vous@organisation.com",
+        "services": "Services requis",
+        "budget": "Budget du projet",
+        "budgetPlaceholder": "Choisissez une fourchette",
+        "message": "Dites-nous en plus",
+        "messagePlaceholder": "Décrivez votre projet, événement ou idée — plus vous donnez de détails, mieux nous pourrons nous préparer…"
+      },
+      "serviceOptions": [
+        "Production vidéo",
+        "Gestion d'événements",
+        "Diffusion en direct",
+        "Ingénierie du son",
+        "Conception d'éclairage",
+        "Location d'équipement",
+        "Documentaire / histoire",
+        "Postproduction"
+      ],
+      "budgetOptions": [
+        "Moins de 5 000 $",
+        "5 000 $ – 15 000 $",
+        "15 000 $ – 50 000 $",
+        "50 000 $ – 100 000 $",
+        "100 000 $ et plus"
+      ],
+      "submitLabel": "Envoyer →",
+      "sendingLabel": "Envoi…",
+      "successTitle": "Message envoyé!",
+      "successText": "Merci! L'équipe de Na Level Empire Media vous répondra d’ici un jour ouvrable.",
+      "errorText": "Désolé, votre message n’a pas été envoyé. Veuillez réessayer ou nous écrire à",
+      "panel": {
+        "title": "Bâtissons quelque chose qui compte",
+        "text": "Nous travaillons avec des OBNL, des organismes publics, des établissements d’enseignement et des entreprises engagées partout dans la RGT. Les demandes d’approvisionnement social sont toujours les bienvenues.",
+        "locationLabel": "Adresse",
+        "emailLabel": "Courriel",
+        "phoneLabel": "Téléphone",
+        "hoursLabel": "Heures d'ouverture",
+        "followLabel": "Suivez nos projets"
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "seo": {
+    "title": "Contact & Quotes | Na Level Empire Media",
+    "description": "Request a quote for video production, live streaming, event AV or a documentary. Na Level Empire Media replies within one business day."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Work With Us",
+      "title": "GET IN",
+      "titleAccent": "TOUCH"
+    },
+    {
+      "type": "form",
+      "form": "quote",
+      "formTitle": "Tell Us About Your Project",
+      "fields": {
+        "firstName": "First Name",
+        "firstNamePlaceholder": "Jane",
+        "lastName": "Last Name",
+        "lastNamePlaceholder": "Smith",
+        "organization": "Organization",
+        "organizationPlaceholder": "Your company / nonprofit",
+        "email": "Email",
+        "emailPlaceholder": "you@organization.com",
+        "services": "Services Needed",
+        "budget": "Project Budget Range",
+        "budgetPlaceholder": "Select a range",
+        "message": "Tell Us More",
+        "messagePlaceholder": "Describe your project, event, or idea — the more detail, the better we can prepare…"
+      },
+      "serviceOptions": [
+        "Video Production",
+        "Event Management",
+        "Live Streaming",
+        "Sound Engineering",
+        "Lighting Design",
+        "Equipment Rental",
+        "Documentary / Story",
+        "Post-Production"
+      ],
+      "budgetOptions": [
+        "Under $5,000",
+        "$5,000 – $15,000",
+        "$15,000 – $50,000",
+        "$50,000 – $100,000",
+        "$100,000+"
+      ],
+      "submitLabel": "Send Message →",
+      "sendingLabel": "Sending…",
+      "successTitle": "Message Sent!",
+      "successText": "Thank you! The Na Level Empire Media team will respond within 1 business day.",
+      "errorText": "Sorry, your message didn't send. Please try again, or email us at",
+      "panel": {
+        "title": "Let's Build Something Meaningful",
+        "text": "We work with nonprofits, government agencies, educational institutions, and mission-driven businesses across the GTA. Social procurement inquiries are always welcome.",
+        "locationLabel": "Location",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone",
+        "hoursLabel": "Business Hours",
+        "followLabel": "Follow Our Work"
+      }
+    }
+  ]
+}

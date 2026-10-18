@@ -1,0 +1,9 @@
+{
+  "name": "Director of Events",
+  "role": "Events & Client Relations",
+  "photo": {
+    "url": "https://readdy.ai/api/search-image?query=professional%20events%20director%20portrait%20dark%20background%20diverse%20woman%20confident%20formal%20attire%20studio%20lighting%20cinematic&width=400&height=533&seq=team3&orientation=portrait",
+    "alt": "Director of Events"
+  },
+  "order": 30
+}

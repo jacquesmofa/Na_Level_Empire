@@ -1,0 +1,53 @@
+{
+  "seo": {
+    "title": "News & Stories | Na Level Empire Media",
+    "description": "Company news, project highlights, social impact updates and community stories from Na Level Empire Media in Toronto."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Latest Updates",
+      "title": "NEWS &",
+      "titleAccent": "STORIES"
+    },
+    {
+      "type": "newsFeed",
+      "categories": [
+        {
+          "key": "company",
+          "label": "Company News"
+        },
+        {
+          "key": "project",
+          "label": "Project Highlights"
+        },
+        {
+          "key": "impact",
+          "label": "Social Impact"
+        },
+        {
+          "key": "industry",
+          "label": "Industry Insights"
+        },
+        {
+          "key": "community",
+          "label": "Community Stories"
+        },
+        {
+          "key": "events",
+          "label": "Events & Appearances"
+        }
+      ],
+      "categoriesTitle": "Categories",
+      "newsletterTitle": "Newsletter",
+      "newsletterText": "Get project updates, community stories, and industry news — straight to your inbox.",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email address",
+      "subscribeLabel": "Subscribe",
+      "subscribingLabel": "Subscribing...",
+      "subscribedText": "Thanks for subscribing!",
+      "errorText": "Sorry, that didn't go through. Please try again.",
+      "followTitle": "Follow Us"
+    }
+  ]
+}

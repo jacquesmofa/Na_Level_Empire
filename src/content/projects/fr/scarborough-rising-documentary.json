@@ -1,0 +1,18 @@
+{
+  "title": "Documentaire Scarborough Rising",
+  "category": "Documentaire",
+  "type": "doc",
+  "status": "current",
+  "summary": "Un long métrage documentaire qui suit trois jeunes de Scarborough dans l’industrie créative torontoise.",
+  "tags": [
+    "Documentaire",
+    "4K",
+    "Jeunesse"
+  ],
+  "image": {
+    "url": "https://readdy.ai/api/search-image?query=professional%20documentary%20film%20crew%20shooting%20in%20urban%20Toronto%20neighborhood%20cinematic%20lighting%20diverse%20team%20camera%20equipment%20golden%20hour%20dramatic%20shadows&width=800&height=500&seq=proj1&orientation=landscape",
+    "alt": "Documentaire Scarborough Rising"
+  },
+  "order": 10,
+  "published": true
+}

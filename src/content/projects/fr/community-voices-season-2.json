@@ -1,0 +1,18 @@
+{
+  "title": "Série Voix de la communauté — saison 2",
+  "category": "Documentaire",
+  "type": "doc",
+  "status": "current",
+  "summary": "Série documentaire en 6 épisodes qui présente des leaders communautaires torontois de tous horizons.",
+  "tags": [
+    "Documentaire",
+    "Série",
+    "Communauté"
+  ],
+  "image": {
+    "url": "https://readdy.ai/api/search-image?query=documentary%20interview%20setup%20professional%20lighting%20diverse%20subject%20sitting%20in%20chair%20camera%20crew%20Toronto%20community%20storytelling%20cinematic%20portrait&width=800&height=500&seq=proj7&orientation=landscape",
+    "alt": "Série Voix de la communauté — saison 2"
+  },
+  "order": 70,
+  "published": true
+}

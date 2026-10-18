@@ -1,0 +1,53 @@
+{
+  "seo": {
+    "title": "Careers & Training | Na Level Empire Media",
+    "description": "Paid apprenticeships and AV production jobs in Toronto with mentorship, flexible hours and clear growth paths at Na Level Empire Media."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Join the Empire",
+      "title": "CAREERS &",
+      "titleAccent": "TRAINING"
+    },
+    {
+      "type": "richText",
+      "width": "narrow",
+      "paragraphs": [
+        "We don't just hire talent — we build it. Every role at Na Level Empire Media comes with mentorship, professional development, and the knowledge that your work is creating real change in Toronto's communities.",
+        "Whether you're an experienced AV professional or someone taking their first step into the industry, there's a place for you here."
+      ]
+    },
+    {
+      "type": "jobsList",
+      "applyLabel": "Apply Now",
+      "applyLink": "/contact"
+    },
+    {
+      "type": "cardGrid",
+      "style": "perks",
+      "cards": [
+        {
+          "icon": "stack",
+          "title": "Paid Training",
+          "text": "Structured on-the-job training with experienced mentors from Day 1. No experience left behind."
+        },
+        {
+          "icon": "time",
+          "title": "Flexible Hours",
+          "text": "We understand life is complicated. We work with you to build schedules that work."
+        },
+        {
+          "icon": "team",
+          "title": "Community",
+          "text": "Join a team that looks like Toronto — diverse, creative, motivated, and rooted in purpose."
+        },
+        {
+          "icon": "chart",
+          "title": "Career Growth",
+          "text": "Clear progression paths from apprentice to lead — and access to external certifications funded by NLEM."
+        }
+      ]
+    }
+  ]
+}

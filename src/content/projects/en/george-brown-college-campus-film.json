@@ -1,0 +1,17 @@
+{
+  "title": "George Brown College Campus Film",
+  "category": "AV Production",
+  "type": "av",
+  "status": "past",
+  "summary": "Promotional brand film series for GBC recruitment campaign, produced in 3 languages.",
+  "tags": [
+    "Brand Film",
+    "Multilingual"
+  ],
+  "image": {
+    "url": "https://readdy.ai/api/search-image?query=professional%20videographer%20filming%20on%20college%20campus%20modern%20building%20cinematic%20camera%20rig%20crew%20production%20day%20bright%20natural%20light&width=800&height=500&seq=proj3&orientation=landscape",
+    "alt": "George Brown College Campus Film"
+  },
+  "order": 30,
+  "published": true
+}

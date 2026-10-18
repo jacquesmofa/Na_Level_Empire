@@ -1,0 +1,158 @@
+{
+  "siteName": "Na Level Empire Media",
+  "logo": {
+    "url": "https://storage.readdy-site.link/project_files/a6f92c14-7869-4e48-89ff-7dde7f897296/626ccacd-57a0-4ea7-ae02-5aed5fa85ca1_Na-Level-logo-01---Copy.png?v=76848457b4d48250ef042e9eee5aabed",
+    "alt": "Na Level Empire Media"
+  },
+  "blurb": "Toronto's audiovisual production social enterprise — where cinematic quality meets genuine community impact.",
+  "contact": {
+    "location": "Toronto, Ontario, Canada",
+    "email": "hello@nalevelempire.ca",
+    "phone": "+1 (416) 000-0000",
+    "hours": "Mon – Fri, 9am – 6pm EST"
+  },
+  "social": [
+    {
+      "platform": "youtube",
+      "label": "YT",
+      "url": "#",
+      "placeholder": true
+    },
+    {
+      "platform": "instagram",
+      "label": "IG",
+      "url": "#",
+      "placeholder": true
+    },
+    {
+      "platform": "linkedin",
+      "label": "LI",
+      "url": "#",
+      "placeholder": true
+    },
+    {
+      "platform": "facebook",
+      "label": "FB",
+      "url": "#",
+      "placeholder": true
+    }
+  ],
+  "nav": [
+    {
+      "label": "Home",
+      "link": "/"
+    },
+    {
+      "label": "Projects",
+      "link": "/projects"
+    },
+    {
+      "label": "Media Hub",
+      "link": "/media"
+    },
+    {
+      "label": "News",
+      "link": "/news"
+    },
+    {
+      "label": "Social Impact",
+      "link": "/impact"
+    },
+    {
+      "label": "Careers",
+      "link": "/careers"
+    },
+    {
+      "label": "About",
+      "link": "/about"
+    }
+  ],
+  "navCta": {
+    "label": "Get a Quote",
+    "link": "/contact"
+  },
+  "footer": {
+    "pagesTitle": "Pages",
+    "links": [
+      {
+        "label": "Home",
+        "link": "/"
+      },
+      {
+        "label": "Projects",
+        "link": "/projects"
+      },
+      {
+        "label": "Media Hub",
+        "link": "/media"
+      },
+      {
+        "label": "News",
+        "link": "/news"
+      },
+      {
+        "label": "Social Impact",
+        "link": "/impact"
+      },
+      {
+        "label": "Careers",
+        "link": "/careers"
+      },
+      {
+        "label": "About",
+        "link": "/about"
+      },
+      {
+        "label": "Contact",
+        "link": "/contact"
+      }
+    ],
+    "servicesTitle": "Services",
+    "services": [
+      "Video Production",
+      "Live Streaming",
+      "Event Management",
+      "Sound Engineering",
+      "Lighting Design",
+      "Documentary",
+      "Equipment Rental",
+      "Post-Production"
+    ],
+    "legalTitle": "Legal & Org",
+    "legal": [
+      {
+        "label": "Privacy Policy"
+      },
+      {
+        "label": "Terms of Service"
+      },
+      {
+        "label": "B Corp Commitment"
+      },
+      {
+        "label": "Social Impact Report"
+      },
+      {
+        "label": "Annual Report"
+      }
+    ],
+    "copyrightName": "Na Level Empire Media",
+    "copyrightSuffix": ". Incorporated in Ontario, Canada. All rights reserved.",
+    "closingPrefix": "Built with purpose in",
+    "closingHighlight": "Toronto"
+  },
+  "seo": {
+    "title": "Na Level Empire Media | Toronto AV Production & Social Enterprise",
+    "description": "Toronto's cinematic audiovisual production social enterprise: AV production, live streaming, event management and community workforce development."
+  },
+  "ui": {
+    "languageName": "English",
+    "switchToLabel": "FR",
+    "switchToAria": "Voir le site en français",
+    "menuToggleAria": "Toggle menu",
+    "statusCurrent": "● CURRENT",
+    "statusCompleted": "COMPLETED",
+    "targetTag": "Target",
+    "readTime": "{minutes} min read"
+  }
+}

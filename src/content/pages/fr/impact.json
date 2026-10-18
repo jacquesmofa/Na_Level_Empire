@@ -1,0 +1,88 @@
+{
+  "seo": {
+    "title": "Impact social | Na Level Empire Media",
+    "description": "Comment Na Level Empire Media forme et embauche dans les communautés sous-représentées de Toronto, réinvestit 25 % de ses profits et vise la certification B Corp."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Notre mission en action",
+      "title": "IMPACT",
+      "titleAccent": "SOCIAL"
+    },
+    {
+      "type": "cardGrid",
+      "style": "pillars",
+      "cards": [
+        {
+          "icon": "stack",
+          "title": "Des compétences pour la vie",
+          "text": "Chaque production est une salle de classe. Notre modèle d’apprentissage forme les jeunes à la caméra, au son, à l’éclairage, au montage et à la diffusion en direct — des compétences qui mènent directement à des carrières durables dans l’industrie médiatique torontoise de plus de 2 G$."
+        },
+        {
+          "icon": "team",
+          "title": "Qui nous embauchons en premier",
+          "text": "Nous recrutons activement dans les communautés sous-représentées de Toronto : personnes nouvellement arrivées et réfugiées, jeunes Autochtones, personnes en situation de handicap et jeunes de milieux à faible revenu. Notre équipe reflète la ville que nous servons."
+        },
+        {
+          "icon": "time",
+          "title": "Réinvestissement de 25 % des profits",
+          "text": "Au moins 25 % des profits nets sont réinvestis dans nos programmes de formation, le soutien en santé mentale, l’accès à l’équipement pour le personnel et les partenariats communautaires — un engagement inscrit dans nos documents de gouvernance."
+        },
+        {
+          "icon": "home",
+          "title": "Parcours B Corp",
+          "text": "Nous suivons un parcours structuré vers la certification B Corp d’ici l’année 3 — une norme reconnue mondialement pour les entreprises qui respectent les plus hauts standards de performance sociale et environnementale, de transparence et de responsabilité."
+        }
+      ]
+    },
+    {
+      "type": "statsBand",
+      "style": "tiles",
+      "stats": [
+        {
+          "value": "8–12",
+          "label": "Embauches communautaires — objectif année 1",
+          "kind": "target"
+        },
+        {
+          "value": "1,200+",
+          "label": "Heures de formation offertes par année",
+          "kind": "target"
+        },
+        {
+          "value": "70%+",
+          "label": "Taux de rétention du personnel visé",
+          "kind": "target"
+        }
+      ]
+    },
+    {
+      "type": "partners",
+      "label": "Partenaires communautaires",
+      "partners": [
+        {
+          "name": "George Brown College"
+        },
+        {
+          "name": "Ontario Trillium Foundation"
+        },
+        {
+          "name": "MaRS Discovery District"
+        },
+        {
+          "name": "OMDC"
+        },
+        {
+          "name": "BDC Social Enterprise"
+        },
+        {
+          "name": "Toronto Metropolitan Univ."
+        },
+        {
+          "name": "Ontario Nonprofit Network"
+        }
+      ]
+    }
+  ]
+}

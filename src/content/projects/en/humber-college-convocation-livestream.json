@@ -1,0 +1,18 @@
+{
+  "title": "Humber College Convocation Livestream",
+  "category": "Live Streaming",
+  "type": "stream",
+  "status": "past",
+  "summary": "Multi-camera live stream of Humber College convocation ceremony to 12,000 remote viewers.",
+  "tags": [
+    "Livestream",
+    "Education",
+    "Multi-cam"
+  ],
+  "image": {
+    "url": "https://readdy.ai/api/search-image?query=multi-camera%20live%20stream%20production%20graduation%20ceremony%20professional%20broadcast%20equipment%20operators%20large%20venue%20technical%20crew%20dark%20background&width=800&height=500&seq=proj8&orientation=landscape",
+    "alt": "Humber College Convocation Livestream"
+  },
+  "order": 80,
+  "published": true
+}
