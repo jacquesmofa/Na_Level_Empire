@@ -17,6 +17,7 @@ export default {
         gold: {
           DEFAULT: '#C8922A', // brand accent
           dark: '#A87520', // end of gold gradients
+          ink: '#946A1F', // gold text on light backgrounds (passes WCAG AA on cream)
         },
         cream: '#FDFCF0', // text on dark, light section background
       },

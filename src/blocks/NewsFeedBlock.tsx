@@ -11,7 +11,7 @@ const panel = 'p-7 rounded-sm bg-deep';
 const panelStyle = { border: '1px solid rgba(200,146,42,0.12)' };
 const panelTitle = 'text-cream text-[13px] font-bold tracking-[2px] uppercase border-b pb-4 mb-5 font-heading';
 const inputClass =
-  'border border-gold/20 focus:border-gold text-cream px-4 py-3 text-sm outline-none transition-colors placeholder:text-cream/30 font-body';
+  'border border-gold/20 focus:border-gold text-cream px-4 py-3 text-sm outline-none transition-colors placeholder:text-cream/50 font-body';
 
 export default function NewsFeedBlock({ block, news, settings }: Props) {
   const locale = useLocale();
@@ -90,7 +90,7 @@ export default function NewsFeedBlock({ block, news, settings }: Props) {
               <div>
                 <div className="text-gold text-[10px] font-bold tracking-[2px] uppercase mb-1.5 font-heading">{categoryLabel(n.category)}</div>
                 <h3 className="text-cream text-sm font-semibold leading-[1.4] font-heading">{n.title}</h3>
-                <div className="text-cream/40 text-xs mt-2">{formatMonthYear(n.date, locale)}</div>
+                <div className="text-cream/55 text-xs mt-2">{formatMonthYear(n.date, locale)}</div>
               </div>
             </article>
           ))}

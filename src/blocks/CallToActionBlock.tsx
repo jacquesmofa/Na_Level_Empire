@@ -13,7 +13,7 @@ export default function CallToActionBlock({ block }: { block: SectionOf<'callToA
           <div className={`leading-none mb-4 font-display ${gold ? 'text-charcoal' : 'text-cream'}`} style={{ fontSize: '40px' }}>
             {block.title}
           </div>
-          {block.text && <p className={`text-sm leading-[1.8] ${gold ? 'text-charcoal/70' : 'text-cream/60'}`}>{block.text}</p>}
+          {block.text && <p className={`text-sm leading-[1.8] ${gold ? 'text-night' : 'text-cream/60'}`}>{block.text}</p>}
         </div>
         <div className="flex gap-4 flex-wrap relative z-10">
           {block.buttons.map((b, i) => (

@@ -76,7 +76,7 @@ export default function HeroBlock({ block }: { block: SectionOf<'hero'> }) {
                   {s.value}
                   {s.suffix && <span className="text-gold">{s.suffix}</span>}
                 </div>
-                <div className="text-cream/45 text-[11px] uppercase tracking-[2px] mt-1 font-heading">{s.label}</div>
+                <div className="text-cream/55 text-[11px] uppercase tracking-[2px] mt-1 font-heading">{s.label}</div>
               </div>
             ))}
           </div>

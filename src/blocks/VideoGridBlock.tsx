@@ -75,7 +75,7 @@ export default function VideoGridBlock({ block, videos }: { block: SectionOf<'vi
             </div>
             <div className="p-4">
               <div className="text-cream text-[13px] font-semibold leading-[1.4] mb-2 font-heading">{v.title}</div>
-              <div className="text-cream/45 text-xs">{formatMonthYear(v.date, locale)}</div>
+              <div className="text-cream/55 text-xs">{formatMonthYear(v.date, locale)}</div>
             </div>
           </a>
         ))}
