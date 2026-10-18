@@ -34,7 +34,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 transition-all duration-500 ${
           scrolled
-            ? 'bg-[#2C2C2E]/97 backdrop-blur-2xl border-b border-[#C8922A]/30 shadow-[0_4px_32px_rgba(0,0,0,0.4)]'
+            ? 'bg-[#2C2C2E]/[0.97] backdrop-blur-2xl border-b border-[#C8922A]/30 shadow-[0_4px_32px_rgba(0,0,0,0.4)]'
             : 'bg-transparent backdrop-blur-sm border-b border-white/5'
         }`}
         style={{ height: '76px' }}
@@ -98,7 +98,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 bg-[#2C2C2E] z-40 flex flex-col items-center justify-center gap-6 transition-all duration-400 ${
+        className={`fixed inset-0 bg-[#2C2C2E] z-40 flex flex-col items-center justify-center gap-6 transition-all duration-[400ms] ${
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >

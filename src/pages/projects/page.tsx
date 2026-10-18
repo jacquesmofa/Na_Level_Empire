@@ -47,7 +47,7 @@ export default function Projects() {
               className={`text-[11px] font-bold tracking-[2px] uppercase px-5 py-2.5 border-none cursor-pointer transition-all duration-200 whitespace-nowrap ${
                 active === f.value
                   ? 'bg-[#C8922A] text-[#2C2C2E]'
-                  : 'bg-[#FDFCF0]/8 text-[#FDFCF0]/60 hover:bg-[#C8922A]/20 hover:text-[#C8922A]'
+                  : 'bg-[#FDFCF0]/[0.08] text-[#FDFCF0]/60 hover:bg-[#C8922A]/20 hover:text-[#C8922A]'
               }`}
               style={{ fontFamily: "'Syne', sans-serif" }}
             >
@@ -91,7 +91,7 @@ export default function Projects() {
               <div className="text-[#FDFCF0]/50 text-[13.5px] leading-[1.65] mb-5">{p.desc}</div>
               <div className="flex gap-2 flex-wrap border-t border-[#C8922A]/10 pt-5">
                 {p.tags.map((t) => (
-                  <span key={t} className="text-[11px] text-[#C8922A]/70 bg-[#C8922A]/8 px-2.5 py-1 rounded-sm">{t}</span>
+                  <span key={t} className="text-[11px] text-[#C8922A]/70 bg-[#C8922A]/[0.08] px-2.5 py-1 rounded-sm">{t}</span>
                 ))}
               </div>
             </div>

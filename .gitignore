@@ -1,1 +1,25 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Build output (built fresh by CI; never committed)
+dist/
+out/
+*.tsbuildinfo
+.vite/
+
+# Environment files: local secrets and keys stay on your machine
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+*.log
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp

@@ -1,23 +1,29 @@
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { newsItems } from '@/mocks/nlem';
+import { submitForm } from '@/lib/forms';
 
 export default function News() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [failed, setFailed] = useState(false);
 
-  const handleNewsletter = async (e: React.FormEvent) => {
+  const handleNewsletter = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!name || !email) return;
+    if (!name.trim() || !email.trim() || submitting) return;
     setSubmitting(true);
-    try {
-      const body = new URLSearchParams({ name, email });
-      await fetch('https://readdy.ai/api/form/d7btm76he76khnho4qn0', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() });
-      setSubmitted(true);
-    } finally {
-      setSubmitting(false);
-    }
+    setFailed(false);
+    const bot = new FormData(e.currentTarget).get('botcheck');
+    const result = await submitForm('New newsletter sign-up', {
+      name: name.trim(),
+      email: email.trim(),
+      ...(bot ? { botcheck: 'on' } : {}),
+    });
+    setSubmitting(false);
+    // Only thank the visitor when the form service confirmed the sign-up.
+    if (result.ok) setSubmitted(true);
+    else setFailed(true);
   };
 
   const featured = newsItems[0];
@@ -149,7 +155,8 @@ export default function News() {
             {submitted ? (
               <div className="text-[#C8922A] text-sm font-semibold py-3">Thanks for subscribing!</div>
             ) : (
-              <form data-readdy-form onSubmit={handleNewsletter} className="flex flex-col gap-3">
+              <form onSubmit={handleNewsletter} className="flex flex-col gap-3">
+                <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                 <input
                   name="name"
                   type="text"
@@ -182,6 +189,11 @@ export default function News() {
                 >
                   {submitting ? 'Subscribing...' : 'Subscribe'}
                 </button>
+                {failed && (
+                  <p role="alert" className="text-[#C8922A] text-sm">
+                    Sorry, that didn&apos;t go through. Please try again.
+                  </p>
+                )}
               </form>
             )}
           </div>
