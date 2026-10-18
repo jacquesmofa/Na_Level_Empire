@@ -1,0 +1,18 @@
+{
+  "title": "Studio balado Youth Voices du TDSB",
+  "category": "Production AV",
+  "type": "av",
+  "status": "current",
+  "summary": "Installation du studio, formation et soutien à la production pour le programme de balados étudiants du TDSB.",
+  "tags": [
+    "Balado",
+    "Éducation",
+    "Formation"
+  ],
+  "image": {
+    "url": "https://readdy.ai/api/search-image?query=professional%20podcast%20recording%20studio%20setup%20microphones%20soundproofing%20youth%20students%20learning%20audio%20equipment%20modern%20dark%20studio%20environment&width=800&height=500&seq=proj9&orientation=landscape",
+    "alt": "Studio balado Youth Voices du TDSB"
+  },
+  "order": 90,
+  "published": true
+}

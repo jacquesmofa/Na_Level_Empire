@@ -1,0 +1,18 @@
+{
+  "title": "Campagne d’impact d’une caisse populaire",
+  "category": "Production AV",
+  "type": "av",
+  "status": "past",
+  "summary": "Film de marque de 60 secondes, qualité diffusion, pour la campagne ESG d’une caisse populaire ontarienne.",
+  "tags": [
+    "Film de marque",
+    "ESG",
+    "Social"
+  ],
+  "image": {
+    "url": "https://readdy.ai/api/search-image?query=corporate%20brand%20film%20production%20professional%20lighting%20setup%20director%20camera%20operator%20modern%20office%20environment%20cinematic%20dark%20background&width=800&height=500&seq=proj5&orientation=landscape",
+    "alt": "Campagne d’impact d’une caisse populaire"
+  },
+  "order": 50,
+  "published": true
+}

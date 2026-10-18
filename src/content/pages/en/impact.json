@@ -1,0 +1,88 @@
+{
+  "seo": {
+    "title": "Social Impact | Na Level Empire Media",
+    "description": "How Na Level Empire Media trains and hires from underrepresented Toronto communities, reinvests 25% of profits and works toward B Corp certification."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Our Mission in Action",
+      "title": "SOCIAL",
+      "titleAccent": "IMPACT"
+    },
+    {
+      "type": "cardGrid",
+      "style": "pillars",
+      "cards": [
+        {
+          "icon": "stack",
+          "title": "Skills That Last a Lifetime",
+          "text": "Every production is a classroom. Our apprentice-based model trains youth in camera operation, sound engineering, lighting, editing, and live streaming — skills that translate directly into sustainable careers in Toronto's $2B+ media industry."
+        },
+        {
+          "icon": "team",
+          "title": "Who We Hire First",
+          "text": "We actively recruit from Toronto's underrepresented communities: newcomers and refugees, Indigenous youth, individuals with disabilities, and young people from low-income backgrounds. Our workforce reflects the city we serve."
+        },
+        {
+          "icon": "time",
+          "title": "25% Profit Reinvestment",
+          "text": "A minimum of 25% of net profits is reinvested into our training programs, mental health support, equipment access for employees, and community partnerships — a commitment written into our corporate governance documents."
+        },
+        {
+          "icon": "home",
+          "title": "B Corp Pathway",
+          "text": "We are on a structured path to B Corp Certification by Year 3 — a globally recognized standard for businesses meeting the highest standards of social and environmental performance, transparency, and legal accountability."
+        }
+      ]
+    },
+    {
+      "type": "statsBand",
+      "style": "tiles",
+      "stats": [
+        {
+          "value": "8–12",
+          "label": "Community Hires — Year 1 Target",
+          "kind": "target"
+        },
+        {
+          "value": "1,200+",
+          "label": "Training Hours Delivered Annually",
+          "kind": "target"
+        },
+        {
+          "value": "70%+",
+          "label": "Employee Retention Rate Target",
+          "kind": "target"
+        }
+      ]
+    },
+    {
+      "type": "partners",
+      "label": "Community Partners",
+      "partners": [
+        {
+          "name": "George Brown College"
+        },
+        {
+          "name": "Ontario Trillium Foundation"
+        },
+        {
+          "name": "MaRS Discovery District"
+        },
+        {
+          "name": "OMDC"
+        },
+        {
+          "name": "BDC Social Enterprise"
+        },
+        {
+          "name": "Toronto Metropolitan Univ."
+        },
+        {
+          "name": "Ontario Nonprofit Network"
+        }
+      ]
+    }
+  ]
+}

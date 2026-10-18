@@ -1,0 +1,27 @@
+{
+  "seo": {
+    "title": "Page introuvable | Na Level Empire Media",
+    "description": "La page recherchée a été déplacée ou n’existe plus. Visitez la page d’accueil de Na Level Empire Media ou contactez l’équipe."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "size": "full",
+      "eyebrow": "Erreur 404",
+      "title": "PAGE",
+      "titleAccent": "INTROUVABLE",
+      "text": "La page que vous cherchez a été déplacée ou n’existe plus. Retournez à l’accueil ou dites-nous ce que vous cherchiez.",
+      "buttons": [
+        {
+          "label": "Retour à l'accueil",
+          "link": "/"
+        },
+        {
+          "label": "Nous joindre",
+          "link": "/contact"
+        }
+      ],
+      "watermark": "404"
+    }
+  ]
+}

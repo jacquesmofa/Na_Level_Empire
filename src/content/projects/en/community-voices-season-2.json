@@ -1,0 +1,18 @@
+{
+  "title": "Community Voices Series — Season 2",
+  "category": "Documentary",
+  "type": "doc",
+  "status": "current",
+  "summary": "Ongoing 6-part documentary series profiling Toronto community leaders across diverse backgrounds.",
+  "tags": [
+    "Documentary",
+    "Series",
+    "Community"
+  ],
+  "image": {
+    "url": "https://readdy.ai/api/search-image?query=documentary%20interview%20setup%20professional%20lighting%20diverse%20subject%20sitting%20in%20chair%20camera%20crew%20Toronto%20community%20storytelling%20cinematic%20portrait&width=800&height=500&seq=proj7&orientation=landscape",
+    "alt": "Community Voices Series — Season 2"
+  },
+  "order": 70,
+  "published": true
+}

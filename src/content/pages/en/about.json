@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "About NLEM | Na Level Empire Media",
+    "description": "Na Level Empire Media is a Toronto audiovisual production and event management social enterprise building a workforce from underrepresented communities."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Our Story",
+      "title": "ABOUT",
+      "titleAccent": "NLEM"
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        "Na Level Empire Media was founded on a single conviction: that extraordinary audiovisual production and genuine community empowerment are not competing goals — they are the same goal, pursued at the same time.",
+        "We are a Toronto-based audiovisual production and event management social enterprise, incorporated under Ontario law, operating at the intersection of creative excellence and social accountability.",
+        "What makes us different isn't just what we produce — it's who produces it. Our workforce is deliberately drawn from communities that have historically been shut out of Canada's creative industries: newcomers, Indigenous youth, individuals with disabilities, and young people from low-income backgrounds.",
+        "Every client who works with NLEM gets world-class production. And every project we complete advances a workforce that is stronger, more skilled, and more connected to the industry they deserve to lead."
+      ],
+      "quote": "\"We don't just tell stories. We build the people who tell them.\"",
+      "source": "Na Level Empire Media Founding Charter"
+    },
+    {
+      "type": "teamGrid",
+      "label": "Leadership"
+    },
+    {
+      "type": "cardGrid",
+      "style": "values",
+      "cards": [
+        {
+          "title": "Impact",
+          "text": "We measure success in two currencies: client satisfaction and community transformation. Both matter equally."
+        },
+        {
+          "title": "Excellence",
+          "text": "Social enterprise doesn't mean second-best. We deliver production quality that competes with any studio in Canada."
+        },
+        {
+          "title": "Inclusion",
+          "text": "A team built from Toronto's diversity creates content that is richer, more authentic, and more culturally resonant."
+        },
+        {
+          "title": "Transparency",
+          "text": "We publish our annual Social Impact Report. Stakeholders deserve to see exactly where our profits go."
+        },
+        {
+          "title": "Sustainability",
+          "text": "Financial sustainability and environmental responsibility are both embedded in our Ontario corporate governance."
+        },
+        {
+          "title": "Collaboration",
+          "text": "Our best work happens in partnership — with clients, community organizations, colleges, and the city we love."
+        }
+      ]
+    }
+  ]
+}

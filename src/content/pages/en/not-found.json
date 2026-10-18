@@ -1,0 +1,27 @@
+{
+  "seo": {
+    "title": "Page not found | Na Level Empire Media",
+    "description": "The page you were looking for has moved or no longer exists. Visit the Na Level Empire Media home page or contact the team."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "size": "full",
+      "eyebrow": "Error 404",
+      "title": "PAGE NOT",
+      "titleAccent": "FOUND",
+      "text": "The page you're looking for has moved or no longer exists. Head back home, or tell us what you were looking for.",
+      "buttons": [
+        {
+          "label": "Back to Home",
+          "link": "/"
+        },
+        {
+          "label": "Contact Us",
+          "link": "/contact"
+        }
+      ],
+      "watermark": "404"
+    }
+  ]
+}

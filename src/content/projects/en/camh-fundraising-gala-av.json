@@ -1,0 +1,18 @@
+{
+  "title": "CAMH Fundraising Gala AV",
+  "category": "Live Event AV",
+  "type": "event",
+  "status": "past",
+  "summary": "Technical production for CAMH annual fundraising dinner — lighting, AV, and post-event highlight reel.",
+  "tags": [
+    "Event",
+    "Health",
+    "Nonprofit"
+  ],
+  "image": {
+    "url": "https://readdy.ai/api/search-image?query=nonprofit%20fundraising%20gala%20event%20professional%20stage%20lighting%20warm%20amber%20tones%20elegant%20venue%20AV%20production%20crew%20setup%20dramatic%20atmosphere&width=800&height=500&seq=proj6&orientation=landscape",
+    "alt": "CAMH Fundraising Gala AV"
+  },
+  "order": 60,
+  "published": true
+}

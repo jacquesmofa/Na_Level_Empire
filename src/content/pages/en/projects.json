@@ -1,0 +1,28 @@
+{
+  "seo": {
+    "title": "Projects & Portfolio | Na Level Empire Media",
+    "description": "Documentaries, live event AV, live streaming and brand films produced by Na Level Empire Media for nonprofits, colleges and the City of Toronto."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Our Portfolio",
+      "title": "PROJECTS &",
+      "titleAccent": "WORK"
+    },
+    {
+      "type": "projectsGrid",
+      "showFilters": true,
+      "cardLink": "/contact",
+      "filterLabels": {
+        "all": "All",
+        "current": "Current",
+        "past": "Past",
+        "av": "AV Production",
+        "event": "Events",
+        "stream": "Live Streaming",
+        "doc": "Documentary"
+      }
+    }
+  ]
+}

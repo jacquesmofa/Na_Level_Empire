@@ -1,0 +1,18 @@
+{
+  "title": "TDSB Youth Voices Podcast Studio",
+  "category": "AV Production",
+  "type": "av",
+  "status": "current",
+  "summary": "Studio setup, training, and production support for TDSB student podcast program.",
+  "tags": [
+    "Podcast",
+    "Education",
+    "Training"
+  ],
+  "image": {
+    "url": "https://readdy.ai/api/search-image?query=professional%20podcast%20recording%20studio%20setup%20microphones%20soundproofing%20youth%20students%20learning%20audio%20equipment%20modern%20dark%20studio%20environment&width=800&height=500&seq=proj9&orientation=landscape",
+    "alt": "TDSB Youth Voices Podcast Studio"
+  },
+  "order": 90,
+  "published": true
+}

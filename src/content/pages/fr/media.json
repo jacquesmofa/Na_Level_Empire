@@ -1,0 +1,30 @@
+{
+  "seo": {
+    "title": "Médias | Na Level Empire Media",
+    "description": "Regardez les coulisses, les vidéos d’événements, les documentaires et les vidéos de formation de la chaîne YouTube de Na Level Empire Media."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Contenu vidéo",
+      "title": "CENTRE",
+      "titleAccent": "MÉDIAS"
+    },
+    {
+      "type": "videoGrid",
+      "showChannelCard": true,
+      "channel": {
+        "initials": "NL",
+        "name": "Na Level Empire Media",
+        "details": "@nalevelempiremedia  ·  Toronto (Ontario)  ·  Production audiovisuelle et entreprise sociale",
+        "url": "https://www.youtube.com/@nalevelempiremedia",
+        "buttonLabel": "S'abonner sur YouTube"
+      },
+      "featuredVideo": {
+        "title": "Na Level Empire Media — Dernière vidéo",
+        "embedUrl": "https://www.youtube.com/embed?listType=user_uploads&list=nalevelempiremedia"
+      },
+      "label": "Vidéos récentes"
+    }
+  ]
+}

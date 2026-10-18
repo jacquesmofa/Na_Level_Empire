@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "À propos de NLEM | Na Level Empire Media",
+    "description": "Na Level Empire Media est une entreprise sociale torontoise de production audiovisuelle et d’événements qui forme une main-d’œuvre issue de communautés sous-représentées."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Notre histoire",
+      "title": "À PROPOS DE",
+      "titleAccent": "NLEM"
+    },
+    {
+      "type": "quote",
+      "paragraphs": [
+        "Na Level Empire Media est née d’une conviction : une production audiovisuelle exceptionnelle et l’autonomisation réelle des communautés ne sont pas des objectifs concurrents — c’est le même objectif, poursuivi en même temps.",
+        "Nous sommes une entreprise sociale de production audiovisuelle et de gestion d’événements établie à Toronto, constituée en vertu des lois de l’Ontario, à la croisée de l’excellence créative et de la responsabilité sociale.",
+        "Ce qui nous distingue, ce n’est pas seulement ce que nous produisons — c’est qui le produit. Notre équipe vient délibérément de communautés longtemps exclues des industries créatives canadiennes : personnes nouvellement arrivées, jeunes Autochtones, personnes en situation de handicap et jeunes de milieux à faible revenu.",
+        "Chaque client de NLEM obtient une production de calibre mondial. Et chaque projet réalisé fait progresser une main-d’œuvre plus forte, plus qualifiée et mieux branchée sur l’industrie qu’elle mérite de diriger."
+      ],
+      "quote": "« Nous ne faisons pas que raconter des histoires. Nous formons les personnes qui les racontent. »",
+      "source": "Charte fondatrice de Na Level Empire Media"
+    },
+    {
+      "type": "teamGrid",
+      "label": "Direction"
+    },
+    {
+      "type": "cardGrid",
+      "style": "values",
+      "cards": [
+        {
+          "title": "Impact",
+          "text": "Nous mesurons le succès en deux monnaies : la satisfaction des clients et la transformation des communautés. Les deux comptent autant."
+        },
+        {
+          "title": "Excellence",
+          "text": "Entreprise sociale ne veut pas dire second choix. Notre qualité de production rivalise avec celle de tout studio au Canada."
+        },
+        {
+          "title": "Inclusion",
+          "text": "Une équipe issue de la diversité de Toronto crée des contenus plus riches, plus authentiques et plus parlants culturellement."
+        },
+        {
+          "title": "Transparence",
+          "text": "Nous publions chaque année notre rapport d’impact social. Nos parties prenantes méritent de savoir exactement où vont nos profits."
+        },
+        {
+          "title": "Durabilité",
+          "text": "La viabilité financière et la responsabilité environnementale sont inscrites dans notre gouvernance d’entreprise ontarienne."
+        },
+        {
+          "title": "Collaboration",
+          "text": "Nos meilleures réalisations naissent en partenariat — avec nos clients, les organismes communautaires, les collèges et la ville que nous aimons."
+        }
+      ]
+    }
+  ]
+}

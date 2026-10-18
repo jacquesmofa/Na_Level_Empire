@@ -1,0 +1,181 @@
+{
+  "seo": {
+    "title": "Na Level Empire Media | Toronto AV Production & Social Enterprise",
+    "description": "Toronto's cinematic audiovisual production social enterprise: AV production, live streaming, event management and community workforce development."
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "Toronto's AV Social Enterprise",
+      "headlineLines": [
+        "WHERE",
+        "VISION",
+        "MEETS"
+      ],
+      "headlineAccent": "IMPACT",
+      "intro": "Cinematic-grade audiovisual production and event management — powered by a workforce built from Toronto's most vibrant communities.",
+      "buttons": [
+        {
+          "label": "View Our Work",
+          "link": "/projects"
+        },
+        {
+          "label": "Start a Project",
+          "link": "/contact"
+        }
+      ],
+      "stats": [
+        {
+          "value": "100",
+          "suffix": "+",
+          "label": "Events Produced",
+          "kind": "result"
+        },
+        {
+          "value": "50",
+          "suffix": "+",
+          "label": "Lives Impacted",
+          "kind": "result"
+        },
+        {
+          "value": "12",
+          "suffix": "K",
+          "label": "Training Hours",
+          "kind": "result"
+        }
+      ],
+      "reel": [
+        {
+          "url": "https://readdy.ai/api/search-image?query=professional%20film%20crew%20diverse%20team%20shooting%20documentary%20cinematic%20camera%20rig%20dramatic%20lighting%20urban%20Toronto%20production%20day&width=640&height=360&seq=reel1&orientation=landscape",
+          "alt": "Film crew shooting a documentary in Toronto"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=live%20event%20soundboard%20audio%20engineer%20mixing%20console%20dramatic%20stage%20lighting%20concert%20production%20dark%20atmosphere&width=640&height=360&seq=reel2&orientation=landscape",
+          "alt": "Audio engineer at a live sound mixing console"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=aerial%20view%20media%20empire%20Toronto%20skyline%20cinematic%20drone%20shot%20golden%20hour%20city%20lights%20dramatic&width=640&height=360&seq=reel3&orientation=landscape",
+          "alt": "Toronto skyline at golden hour"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=videographer%20on%20set%20professional%20camera%20operator%20cinematic%20lighting%20film%20production%20dark%20studio&width=640&height=360&seq=reel4&orientation=landscape",
+          "alt": "Camera operator on a film set"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=gala%20event%20production%20elegant%20stage%20lighting%20large%20venue%20professional%20AV%20setup%20dramatic%20atmosphere&width=640&height=360&seq=reel5&orientation=landscape",
+          "alt": "Gala stage with professional lighting"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=diverse%20media%20production%20team%20collaboration%20modern%20studio%20creative%20professionals%20Toronto%20cinematic&width=640&height=360&seq=reel6&orientation=landscape",
+          "alt": "Media production team collaborating in a studio"
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "style": "services",
+      "label": "What We Do",
+      "cards": [
+        {
+          "icon": "camera",
+          "title": "AV Production",
+          "text": "4K video production, sound engineering, lighting design, and full post-production for any scale of project.",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=professional%20videographer%20camera%20operator%20cinematic%20production%20dark%20studio%20dramatic%20lighting%20equipment%20setup&width=400&height=300&seq=svc1&orientation=landscape",
+            "alt": "AV Production"
+          }
+        },
+        {
+          "icon": "live",
+          "title": "Live Streaming",
+          "text": "Hybrid event broadcasting, YouTube Live, multilingual streams, and custom RTMP delivery for global audiences.",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=live%20streaming%20broadcast%20setup%20monitors%20technical%20control%20room%20professional%20AV%20equipment%20dark%20environment&width=400&height=300&seq=svc2&orientation=landscape",
+            "alt": "Live Streaming"
+          }
+        },
+        {
+          "icon": "team",
+          "title": "Event Management",
+          "text": "End-to-end event planning: galas, conferences, community events, and corporate activations across the GTA.",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=professional%20event%20management%20gala%20venue%20elegant%20stage%20lighting%20large%20audience%20production%20crew%20setup&width=400&height=300&seq=svc3&orientation=landscape",
+            "alt": "Event Management"
+          }
+        },
+        {
+          "icon": "film",
+          "title": "Community Stories",
+          "text": "Bespoke documentary shorts, impact reels, and multilingual content celebrating Toronto's diverse communities.",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=documentary%20storytelling%20diverse%20community%20Toronto%20cinematic%20portrait%20interview%20professional%20lighting&width=400&height=300&seq=svc4&orientation=landscape",
+            "alt": "Community Stories"
+          }
+        }
+      ]
+    },
+    {
+      "type": "statsBand",
+      "style": "band",
+      "stats": [
+        {
+          "value": "$500K",
+          "label": "Year 3 Revenue Target",
+          "kind": "target"
+        },
+        {
+          "value": "25%",
+          "label": "Profit Reinvested",
+          "kind": "result"
+        },
+        {
+          "value": "8+",
+          "label": "Community Hires Year 1",
+          "kind": "target"
+        },
+        {
+          "value": "B Corp",
+          "label": "Certification Pathway",
+          "kind": "target"
+        }
+      ]
+    },
+    {
+      "type": "latestWork",
+      "label": "Latest Work",
+      "items": [
+        {
+          "category": "Documentary",
+          "title": "Community Voices: Scarborough Rising",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=cinematic%20documentary%20film%20Scarborough%20Toronto%20youth%20community%20storytelling%20dramatic%20lighting%20urban%20street%20photography&width=700&height=700&seq=reel_lg&orientation=squarish",
+            "alt": "Community Voices: Scarborough Rising"
+          },
+          "link": "/projects"
+        },
+        {
+          "category": "Live Event AV",
+          "title": "Toronto Non-Profit Gala 2025",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=nonprofit%20gala%20event%20professional%20stage%20lighting%20elegant%20ballroom%20Toronto%20AV%20production%20dramatic%20atmosphere&width=700&height=340&seq=reel_sm1&orientation=landscape",
+            "alt": "Toronto Non-Profit Gala 2025"
+          },
+          "link": "/projects"
+        },
+        {
+          "category": "Brand Film",
+          "title": "Credit Union Impact Campaign",
+          "image": {
+            "url": "https://readdy.ai/api/search-image?query=corporate%20brand%20film%20production%20professional%20lighting%20director%20camera%20modern%20office%20cinematic%20dark%20background&width=700&height=340&seq=reel_sm2&orientation=landscape",
+            "alt": "Credit Union Impact Campaign"
+          },
+          "link": "/projects"
+        }
+      ],
+      "button": {
+        "label": "View All Projects",
+        "link": "/projects"
+      }
+    }
+  ]
+}

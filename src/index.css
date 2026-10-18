@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Charcoal behind everything, so gaps and overscroll never flash white. */
+body {
+  background-color: #2c2c2e;
+}

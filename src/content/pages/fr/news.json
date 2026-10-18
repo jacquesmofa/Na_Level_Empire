@@ -1,0 +1,53 @@
+{
+  "seo": {
+    "title": "Nouvelles et histoires | Na Level Empire Media",
+    "description": "Nouvelles de l’entreprise, projets marquants, impact social et histoires communautaires de Na Level Empire Media à Toronto."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Dernières nouvelles",
+      "title": "NOUVELLES &",
+      "titleAccent": "HISTOIRES"
+    },
+    {
+      "type": "newsFeed",
+      "categories": [
+        {
+          "key": "company",
+          "label": "Nouvelles de l'entreprise"
+        },
+        {
+          "key": "project",
+          "label": "Projets marquants"
+        },
+        {
+          "key": "impact",
+          "label": "Impact social"
+        },
+        {
+          "key": "industry",
+          "label": "Regards sur l’industrie"
+        },
+        {
+          "key": "community",
+          "label": "Histoires communautaires"
+        },
+        {
+          "key": "events",
+          "label": "Événements et présences"
+        }
+      ],
+      "categoriesTitle": "Catégories",
+      "newsletterTitle": "Infolettre",
+      "newsletterText": "Recevez nos nouvelles de projets, histoires communautaires et actualités de l’industrie, directement dans votre boîte courriel.",
+      "namePlaceholder": "Votre nom",
+      "emailPlaceholder": "Votre adresse courriel",
+      "subscribeLabel": "S'abonner",
+      "subscribingLabel": "Inscription...",
+      "subscribedText": "Merci de votre inscription!",
+      "errorText": "Désolé, l’inscription n’a pas fonctionné. Veuillez réessayer.",
+      "followTitle": "Suivez-nous"
+    }
+  ]
+}

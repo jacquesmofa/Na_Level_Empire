@@ -1,0 +1,17 @@
+{
+  "title": "Film de campus du Collège George Brown",
+  "category": "Production AV",
+  "type": "av",
+  "status": "past",
+  "summary": "Série de films promotionnels pour la campagne de recrutement du collège, produite en 3 langues.",
+  "tags": [
+    "Film de marque",
+    "Multilingue"
+  ],
+  "image": {
+    "url": "https://readdy.ai/api/search-image?query=professional%20videographer%20filming%20on%20college%20campus%20modern%20building%20cinematic%20camera%20rig%20crew%20production%20day%20bright%20natural%20light&width=800&height=500&seq=proj3&orientation=landscape",
+    "alt": "Film de campus du Collège George Brown"
+  },
+  "order": 30,
+  "published": true
+}
