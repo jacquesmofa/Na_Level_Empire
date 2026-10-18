@@ -14,7 +14,7 @@
     "preview": "vite preview",
     "lint": "eslint src --report-unused-disable-directives --max-warnings 0",
     "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
-    "test": "node --test \"scripts/**/*.test.ts\"",
+    "test": "node --test \"scripts/**/*.test.ts\" \"api/**/*.test.ts\"",
     "check": "npm run lint && npm run typecheck && npm run validate && npm run cms:check && npm test",
     "cms:config": "node scripts/cms-config.ts write",
     "cms:check": "node scripts/cms-config.ts check"
