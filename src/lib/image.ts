@@ -7,7 +7,9 @@
  *   w_N     width in pixels, c_limit never upscales
  * Any other URL is returned unchanged.
  */
-export const CLOUDINARY_CLOUD = 'beavj5sp';
+import { SITE_CONFIG } from '@/site.config';
+
+export const CLOUDINARY_CLOUD = SITE_CONFIG.cloudinary.cloud;
 const UPLOAD_PREFIX = `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/upload/`;
 
 export const DEFAULT_WIDTHS = [400, 800, 1200, 1600];
