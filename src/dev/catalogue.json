@@ -1,0 +1,126 @@
+{
+  "seo": {
+    "title": "Block catalogue (development only)",
+    "description": "Every new section block in each style, for visual checks during development. Not part of the live site."
+  },
+  "sections": [
+    {
+      "type": "pageHeader",
+      "eyebrow": "Development only",
+      "title": "BLOCK",
+      "titleAccent": "CATALOGUE"
+    },
+    {
+      "type": "textImage",
+      "label": "Text + image",
+      "title": "Dark background, image on the right",
+      "paragraphs": [
+        "Sample paragraph one. Every block uses the same colours, fonts and spacing as the rest of the site.",
+        "Sample paragraph two, to show spacing between paragraphs."
+      ],
+      "image": {
+        "url": "https://readdy.ai/api/search-image?query=professional%20film%20crew%20diverse%20team%20shooting%20documentary%20cinematic%20camera%20rig%20dramatic%20lighting%20urban%20Toronto%20production%20day&width=640&height=360&seq=reel1&orientation=landscape",
+        "alt": "Film crew shooting a documentary in Toronto"
+      },
+      "imageSide": "right",
+      "background": "dark",
+      "button": {
+        "label": "Sample button",
+        "link": "/contact"
+      }
+    },
+    {
+      "type": "textImage",
+      "label": "Text + image",
+      "title": "Light background, image on the left",
+      "paragraphs": [
+        "The same block with the other two options switched."
+      ],
+      "image": {
+        "url": "https://readdy.ai/api/search-image?query=videographer%20on%20set%20professional%20camera%20operator%20cinematic%20lighting%20film%20production%20dark%20studio&width=640&height=360&seq=reel4&orientation=landscape",
+        "alt": "Camera operator on a film set"
+      },
+      "imageSide": "left",
+      "background": "light"
+    },
+    {
+      "type": "gallery",
+      "label": "Gallery",
+      "images": [
+        {
+          "url": "https://readdy.ai/api/search-image?query=professional%20film%20crew%20diverse%20team%20shooting%20documentary%20cinematic%20camera%20rig%20dramatic%20lighting%20urban%20Toronto%20production%20day&width=640&height=360&seq=reel1&orientation=landscape",
+          "alt": "Film crew shooting a documentary in Toronto"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=live%20event%20soundboard%20audio%20engineer%20mixing%20console%20dramatic%20stage%20lighting%20concert%20production%20dark%20atmosphere&width=640&height=360&seq=reel2&orientation=landscape",
+          "alt": "Audio engineer at a live sound mixing console"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=aerial%20view%20media%20empire%20Toronto%20skyline%20cinematic%20drone%20shot%20golden%20hour%20city%20lights%20dramatic&width=640&height=360&seq=reel3&orientation=landscape",
+          "alt": "Toronto skyline at golden hour"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=videographer%20on%20set%20professional%20camera%20operator%20cinematic%20lighting%20film%20production%20dark%20studio&width=640&height=360&seq=reel4&orientation=landscape",
+          "alt": "Camera operator on a film set"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=gala%20event%20production%20elegant%20stage%20lighting%20large%20venue%20professional%20AV%20setup%20dramatic%20atmosphere&width=640&height=360&seq=reel5&orientation=landscape",
+          "alt": "Gala stage with professional lighting"
+        },
+        {
+          "url": "https://readdy.ai/api/search-image?query=diverse%20media%20production%20team%20collaboration%20modern%20studio%20creative%20professionals%20Toronto%20cinematic&width=640&height=360&seq=reel6&orientation=landscape",
+          "alt": "Media production team collaborating in a studio"
+        }
+      ],
+      "background": "dark"
+    },
+    {
+      "type": "video",
+      "label": "Video",
+      "title": "Sample video",
+      "youtubeUrl": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+      "caption": "Any YouTube link works: watch, youtu.be or shorts."
+    },
+    {
+      "type": "callToAction",
+      "title": "Gold call to action",
+      "text": "A short line inviting the visitor to act.",
+      "buttons": [
+        {
+          "label": "Get a Quote",
+          "link": "/contact"
+        },
+        {
+          "label": "Our Work",
+          "link": "/projects"
+        }
+      ],
+      "style": "gold"
+    },
+    {
+      "type": "callToAction",
+      "title": "Dark call to action",
+      "text": "The same block in the dark style.",
+      "buttons": [
+        {
+          "label": "Get a Quote",
+          "link": "/contact"
+        }
+      ],
+      "style": "dark"
+    },
+    {
+      "type": "richText",
+      "label": "Text",
+      "width": "wide",
+      "paragraphs": [
+        "A wide text block for longer passages."
+      ]
+    },
+    {
+      "type": "quote",
+      "quote": "\"A quote on its own, without story text beside it.\"",
+      "source": "Sample source"
+    }
+  ]
+}

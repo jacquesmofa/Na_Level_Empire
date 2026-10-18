@@ -1,8 +1,12 @@
+import { lazy } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import { LOCALES, PAGE_PATHS, type PageId } from '@/content';
 import { localePrefix } from '@/lib/locale';
 import Layout from './Layout';
 import PageView from './PageView';
+
+// Development only: /__blocks shows every new block type. Removed from production builds.
+const BlockCatalogue = import.meta.env.DEV ? lazy(() => import('@/dev/BlockCatalogue')) : null;
 
 const pages = Object.entries(PAGE_PATHS) as [Exclude<PageId, 'not-found'>, string][];
 
@@ -14,6 +18,7 @@ const routes: RouteObject[] = LOCALES.map((locale) => ({
     ...pages.map(([id, path]) =>
       path === '/' ? { index: true, element: <PageView key={`${locale}-${id}`} id={id} /> } : { path: path.slice(1), element: <PageView key={`${locale}-${id}`} id={id} /> },
     ),
+    ...(BlockCatalogue && locale === 'en' ? [{ path: '__blocks', element: <BlockCatalogue /> }] : []),
     { path: '*', element: <PageView key={`${locale}-not-found`} id="not-found" /> },
   ],
 }));

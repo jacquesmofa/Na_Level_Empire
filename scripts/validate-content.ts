@@ -104,6 +104,10 @@ export function validateContent(contentDir: string): string[] {
     }
   }
 
+  // Development catalogue page (src/dev/catalogue.json) uses the same page schema
+  const catalogue = join(contentDir, '..', 'dev', 'catalogue.json');
+  if (existsSync(catalogue)) check(PageSchema, catalogue, errors, root);
+
   // Collections: validate each item, and require every item in every language
   for (const [name, schema] of Object.entries(COLLECTIONS)) {
     const slugsByLocale = LOCALES.map((locale) => {
