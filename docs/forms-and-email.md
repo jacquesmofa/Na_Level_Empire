@@ -34,8 +34,10 @@ inbox answers the visitor directly (their email is set as reply-to).
 form with Partnerships chosen (also `production`, `careers`, `general`).
 Editors can use these links in any button in the CMS.
 
-**Spam:** each form has a hidden trap field. People never see it; bots fill
-it in, get a normal "thank you", and nothing is sent.
+**Spam:** each form has a hidden trap checkbox (`botcheck`). People never
+see it; bots tick it, get a normal "thank you", and nothing is sent. It must
+stay a checkbox: an earlier hidden *text* field was filled in by browser
+autofill, so real visitors saw "Message Sent!" while nothing was sent.
 
 **Honest results:** the "Message Sent!" / "Thank you" message only appears
 when Web3Forms confirms it accepted the message. Otherwise the visitor sees

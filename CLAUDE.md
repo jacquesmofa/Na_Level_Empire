@@ -175,7 +175,9 @@ Vercel environment variables (Production + Preview); nothing secret is committed
   subject), job application dialog on Careers, newsletter on News and in the
   footer of every page. All go through `submitForm` in `src/lib/forms.ts`.
 - Success is shown only when Web3Forms returns `success: true`. Honeypot
-  field `website_url` (`<Honeypot />`): bots get a fake success, nothing sent.
+  checkbox `botcheck` (`<Honeypot />`): bots get a fake success, nothing sent.
+  Keep it a checkbox: a hidden text field gets filled by browser autofill
+  and silently drops real messages (happened Oct 2026).
 - The visitor's email is sent as `replyto`.
 
 ## Guides

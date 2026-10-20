@@ -17,12 +17,15 @@ const TIMEOUT_MS = 15_000;
 export type SubmitFailure = 'not-configured' | 'rejected' | 'network';
 export type SubmitResult = { ok: true } | { ok: false; reason: SubmitFailure };
 
-/** Name of the hidden spam-trap field rendered by <Honeypot />. */
-export const HONEYPOT_FIELD = 'website_url';
+/**
+ * Name of the hidden spam-trap checkbox rendered by <Honeypot />
+ * (Web3Forms' own spam field name).
+ */
+export const HONEYPOT_FIELD = 'botcheck';
 
-/** True when the hidden spam-trap field was filled in (only bots do that). */
+/** True when the hidden spam-trap checkbox was ticked (only bots do that). */
 export function isBot(form: HTMLFormElement): boolean {
-  return String(new FormData(form).get(HONEYPOT_FIELD) ?? '').trim() !== '';
+  return new FormData(form).get(HONEYPOT_FIELD) !== null;
 }
 
 export async function submitForm(
