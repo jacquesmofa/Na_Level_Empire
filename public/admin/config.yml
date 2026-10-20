@@ -695,11 +695,43 @@ collections:
                     i18n: true
                     widget: string
                     maxlength: 60
+                  - name: topics
+                    label: "Which team should this reach? (choices)"
+                    hint: "Each choice tags the email subject, e.g. [PARTNERSHIPS]. Rename, reorder or remove choices; new teams are added in src/site.config.ts"
+                    i18n: true
+                    widget: list
+                    min: 1
+                    max: 4
+                    fields:
+                      - name: topic
+                        label: Team
+                        hint: Sets the tag at the start of the email subject
+                        i18n: duplicate
+                        widget: select
+                        options:
+                          - label: production
+                            value: production
+                          - label: partnerships
+                            value: partnerships
+                          - label: careers
+                            value: careers
+                          - label: general
+                            value: general
+                      - name: label
+                        label: Label
+                        i18n: true
+                        widget: string
+                        maxlength: 40
                   - name: fields
                     label: Field labels
                     i18n: true
                     widget: object
                     fields:
+                      - name: topic
+                        label: "\"Which team\" label"
+                        i18n: true
+                        widget: string
+                        maxlength: 40
                       - name: firstName
                         label: First name label
                         i18n: true
@@ -1065,13 +1097,109 @@ collections:
                     i18n: true
                     widget: string
                     maxlength: 30
-                  - name: applyLink
-                    label: Apply button link
-                    i18n: duplicate
-                    widget: string
-                    pattern:
-                      - "^(\\/[^\\s]*|https?:\\/\\/[^\\s]+|mailto:[^\\s]+|tel:[^\\s]+|#)$"
-                      - "Use a site path like /contact or a full https:// link"
+                  - name: application
+                    label: Application form
+                    hint: "Opens when a visitor clicks Apply; the job is filled in for them"
+                    i18n: true
+                    widget: object
+                    fields:
+                      - name: title
+                        label: Form title
+                        i18n: true
+                        widget: string
+                        maxlength: 60
+                      - name: intro
+                        label: Intro text
+                        required: false
+                        i18n: true
+                        widget: text
+                        maxlength: 240
+                      - name: roleLabel
+                        label: Role label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: name
+                        label: Name label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: namePlaceholder
+                        label: Name field prompt
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: email
+                        label: Email label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: emailPlaceholder
+                        label: Email example
+                        i18n: true
+                        widget: string
+                        maxlength: 60
+                      - name: phone
+                        label: Phone label
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: phonePlaceholder
+                        label: Phone example
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: portfolio
+                        label: CV / portfolio link label
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: portfolioPlaceholder
+                        label: CV / portfolio link example
+                        i18n: true
+                        widget: string
+                        maxlength: 80
+                      - name: why
+                        label: "\"Why this role?\" label"
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: whyPlaceholder
+                        label: "\"Why this role?\" example"
+                        i18n: true
+                        widget: string
+                        maxlength: 200
+                      - name: submitLabel
+                        label: Send button
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: sendingLabel
+                        label: Send button while sending
+                        i18n: true
+                        widget: string
+                        maxlength: 30
+                      - name: successTitle
+                        label: Success title
+                        i18n: true
+                        widget: string
+                        maxlength: 40
+                      - name: successText
+                        label: Success message
+                        i18n: true
+                        widget: text
+                        maxlength: 200
+                      - name: errorText
+                        label: Error message
+                        hint: Shown when sending fails
+                        i18n: true
+                        widget: text
+                        maxlength: 200
+                      - name: closeLabel
+                        label: "Close button (screen readers)"
+                        i18n: true
+                        widget: string
+                        maxlength: 30
               - name: videoGrid
                 label: Video grid
                 widget: object
@@ -1872,6 +2000,47 @@ collections:
                 i18n: true
                 widget: string
                 maxlength: 40
+              - name: newsletter
+                label: "Newsletter strip (every page)"
+                i18n: true
+                widget: object
+                fields:
+                  - name: title
+                    label: Newsletter title
+                    i18n: true
+                    widget: string
+                    maxlength: 40
+                  - name: text
+                    label: Newsletter text
+                    i18n: true
+                    widget: text
+                    maxlength: 200
+                  - name: emailPlaceholder
+                    label: Email example
+                    i18n: true
+                    widget: string
+                    maxlength: 40
+                  - name: subscribeLabel
+                    label: Subscribe button
+                    i18n: true
+                    widget: string
+                    maxlength: 30
+                  - name: subscribingLabel
+                    label: Subscribe button while sending
+                    i18n: true
+                    widget: string
+                    maxlength: 30
+                  - name: subscribedText
+                    label: Thank-you message
+                    i18n: true
+                    widget: string
+                    maxlength: 120
+                  - name: errorText
+                    label: Error message
+                    hint: Shown when sending fails
+                    i18n: true
+                    widget: text
+                    maxlength: 160
           - name: seo
             label: Search and sharing
             hint: How this page appears in Google and when shared
@@ -1945,20 +2114,6 @@ collections:
             pattern:
               - "\\{minutes\\}"
               - "Use a site path like /contact or a full https:// link"
-          - name: quoteEmailSubject
-            label: Email subject for quote requests
-            hint: Keep {name} where the sender name goes
-            i18n: true
-            widget: string
-            maxlength: 80
-            pattern:
-              - "\\{name\\}"
-              - "Use a site path like /contact or a full https:// link"
-          - name: newsletterEmailSubject
-            label: Email subject for newsletter sign-ups
-            i18n: true
-            widget: string
-            maxlength: 80
           - name: socialNames
             label: "Social network names (screen readers)"
             i18n: true

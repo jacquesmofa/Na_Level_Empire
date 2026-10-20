@@ -64,7 +64,7 @@ export default function BlockRenderer({ sections, settings }: { sections: Sectio
       case 'newsFeed':
         return <NewsFeedBlock block={s} news={getNews(locale)} settings={settings} />;
       case 'jobsList':
-        return <JobsListBlock block={s} jobs={getJobs(locale)} />;
+        return <JobsListBlock block={s} jobs={getJobs(locale)} settings={settings} />;
       case 'videoGrid':
         return <VideoGridBlock block={s} videos={getVideos(locale)} />;
       case 'teamGrid':

@@ -11,7 +11,7 @@
  * from here, so zod never ships to visitors.
  */
 import { z } from 'zod';
-import { SITE_CONFIG } from '../site.config.ts';
+import { INQUIRY_TOPICS, SITE_CONFIG } from '../site.config.ts';
 
 export { LOCALES, DEFAULT_LOCALE, PAGE_IDS, type Locale, type PageId } from './constants.ts';
 
@@ -184,7 +184,14 @@ export const CallToActionBlock = block('callToAction', {
 export const FormBlock = block('form', {
   form: z.enum(['quote']),
   formTitle: text(60),
+  /** "Which team should this reach?" Each choice tags the email subject (src/site.config.ts). */
+  topics: z
+    .array(z.strictObject({ topic: z.enum(INQUIRY_TOPICS), label: text(40) }))
+    .min(1)
+    .max(INQUIRY_TOPICS.length)
+    .refine((t) => new Set(t.map((x) => x.topic)).size === t.length, 'each team can only be listed once'),
   fields: z.strictObject({
+    topic: text(40),
     firstName: text(30),
     firstNamePlaceholder: text(40),
     lastName: text(30),
@@ -265,7 +272,28 @@ export const NewsFeedBlock = block('newsFeed', {
 
 export const JobsListBlock = block('jobsList', {
   applyLabel: text(30),
-  applyLink: LinkSchema,
+  /** "Apply Now" opens this application form, with the job already chosen. */
+  application: z.strictObject({
+    title: text(60),
+    intro: optionalText(240),
+    roleLabel: text(30),
+    name: text(30),
+    namePlaceholder: text(40),
+    email: text(30),
+    emailPlaceholder: text(60),
+    phone: text(30),
+    phonePlaceholder: text(40),
+    portfolio: text(40),
+    portfolioPlaceholder: text(80),
+    why: text(40),
+    whyPlaceholder: text(200),
+    submitLabel: text(30),
+    sendingLabel: text(30),
+    successTitle: text(40),
+    successText: text(200),
+    errorText: text(200),
+    closeLabel: text(30),
+  }),
 });
 
 export const VideoGridBlock = block('videoGrid', {
@@ -371,6 +399,16 @@ export const SettingsSchema = z.strictObject({
     copyrightSuffix: text(120),
     closingPrefix: text(60),
     closingHighlight: text(40),
+    /** Newsletter strip shown above the footer on every page. */
+    newsletter: z.strictObject({
+      title: text(40),
+      text: text(200),
+      emailPlaceholder: text(40),
+      subscribeLabel: text(30),
+      subscribingLabel: text(30),
+      subscribedText: text(120),
+      errorText: text(160),
+    }),
   }),
   seo: SeoSchema,
 });
@@ -390,8 +428,6 @@ export const UiStringsSchema = z.strictObject({
   statusCompleted: text(20),
   targetTag: text(20),
   readTime: text(30).regex(/\{minutes\}/, 'must contain {minutes}'),
-  quoteEmailSubject: text(80).regex(/\{name\}/, 'must contain {name}'),
-  newsletterEmailSubject: text(80),
   socialNames: z.strictObject({
     youtube: text(30),
     instagram: text(30),

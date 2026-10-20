@@ -1,5 +1,6 @@
 import type { SiteSettings } from '@/content';
 import LocalizedLink from '@/components/ui/LocalizedLink';
+import NewsletterForm from '@/components/ui/NewsletterForm';
 import { cld } from '@/lib/image';
 
 export default function Footer({ settings, extraLinks = [] }: { settings: SiteSettings; extraLinks?: { label: string; link: string }[] }) {
@@ -10,6 +11,17 @@ export default function Footer({ settings, extraLinks = [] }: { settings: SiteSe
     <footer style={{ background: 'linear-gradient(180deg, #2C2C2E 0%, #1a1a1c 100%)' }} className="border-t border-gold/20">
       {/* Gold accent line */}
       <div className="h-0.5 w-full" style={{ background: 'linear-gradient(90deg, transparent, #C8922A, transparent)' }} />
+
+      {/* Newsletter strip (every page); sign-ups go to the forms inbox */}
+      <div className="px-6 md:px-20 pt-14 pb-12 grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,520px)] gap-8 items-center border-b border-gold/10">
+        <div>
+          <h2 className="font-display text-cream leading-none mb-3" style={{ fontSize: '36px', letterSpacing: '1px' }}>
+            {footer.newsletter.title}
+          </h2>
+          <p className="text-cream/55 text-sm leading-relaxed max-w-md">{footer.newsletter.text}</p>
+        </div>
+        <NewsletterForm texts={footer.newsletter} layout="inline" />
+      </div>
 
       <div className="px-6 md:px-20 pt-16 pb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Brand */}

@@ -8,8 +8,6 @@
   "statusCompleted": "TERMINÉ",
   "targetTag": "Objectif",
   "readTime": "Lecture : {minutes} min",
-  "quoteEmailSubject": "Nouvelle demande de devis de {name}",
-  "newsletterEmailSubject": "Nouvelle inscription à l’infolettre",
   "socialNames": {
     "youtube": "YouTube",
     "instagram": "Instagram",

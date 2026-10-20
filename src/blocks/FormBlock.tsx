@@ -1,8 +1,12 @@
-import { useId, useState, type FormEvent } from 'react';
+import { useEffect, useId, useState, type FormEvent } from 'react';
+import { useLocation } from 'react-router-dom';
 import type { SectionOf, SiteSettings } from '@/content';
+import Honeypot from '@/components/ui/Honeypot';
 import LocalizedLink from '@/components/ui/LocalizedLink';
 import SectionLabel from '@/components/ui/SectionLabel';
-import { submitForm } from '@/lib/forms';
+import { isBot, submitForm } from '@/lib/forms';
+import { useLocale } from '@/lib/locale';
+import { fillSubject, SITE_CONFIG, type InquiryTopic } from '@/site.config';
 
 const inputClass =
   'px-4 py-3.5 text-sm outline-none transition-colors placeholder:text-cream/50 border border-gold/20 focus:border-gold font-body';
@@ -11,8 +15,18 @@ const labelClass = 'text-cream/50 text-[11px] font-bold tracking-[2px] uppercase
 
 export default function FormBlock({ block, settings }: { block: SectionOf<'form'>; settings: SiteSettings }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
+  const [topic, setTopic] = useState<InquiryTopic>(block.topics[0].topic);
   const id = useId();
+  const locale = useLocale();
+  const { search } = useLocation();
   const f = block.fields;
+
+  // A link like /contact?team=partnerships opens the form with that team chosen.
+  useEffect(() => {
+    const wanted = new URLSearchParams(search).get('team');
+    const match = block.topics.find((t) => t.topic === wanted);
+    if (match) setTopic(match.topic);
+  }, [search, block.topics]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,18 +34,23 @@ export default function FormBlock({ block, settings }: { block: SectionOf<'form'
     setStatus('sending');
     const data = new FormData(e.currentTarget);
     const text = (name: string) => String(data.get(name) ?? '').trim();
+    const email = text('email');
     const name = `${text('first_name')} ${text('last_name')}`.trim();
-    const email = () => text('email');
-    const result = await submitForm(settings.ui.quoteEmailSubject.replace('{name}', name || email()), {
-      name,
-      email: text('email'),
-      organization: text('organization'),
-      services: data.getAll('services').map(String).join(', '),
-      budget: text('budget'),
-      message: text('message'),
-      // Hidden honeypot: only bots tick it, and Web3Forms then drops the message.
-      ...(data.get('botcheck') ? { botcheck: 'on' } : {}),
-    });
+    const result = await submitForm(
+      // e.g. "[PARTNERSHIPS] New partnership inquiry — Jane Smith" (subjects: src/site.config.ts)
+      fillSubject(SITE_CONFIG.forms.subjects.inquiry[topic], { name: name || email }),
+      {
+        team: block.topics.find((t) => t.topic === topic)?.label ?? topic,
+        name,
+        email,
+        organization: text('organization'),
+        services: data.getAll('services').map(String).join(', '),
+        budget: text('budget'),
+        message: text('message'),
+        page_language: locale.toUpperCase(),
+      },
+      { bot: isBot(e.currentTarget) },
+    );
     // Only claim success when the form service confirmed it.
     setStatus(result.ok ? 'done' : 'error');
   };
@@ -63,8 +82,27 @@ export default function FormBlock({ block, settings }: { block: SectionOf<'form'
             <p className="text-cream/55 text-base leading-relaxed">{block.successText}</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+          <form onSubmit={handleSubmit} className="relative flex flex-col gap-4">
+            <Honeypot />
+            <div className="flex flex-col gap-2">
+              <label htmlFor={`${id}-topic`} className={labelClass}>
+                {f.topic}
+              </label>
+              <select
+                id={`${id}-topic`}
+                name="topic"
+                value={topic}
+                onChange={(e) => setTopic(e.target.value as InquiryTopic)}
+                className="px-4 py-3.5 text-sm outline-none cursor-pointer border border-gold/20 focus:border-gold font-body"
+                style={{ ...inputStyle, background: '#1e1e20' }}
+              >
+                {block.topics.map((t) => (
+                  <option key={t.topic} value={t.topic}>
+                    {t.label}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {field('first_name', f.firstName, f.firstNamePlaceholder, 'text', true)}
               {field('last_name', f.lastName, f.lastNamePlaceholder, 'text', true)}

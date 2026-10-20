@@ -16,19 +16,13 @@ committed: keys and secrets go only into Vercel's environment variables.
 
 ## 2. Forms: Web3Forms access key
 
-1. Go to <https://web3forms.com>, enter `levelempiremedia@gmail.com`, click
-   **Create Access Key**. The key arrives by email.
-2. In Vercel: **Project → Settings → Environment Variables → Add**.
-   - Name: `VITE_WEB3FORMS_ACCESS_KEY`
-   - Value: the access key from the email
-   - Environments: Production, Preview and Development
-3. **Redeploy** (Deployments → latest → ⋯ → Redeploy). The key is built
-   into the site, so it only takes effect on the next build.
-4. Test: send the quote form on the site; the message should arrive at
-   levelempiremedia@gmail.com and the page should say "Message Sent!".
+Done (Oct 2026, temporary): the key for **levelempiremedia@gmail.com** is in
+`src/site.config.ts`. No Vercel variable is needed any more; if
+`VITE_WEB3FORMS_ACCESS_KEY` exists in Vercel you can delete it (the site no
+longer reads it).
 
-The Web3Forms "programmatic access" API (`api.web3forms.com/v1`) is only
-for reading submissions back; the site doesn't need it.
+Switching to the official company email later: follow
+[`docs/forms-and-email.md`](forms-and-email.md), section 3.
 
 ## 3. Move the images to Cloudinary (one time)
 

@@ -8,8 +8,6 @@
   "statusCompleted": "COMPLETED",
   "targetTag": "Target",
   "readTime": "{minutes} min read",
-  "quoteEmailSubject": "New quote request from {name}",
-  "newsletterEmailSubject": "New newsletter sign-up",
   "socialNames": {
     "youtube": "YouTube",
     "instagram": "Instagram",

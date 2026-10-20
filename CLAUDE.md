@@ -22,7 +22,7 @@ sections and new pages — in Sveltia CMS at `/admin`, at zero ongoing cost.
 | CMS | Sveltia CMS 0.248.0 (pinned) at `/admin`, GitHub backend, saves commit to `main` |
 | CMS login | GitHub OAuth relay: Vercel functions `api/auth.ts`, `api/callback.ts` |
 | Images | Cloudinary, cloud `beavj5sp`, root folder `nlem/` |
-| Forms | Web3Forms → levelempiremedia@gmail.com |
+| Forms | Web3Forms → levelempiremedia@gmail.com (temporary); key + subjects in `src/site.config.ts`, see `docs/forms-and-email.md` |
 | Hosting | Vercel (Hobby): preview per pull request, production from `main` |
 | CI | GitHub Actions `ci.yml` on pull requests: `npm ci`, `npm run check`, `npm run build` |
 | Node | 22 LTS (`.nvmrc`) |
@@ -43,7 +43,7 @@ scripts/
   prerender.ts             writes every page as HTML + sitemap.xml + robots.txt after the build
   *.test.ts                node:test suites
 src/
-  site.config.ts           GitHub repo + Cloudinary cloud/key/folder (change these for a new client)
+  site.config.ts           GitHub repo, Cloudinary, Web3Forms key + email subjects (the one place for accounts)
   main.tsx                 browser entry: hydrates prerendered HTML
   entry-server.tsx         build-time entry used by scripts/prerender.ts
   Root.tsx                 cursor + routes, shared by both entries
@@ -66,6 +66,7 @@ src/
 PLACEHOLDERS.md            every unconfirmed item
 docs/setup-checklist.md    owner setup (Vercel, Web3Forms, Cloudinary, OAuth, editors)
 docs/editor-guide.md       how editors use /admin (with screenshots)
+docs/forms-and-email.md    every form, where emails go, switching to the official email
 docs/template-repo.md      starting another client's site from this one
 ```
 
@@ -142,7 +143,6 @@ Vercel environment variables (Production + Preview); nothing secret is committed
 
 | Name | Secret? | Used by |
 | --- | --- | --- |
-| `VITE_WEB3FORMS_ACCESS_KEY` | no (public by design) | forms, baked in at build |
 | `GITHUB_OAUTH_ID` | no | `api/auth.ts`, `api/callback.ts` |
 | `GITHUB_OAUTH_SECRET` | **yes** | `api/callback.ts` only |
 | `CMS_ALLOWED_ORIGINS` | no | extra addresses allowed to receive a login token, e.g. `https://na-level-empire-*-jacques15.vercel.app` |
@@ -168,6 +168,15 @@ Vercel environment variables (Production + Preview); nothing secret is committed
   first-screen weights are preloaded. Icons are inline SVG (`Icon.tsx`).
 - Animations stop under `prefers-reduced-motion`; the custom cursor only runs
   with a mouse (`pointer: fine`).
+
+## Forms
+
+- Contact (team choice → `[PRODUCTION]`/`[PARTNERSHIPS]`/`[CAREERS]`/`[GENERAL]`
+  subject), job application dialog on Careers, newsletter on News and in the
+  footer of every page. All go through `submitForm` in `src/lib/forms.ts`.
+- Success is shown only when Web3Forms returns `success: true`. Honeypot
+  field `website_url` (`<Honeypot />`): bots get a fake success, nothing sent.
+- The visitor's email is sent as `replyto`.
 
 ## Guides
 

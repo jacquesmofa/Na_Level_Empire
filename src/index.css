@@ -18,3 +18,13 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Form spam trap (src/components/ui/Honeypot.tsx): off-screen, never focusable. */
+.hp-guard {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

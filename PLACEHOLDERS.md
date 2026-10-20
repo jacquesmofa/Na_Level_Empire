@@ -38,7 +38,7 @@ All collection items carry `"placeholder": true` until confirmed.
 | --- | --- | --- |
 | Team names are job titles ("Executive Director"…) and photos are AI images | `src/content/team/{en,fr}/*.json` | Real names and photos |
 | Phone `+1 (416) 000-0000` | `src/content/settings/{en,fr}/site.json` → contact.phone | Real number |
-| Email `hello@nalevelempire.ca` (forms deliver to levelempiremedia@gmail.com) | `settings/{en,fr}/site.json` → contact.email | Confirm this address exists and is monitored |
+| **Temporary email**: forms deliver to levelempiremedia@gmail.com, and the site shows that address | Web3Forms key in `src/site.config.ts`; shown address in CMS → Site settings → Contact | Switch to the official company email: `docs/forms-and-email.md`, section 3 |
 | Social links all `#` (YouTube, Instagram, LinkedIn, Facebook) | `settings/{en,fr}/site.json` → social | Real profile URLs; set placeholder to false |
 | Footer legal items (Privacy Policy, Terms…) are not links yet | `settings/{en,fr}/site.json` → footer.legal | Privacy Policy page comes with the visitor map; others when written |
 
