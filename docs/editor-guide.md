@@ -95,7 +95,7 @@ bottom; move it where you want, then fill in its fields.
 | Video | one embedded YouTube video |
 | Partners | partner names/logos |
 | Call to action | short message with buttons |
-| Form | contact/quote form (messages go to levelempiremedia@gmail.com) |
+| Form | contact/quote form with "Which team should this reach?" (emails go to the forms inbox; see `docs/forms-and-email.md`) |
 | Projects grid / Latest work | lists from **Projects** |
 | News feed | list from **News**, with categories |
 | Jobs list | list from **Jobs** |

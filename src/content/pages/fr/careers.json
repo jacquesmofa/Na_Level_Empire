@@ -21,7 +21,27 @@
     {
       "type": "jobsList",
       "applyLabel": "Postuler",
-      "applyLink": "/contact"
+      "application": {
+        "title": "Postuler pour ce poste",
+        "intro": "Parlez-nous un peu de vous. Nous lisons chaque candidature et répondons en quelques jours ouvrables.",
+        "roleLabel": "Poste",
+        "name": "Nom complet",
+        "namePlaceholder": "Jeanne Tremblay",
+        "email": "Courriel",
+        "emailPlaceholder": "vous@courriel.com",
+        "phone": "Téléphone",
+        "phonePlaceholder": "(416) 555-0123",
+        "portfolio": "Lien vers CV ou portfolio",
+        "portfolioPlaceholder": "Lien Google Drive, Dropbox, LinkedIn ou site web",
+        "why": "Pourquoi ce poste?",
+        "whyPlaceholder": "Quelques lignes sur votre expérience et ce qui vous attire dans ce poste.",
+        "submitLabel": "Envoyer ma candidature",
+        "sendingLabel": "Envoi...",
+        "successTitle": "Candidature envoyée!",
+        "successText": "Merci d’avoir postulé. Notre équipe étudiera votre candidature et vous répondra bientôt.",
+        "errorText": "Désolé, votre candidature n’a pas été envoyée. Veuillez réessayer ou nous écrire à",
+        "closeLabel": "Fermer"
+      }
     },
     {
       "type": "cardGrid",

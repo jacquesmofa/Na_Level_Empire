@@ -8,7 +8,7 @@ export const SHARED_KEYS = new Set([
   'url', 'link', 'icon', 'style', 'kind', 'size', 'type', 'imageSide', 'background', 'width', 'form',
   'showFilters', 'showChannelCard', 'cardLink', 'embedUrl', 'youtubeUrl', 'key', 'platform', 'order',
   'status', 'date', 'duration', 'featured', 'published', 'open', 'placeholder', 'slug', 'readMinutes',
-  'showInNav', 'navOrder', 'value', 'suffix', 'watermark', 'initials', 'applyLink',
+  'showInNav', 'navOrder', 'value', 'suffix', 'watermark', 'initials',
 ]);
 
 /**
@@ -20,5 +20,6 @@ export function isSharedField(key: string, parent: string | undefined, collectio
   // A few names are also used for translatable labels elsewhere.
   if (key === 'email' || key === 'phone') return parent === 'contact';
   if (key === 'source') return collection.includes('videos');
+  if (key === 'topic') return parent === 'topics';
   return SHARED_KEYS.has(key);
 }

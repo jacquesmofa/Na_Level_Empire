@@ -31,7 +31,7 @@ page.
    client has no images to move, and set `ALLOW_LEGACY_READDY_IMAGES = false`
    in `src/content/schema.ts`.
 7. Follow `docs/setup-checklist.md` for the new accounts: Vercel project,
-   Web3Forms key (new inbox), Cloudinary upload preset, GitHub OAuth App
+   Web3Forms key (new inbox; `forms` in `src/site.config.ts`), Cloudinary upload preset, GitHub OAuth App
    (callback `https://<new site>/api/callback`), editors.
 8. Update `CLAUDE.md` (name, owner decisions) and give the editors
    `docs/editor-guide.md`.

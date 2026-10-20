@@ -21,7 +21,27 @@
     {
       "type": "jobsList",
       "applyLabel": "Apply Now",
-      "applyLink": "/contact"
+      "application": {
+        "title": "Apply for this role",
+        "intro": "Tell us a little about yourself. We read every application and reply within a few business days.",
+        "roleLabel": "Role",
+        "name": "Full Name",
+        "namePlaceholder": "Jane Smith",
+        "email": "Email",
+        "emailPlaceholder": "you@email.com",
+        "phone": "Phone",
+        "phonePlaceholder": "(416) 555-0123",
+        "portfolio": "CV or Portfolio Link",
+        "portfolioPlaceholder": "Google Drive, Dropbox, LinkedIn or website link",
+        "why": "Why This Role?",
+        "whyPlaceholder": "A few lines about your experience and what draws you to this role.",
+        "submitLabel": "Send Application",
+        "sendingLabel": "Sending...",
+        "successTitle": "Application Sent!",
+        "successText": "Thank you for applying. Our team will review your application and get back to you soon.",
+        "errorText": "Sorry, your application didn't send. Please try again, or email us at",
+        "closeLabel": "Close"
+      }
     },
     {
       "type": "cardGrid",

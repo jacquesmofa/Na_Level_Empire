@@ -14,7 +14,26 @@
       "type": "form",
       "form": "quote",
       "formTitle": "Tell Us About Your Project",
+      "topics": [
+        {
+          "topic": "production",
+          "label": "Media & Production"
+        },
+        {
+          "topic": "partnerships",
+          "label": "Partnerships"
+        },
+        {
+          "topic": "careers",
+          "label": "Careers / Academy"
+        },
+        {
+          "topic": "general",
+          "label": "General Inquiry"
+        }
+      ],
       "fields": {
+        "topic": "Which Team Should This Reach?",
         "firstName": "First Name",
         "firstNamePlaceholder": "Jane",
         "lastName": "Last Name",

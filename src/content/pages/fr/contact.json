@@ -14,7 +14,26 @@
       "type": "form",
       "form": "quote",
       "formTitle": "Parlez-nous de votre projet",
+      "topics": [
+        {
+          "topic": "production",
+          "label": "Médias et production"
+        },
+        {
+          "topic": "partnerships",
+          "label": "Partenariats"
+        },
+        {
+          "topic": "careers",
+          "label": "Carrières / Académie"
+        },
+        {
+          "topic": "general",
+          "label": "Demande générale"
+        }
+      ],
       "fields": {
+        "topic": "À quelle équipe s’adresse votre message?",
         "firstName": "Prénom",
         "firstNamePlaceholder": "Jeanne",
         "lastName": "Nom",

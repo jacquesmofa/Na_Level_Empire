@@ -1,8 +1,7 @@
-import { useState, type FormEvent } from 'react';
 import type { NewsItem, SectionOf, SiteSettings } from '@/content';
 import CmsImage from '@/components/ui/CmsImage';
 import LocalizedLink from '@/components/ui/LocalizedLink';
-import { submitForm } from '@/lib/forms';
+import NewsletterForm from '@/components/ui/NewsletterForm';
 import { formatMonthYear, useLocale } from '@/lib/locale';
 
 type Props = { block: SectionOf<'newsFeed'>; news: NewsItem[]; settings: SiteSettings };
@@ -10,37 +9,12 @@ type Props = { block: SectionOf<'newsFeed'>; news: NewsItem[]; settings: SiteSet
 const panel = 'p-7 rounded-sm bg-deep';
 const panelStyle = { border: '1px solid rgba(200,146,42,0.12)' };
 const panelTitle = 'text-cream text-[13px] font-bold tracking-[2px] uppercase border-b pb-4 mb-5 font-heading';
-const inputClass =
-  'border border-gold/20 focus:border-gold text-cream px-4 py-3 text-sm outline-none transition-colors placeholder:text-cream/50 font-body';
 
 export default function NewsFeedBlock({ block, news, settings }: Props) {
   const locale = useLocale();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [failed, setFailed] = useState(false);
-
   const categoryLabel = (key: string) => block.categories.find((c) => c.key === key)?.label ?? key;
   const featured = news.find((n) => n.featured) ?? news[0];
   const rest = news.filter((n) => n !== featured);
-
-  const handleNewsletter = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!name.trim() || !email.trim() || submitting) return;
-    setSubmitting(true);
-    setFailed(false);
-    const bot = new FormData(e.currentTarget).get('botcheck');
-    const result = await submitForm(settings.ui.newsletterEmailSubject, {
-      name: name.trim(),
-      email: email.trim(),
-      ...(bot ? { botcheck: 'on' } : {}),
-    });
-    setSubmitting(false);
-    // Only thank the visitor when the form service confirmed the sign-up.
-    if (result.ok) setSubmitted(true);
-    else setFailed(true);
-  };
 
   return (
     <div className="px-6 md:px-20 py-12 grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10">
@@ -122,50 +96,7 @@ export default function NewsFeedBlock({ block, news, settings }: Props) {
             {block.newsletterTitle}
           </div>
           <p className="text-cream/55 text-sm leading-[1.65] mb-4">{block.newsletterText}</p>
-          {submitted ? (
-            <div className="text-gold text-sm font-semibold py-3" role="status">
-              {block.subscribedText}
-            </div>
-          ) : (
-            <form onSubmit={handleNewsletter} className="flex flex-col gap-3">
-              <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
-              <input
-                name="name"
-                type="text"
-                aria-label={block.namePlaceholder}
-                placeholder={block.namePlaceholder}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className={inputClass}
-                style={{ background: 'rgba(253,252,240,0.05)' }}
-              />
-              <input
-                name="email"
-                type="email"
-                aria-label={block.emailPlaceholder}
-                placeholder={block.emailPlaceholder}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className={inputClass}
-                style={{ background: 'rgba(253,252,240,0.05)' }}
-              />
-              <button
-                type="submit"
-                disabled={submitting}
-                className="text-charcoal text-[12px] font-bold tracking-[2px] uppercase py-3 cursor-pointer transition-all duration-300 border-none disabled:opacity-60 hover:-translate-y-0.5 bg-gold font-heading"
-                style={{ boxShadow: '0 4px 16px rgba(200,146,42,0.3)' }}
-              >
-                {submitting ? block.subscribingLabel : block.subscribeLabel}
-              </button>
-              {failed && (
-                <p role="alert" className="text-gold text-sm">
-                  {block.errorText}
-                </p>
-              )}
-            </form>
-          )}
+          <NewsletterForm texts={block} />
         </div>
 
         <div className={panel} style={panelStyle}>

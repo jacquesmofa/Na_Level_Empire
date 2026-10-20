@@ -7,7 +7,7 @@
   "blurb": "L'entreprise sociale de production audiovisuelle de Toronto — là où la qualité cinématographique rencontre un véritable impact communautaire.",
   "contact": {
     "location": "Toronto (Ontario), Canada",
-    "email": "hello@nalevelempire.ca",
+    "email": "levelempiremedia@gmail.com",
     "phone": "+1 (416) 000-0000",
     "hours": "Lun – ven, 9 h – 18 h (HNE)"
   },
@@ -139,7 +139,16 @@
     "copyrightName": "Na Level Empire Media",
     "copyrightSuffix": ". Constituée en Ontario, Canada. Tous droits réservés.",
     "closingPrefix": "Bâti avec raison d’être à",
-    "closingHighlight": "Toronto"
+    "closingHighlight": "Toronto",
+    "newsletter": {
+      "title": "Restez informé",
+      "text": "Nouvelles de projets, histoires communautaires et actualités de l’industrie, directement dans votre boîte courriel.",
+      "emailPlaceholder": "Votre adresse courriel",
+      "subscribeLabel": "S'abonner",
+      "subscribingLabel": "Inscription...",
+      "subscribedText": "Merci de votre inscription!",
+      "errorText": "Désolé, l’inscription n’a pas fonctionné. Veuillez réessayer."
+    }
   },
   "seo": {
     "title": "Na Level Empire Media | Production audiovisuelle à Toronto",
